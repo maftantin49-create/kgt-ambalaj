@@ -1,16 +1,15 @@
-// GEÇİCİ — tüm değerler onay bekliyor, gerçek verilerle değiştirilecek
 export const site = {
   name: "KGT Ambalaj",
   shortName: "KGT",
-  tagline: "GEÇİCİ — şirket sloganı buraya gelecek",
+  tagline: "Ambalajın Geleceğini Şekillendiriyoruz",
   description:
     "GEÇİCİ — meta description buraya gelecek (maks 155 karakter)",
   url: "https://kgtambalaj.com",
 
-  phone: "GEÇİCİ",
-  phoneDisplay: "GEÇİCİ",
-  email: "GEÇİCİ@kgtambalaj.com",
-  address: "GEÇİCİ — açık adres",
+  phone: "+90 531 523 77 22",
+  phoneDisplay: "+90 531 523 77 22",
+  email: "GEÇİCİ@kgtambalaj.com",   // GEÇİCİ — doğrulanmamış
+  address: "GEÇİCİ — açık adres",   // GEÇİCİ — doğrulanmamış
 
   social: {
     instagram: "",

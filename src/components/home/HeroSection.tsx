@@ -37,7 +37,6 @@ export default function HeroSection() {
               </span>
             </div>
 
-            {/* H1 — GEÇİCİ */}
             <h1
               className="font-black leading-[1.08] tracking-tight"
               style={{
@@ -45,22 +44,19 @@ export default function HeroSection() {
                 fontSize: "clamp(32px, 4.5vw, 58px)",
               }}
             >
-              {/* GEÇİCİ — asıl H1 metni marka brief'inden sonra yazılacak */}
-              Güvenilir Ambalaj{" "}
-              <span style={{ color: "var(--color-accent)" }}>Çözümleri</span>
+              Ambalajın{" "}
+              <span style={{ color: "var(--color-accent)" }}>Geleceğini</span>
               <br />
-              Endüstriyel Projeler İçin
+              Şekillendiriyoruz
             </h1>
 
-            {/* Açıklama — GEÇİCİ */}
             <p
               className="text-[15px] lg:text-[16px] leading-[1.8] max-w-[500px]"
               style={{ color: "var(--color-muted)" }}
             >
-              {/* GEÇİCİ — hizmet açıklaması, hedef kitle ve değer önerisi
-                  marka brief'inden sonra netleştirilecek */}
-              GEÇİCİ — şirketin sunduğu hizmetleri, uzmanlık alanını ve
-              müşteriye sağladığı değeri özetleyen 2–3 cümle buraya gelecek.
+              Yüksek performanslı streç film ve alüminyum folyo sarma makineleri
+              ile üretim hatlarınıza hız, hassasiyet ve sürdürülebilir verim
+              kazandırıyoruz.
             </p>
 
             {/* CTA'lar */}

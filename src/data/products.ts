@@ -1,5 +1,5 @@
-// GEÇİCİ — gerçek ürün/kategori datası temin edildiğinde bu dosya tamamen yeniden yazılacak.
-// Model adı, teknik özellik, kapasite ve sertifika bilgisi kullanılmamıştır.
+// Ürün kategorileri — https://kgtambalaj.com/ üzerinden doğrulanmış gerçek makine kategorileri.
+// Teknik kapasite, hız, ölçü, motor gücü, sertifika veya model bilgisi eklenmemiştir.
 
 export interface ProductCategory {
   id: string
@@ -11,27 +11,35 @@ export interface ProductCategory {
 
 export const productCategories: ProductCategory[] = [
   {
-    id: "stretch-film",
-    slug: "stretch-film",
-    name: "GEÇİCİ — Ürün Kategorisi 1",
+    id: "strec-film-sarma-makineleri",
+    slug: "strec-film-sarma-makineleri",
+    name: "Streç Film Sarma Makineleri",
     description:
-      "GEÇİCİ — bu kategorideki ürünlerin kısa tanımı buraya gelecek. Uygulama alanları ve avantajlar eklenecek.",
-    href: "/urunler/stretch-film",
+      "Üretim hatları ve palet sarma süreçleri için yüksek performanslı streç film sarma ve rewinding makineleri.",
+    href: "/urunler/strec-film-sarma-makineleri",
   },
   {
-    id: "bant-sistemleri",
-    slug: "bant-sistemleri",
-    name: "GEÇİCİ — Ürün Kategorisi 2",
+    id: "aluminyum-folyo-sarma-makineleri",
+    slug: "aluminyum-folyo-sarma-makineleri",
+    name: "Alüminyum Folyo Sarma Makineleri",
     description:
-      "GEÇİCİ — bu kategorideki ürünlerin kısa tanımı buraya gelecek. Uygulama alanları ve avantajlar eklenecek.",
-    href: "/urunler/bant-sistemleri",
+      "Alüminyum folyo rulo sarma ve rewinding işlemleri için endüstriyel ambalaj makineleri.",
+    href: "/urunler/aluminyum-folyo-sarma-makineleri",
   },
   {
-    id: "koruyucu-ambalaj",
-    slug: "koruyucu-ambalaj",
-    name: "GEÇİCİ — Ürün Kategorisi 3",
+    id: "karton-rulo-masura-uretim-hatti-makineleri",
+    slug: "karton-rulo-masura-uretim-hatti-makineleri",
+    name: "Karton Rulo Masura Üretim Hattı Makineleri",
     description:
-      "GEÇİCİ — bu kategorideki ürünlerin kısa tanımı buraya gelecek. Uygulama alanları ve avantajlar eklenecek.",
-    href: "/urunler/koruyucu-ambalaj",
+      "Karton masura ve rulo çekirdek üretimi için eksiksiz üretim hattı çözümleri.",
+    href: "/urunler/karton-rulo-masura-uretim-hatti-makineleri",
+  },
+  {
+    id: "kagit-dilimleme-makineleri",
+    slug: "kagit-dilimleme-makineleri",
+    name: "Kağıt Dilimleme Makineleri",
+    description:
+      "Kağıt, ambalaj ve baskı sektöründe rulo kesim ve dilimleme ihtiyaçları için hassas dilimleme makineleri.",
+    href: "/urunler/kagit-dilimleme-makineleri",
   },
 ]

@@ -1,7 +1,9 @@
-// GEÇİCİ — gerçek sektör listesi ve açıklamaları temin edildiğinde bu dosya güncellenecek.
+// Doğrulanmış sektörler — https://kgtambalaj.com/ üzerinde Türkçe metinde geçen 3 sektör.
 // Müşteri adı, proje sayısı veya hizmet yılı gibi doğrulanmamış bilgi kullanılmamıştır.
+// Müşteri doğrulaması bekleyen sektörler (Baskı/Matbaa, Gıda, Lojistik) bu listede yer almaz.
 
 import type { LucideIcon } from "lucide-react"
+import { Package, Shirt, FileText } from "lucide-react"
 
 export interface Sector {
   id: string
@@ -10,50 +12,26 @@ export interface Sector {
   icon: LucideIcon
 }
 
-import {
-  UtensilsCrossed,
-  Truck,
-  Car,
-  FlaskConical,
-  Shirt,
-  ShoppingCart,
-} from "lucide-react"
-
 export const sectors: Sector[] = [
   {
-    id: "gida-icecek",
-    name: "GEÇİCİ — Sektör 1",
-    description: "GEÇİCİ — bu sektör için kısa bir açıklama buraya gelecek.",
-    icon: UtensilsCrossed,
-  },
-  {
-    id: "lojistik-depolama",
-    name: "GEÇİCİ — Sektör 2",
-    description: "GEÇİCİ — bu sektör için kısa bir açıklama buraya gelecek.",
-    icon: Truck,
-  },
-  {
-    id: "otomotiv",
-    name: "GEÇİCİ — Sektör 3",
-    description: "GEÇİCİ — bu sektör için kısa bir açıklama buraya gelecek.",
-    icon: Car,
-  },
-  {
-    id: "kimya-ilac",
-    name: "GEÇİCİ — Sektör 4",
-    description: "GEÇİCİ — bu sektör için kısa bir açıklama buraya gelecek.",
-    icon: FlaskConical,
+    id: "ambalaj-endustrisi",
+    name: "Ambalaj Endüstrisi",
+    description:
+      "Üretim hatları için streç film ve alüminyum folyo sarma çözümleri.",
+    icon: Package,
   },
   {
     id: "tekstil",
-    name: "GEÇİCİ — Sektör 5",
-    description: "GEÇİCİ — bu sektör için kısa bir açıklama buraya gelecek.",
+    name: "Tekstil",
+    description:
+      "Tekstil sektörüne yönelik özel ambalaj makineleri ve üretim hattı çözümleri.",
     icon: Shirt,
   },
   {
-    id: "e-ticaret",
-    name: "GEÇİCİ — Sektör 6",
-    description: "GEÇİCİ — bu sektör için kısa bir açıklama buraya gelecek.",
-    icon: ShoppingCart,
+    id: "kagit-endustrisi",
+    name: "Kağıt Endüstrisi",
+    description:
+      "Rulo kesim ve dilimleme hatları için kağıt endüstrisine özel makine çözümleri.",
+    icon: FileText,
   },
 ]
