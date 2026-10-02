@@ -33,7 +33,7 @@ export default function HeroSection() {
                 className="text-[11px] font-bold uppercase tracking-[0.18em]"
                 style={{ color: "var(--color-accent)" }}
               >
-                GEÇİCİ — sektör veya uzmanlık etiketi
+                Ambalaj Makineleri
               </span>
             </div>
 
@@ -126,8 +126,8 @@ export default function HeroSection() {
               style={{ background: "var(--color-accent)" }}
             />
 
-            {/* Merkez ikon + etiket */}
-            <div className="relative flex flex-col items-center gap-4 z-10">
+            {/* Merkez ikon */}
+            <div className="relative z-10">
               <div
                 className="w-16 h-16 rounded-2xl flex items-center justify-center"
                 style={{
@@ -137,16 +137,6 @@ export default function HeroSection() {
               >
                 <Package size={28} style={{ color: "var(--color-accent)" }} />
               </div>
-              <span
-                className="text-[11px] font-semibold uppercase tracking-[0.2em] px-3 py-1.5 rounded-full"
-                style={{
-                  color: "rgba(255,255,255,0.35)",
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                }}
-              >
-                GEÇİCİ — görsel
-              </span>
             </div>
           </div>
 

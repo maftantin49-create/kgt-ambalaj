@@ -1,13 +1,13 @@
 import Link from "next/link"
-import { Phone, Mail, Menu } from "lucide-react"
+import { Phone, Mail } from "lucide-react"
+import MobileMenu from "@/components/layout/MobileMenu"
 import { site } from "@/config/site"
 
 const navLinks = [
-  { href: "/",          label: "Ana Sayfa" },
-  { href: "/urunler",   label: "Ürünler"   },
-  { href: "/sektorler", label: "Sektörler" },
-  { href: "/hakkimizda",label: "Hakkımızda"},
-  { href: "/iletisim",  label: "İletişim"  },
+  { href: "/",           label: "Ana Sayfa"  },
+  { href: "/urunler",    label: "Ürünler"    },
+  { href: "/hakkimizda", label: "Hakkımızda" },
+  { href: "/iletisim",   label: "İletişim"   },
 ]
 
 export default function Header() {
@@ -31,13 +31,15 @@ export default function Header() {
             <Phone size={12} aria-hidden="true" />
             {site.phoneDisplay}
           </a>
-          <a
-            href={`mailto:${site.email}`}
-            className="flex items-center gap-1.5 hover:text-white transition-colors"
-          >
-            <Mail size={12} aria-hidden="true" />
-            {site.email}
-          </a>
+          {site.email && (
+            <a
+              href={`mailto:${site.email}`}
+              className="flex items-center gap-1.5 hover:text-white transition-colors"
+            >
+              <Mail size={12} aria-hidden="true" />
+              {site.email}
+            </a>
+          )}
         </div>
       </div>
 
@@ -84,21 +86,12 @@ export default function Header() {
             <Link
               href="/iletisim"
               className="hidden md:inline-flex items-center px-5 py-2 rounded-lg text-[13px] font-semibold transition-colors text-white"
-              style={{
-                background: "var(--color-accent)",
-              }}
+              style={{ background: "var(--color-accent)" }}
             >
               Teklif Al
             </Link>
 
-            {/* Mobile menü butonu — Aşama 2'de client component olacak */}
-            <button
-              className="md:hidden p-2 rounded-md"
-              style={{ color: "var(--color-muted)" }}
-              aria-label="Menüyü aç"
-            >
-              <Menu size={22} aria-hidden="true" />
-            </button>
+            <MobileMenu navLinks={navLinks} />
           </div>
 
         </div>

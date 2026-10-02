@@ -18,9 +18,8 @@ export default function ProductsSection() {
         {/* Başlık satırı */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-10">
           <SectionHeader
-            eyebrow="GEÇİCİ — Ürünler / Hizmetler"
+            eyebrow="Ürünler"
             heading="Ürün Kategorilerimiz"
-            description="GEÇİCİ — hizmet alanı ve ürün yelpazesini özetleyen 1–2 cümle buraya gelecek."
             headingId="products-heading"
           />
           <Link
@@ -34,7 +33,7 @@ export default function ProductsSection() {
         </div>
 
         {/* Kart grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {productCategories.map((cat) => (
             <ProductCard key={cat.id} category={cat} />
           ))}

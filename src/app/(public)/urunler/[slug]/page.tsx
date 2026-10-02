@@ -145,22 +145,14 @@ export default async function UrunDetayPage(props: PageProps<"/urunler/[slug]">)
                 style={{ background: "var(--color-accent)" }}
               />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="flex flex-col items-center gap-3">
-                  <div
-                    className="w-14 h-14 rounded-xl flex items-center justify-center"
-                    style={{
-                      background: "rgba(200,38,26,0.10)",
-                      border: "1px solid rgba(200,38,26,0.22)",
-                    }}
-                  >
-                    <Package size={26} style={{ color: "var(--color-accent)" }} />
-                  </div>
-                  <span
-                    className="text-[11px] font-bold uppercase tracking-[0.18em]"
-                    style={{ color: "rgba(255,255,255,0.25)" }}
-                  >
-                    GEÇİCİ
-                  </span>
+                <div
+                  className="w-14 h-14 rounded-xl flex items-center justify-center"
+                  style={{
+                    background: "rgba(200,38,26,0.10)",
+                    border: "1px solid rgba(200,38,26,0.22)",
+                  }}
+                >
+                  <Package size={26} style={{ color: "var(--color-accent)" }} />
                 </div>
               </div>
             </div>
@@ -168,10 +160,9 @@ export default async function UrunDetayPage(props: PageProps<"/urunler/[slug]">)
             {/* Sağ: başlık + açıklama + bullet list */}
             <div className="flex flex-col gap-6">
               <SectionHeader
-                eyebrow="GEÇİCİ — Ürün / Kategori"
-                heading={category.name}
+                eyebrow="Ürün"
+                heading="Temel Özellikler"
                 headingId="product-detail-heading"
-                description={category.description}
               />
 
               {/* Bullet list — GEÇİCİ */}
@@ -224,8 +215,8 @@ export default async function UrunDetayPage(props: PageProps<"/urunler/[slug]">)
 
           <div className="mb-10">
             <SectionHeader
-              eyebrow="GEÇİCİ — Çözüm / Uygulama"
-              heading="GEÇİCİ — Bu kategoride neler sunuyoruz?"
+              eyebrow="Çözümlerimiz"
+              heading="Neler Sunuyoruz?"
               headingId="solution-heading"
             />
           </div>

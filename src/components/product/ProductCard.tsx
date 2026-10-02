@@ -60,8 +60,7 @@ export default function ProductCard({ category }: { category: ProductCategory })
       {/* İçerik */}
       <div className="flex flex-col gap-3 p-5 flex-1">
         <h3
-          className="font-bold text-[16px] leading-snug transition-colors group-hover:text-accent"
-          style={{ color: "var(--color-text)" }}
+          className="font-bold text-[16px] leading-snug transition-colors text-text group-hover:text-accent"
         >
           {category.name}
         </h3>

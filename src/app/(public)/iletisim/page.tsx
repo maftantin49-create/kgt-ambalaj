@@ -16,22 +16,22 @@ const infoCards = [
     label: "Telefon",
     value: site.phoneDisplay,
     href: `tel:${site.phone}`,
-    note: "GEÇİCİ",
+    note: "",
   },
-  {
+  ...(site.email ? [{
     icon: Mail,
     label: "E-posta",
     value: site.email,
     href: `mailto:${site.email}`,
-    note: "GEÇİCİ",
-  },
-  {
+    note: "",
+  }] : []),
+  ...(site.address ? [{
     icon: MapPin,
     label: "Adres",
     value: site.address,
-    href: undefined,
-    note: "GEÇİCİ",
-  },
+    href: undefined as string | undefined,
+    note: "",
+  }] : []),
 ]
 
 export default function IletisimPage() {
@@ -83,7 +83,7 @@ export default function IletisimPage() {
               className="text-[15px] leading-relaxed"
               style={{ color: "var(--color-muted)" }}
             >
-              GEÇİCİ — projeniz için teklif almak veya teknik danışmanlık talep etmek için aşağıdaki kanalları kullanabilir ya da formu doldurabilirsiniz.
+              Projeniz için teklif almak veya teknik danışmanlık talep etmek için aşağıdaki kanalları kullanabilir ya da formu doldurabilirsiniz.
             </p>
           </div>
 
@@ -169,10 +169,9 @@ export default function IletisimPage() {
             {/* Sol: açıklama + iletişim listesi */}
             <div className="flex flex-col gap-8">
               <SectionHeader
-                eyebrow="GEÇİCİ — Teklif / Bilgi"
+                eyebrow="Teklif Formu"
                 heading="Projenizi Anlatın"
                 headingId="contact-form-heading"
-                description="GEÇİCİ — iletişim sayfası açıklaması. Teklif süreci veya yanıt süresi hakkında nötr bir bilgi buraya gelecek."
               />
 
               <ul className="flex flex-col gap-5" role="list">

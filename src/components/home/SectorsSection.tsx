@@ -14,9 +14,8 @@ export default function SectorsSection() {
 
         <div className="mb-10 max-w-xl">
           <SectionHeader
-            eyebrow="GEÇİCİ — Sektörler"
+            eyebrow="Sektörler"
             heading="Hizmet Verdiğimiz Sektörler"
-            description="GEÇİCİ — hedef sektörleri özetleyen 1–2 cümle buraya gelecek."
             headingId="sectors-heading"
           />
         </div>
