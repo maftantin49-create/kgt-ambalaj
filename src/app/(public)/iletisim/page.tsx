@@ -7,7 +7,6 @@ import { site } from "@/config/site"
 
 export const metadata: Metadata = {
   title: "İletişim",
-  description: "GEÇİCİ — KGT Ambalaj iletişim bilgileri ve teklif formu meta description buraya gelecek",
 }
 
 const infoCards = [
