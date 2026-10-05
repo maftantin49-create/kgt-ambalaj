@@ -2,8 +2,6 @@ export const site = {
   name: "KGT Ambalaj",
   shortName: "KGT",
   tagline: "Ambalajın Geleceğini Şekillendiriyoruz",
-  description:
-    "GEÇİCİ — meta description buraya gelecek (maks 155 karakter)",
   url: "https://kgtambalaj.com",
 
   phone: "+90 531 523 77 22",

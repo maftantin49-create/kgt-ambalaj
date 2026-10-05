@@ -10,8 +10,8 @@ import CtaBanner from "@/components/home/CtaBanner"
 import ContactTeaser from "@/components/home/ContactTeaser"
 
 export const metadata: Metadata = {
-  title: site.name,
-  description: site.description,
+  // { absolute } template'i bypass eder — "KGT Ambalaj — KGT Ambalaj" yazmaz.
+  title: { absolute: site.name },
 }
 
 export default function HomePage() {

@@ -7,7 +7,6 @@ import { productCategories } from "@/data/products"
 
 export const metadata: Metadata = {
   title: "Ürünler",
-  description: "GEÇİCİ — KGT Ambalaj ürün kategorileri meta description buraya gelecek (maks 155 karakter)",
 }
 
 export default function UrunlerPage() {
