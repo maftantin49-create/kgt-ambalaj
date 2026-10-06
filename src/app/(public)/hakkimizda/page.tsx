@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowRight, ChevronRight, Building2, Factory } from "lucide-react"
 import SectionHeader from "@/components/ui/SectionHeader"
 import { about } from "@/data/about"
@@ -94,51 +95,54 @@ export default function HakkimizdaPage() {
               )}
             </div>
 
-            {/* Sağ: görsel — GEÇİCİ placeholder */}
-            {/* GEÇİCİ: gerçek şirket/fabrika görseli geldiğinde next/image ile değiştirilecek */}
+            {/* Sağ: görsel */}
             <div
               className="relative rounded-2xl overflow-hidden w-full"
               style={{ aspectRatio: "4/3" }}
-              aria-hidden="true"
+              aria-hidden={about.intro.image ? undefined : true}
             >
-              <div className="absolute inset-0" style={{ background: "#1E1E1C" }} />
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage: `
-                    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)
-                  `,
-                  backgroundSize: "32px 32px",
-                }}
-              />
-              <div
-                className="absolute top-0 left-0 w-12 h-0.5"
-                style={{ background: "var(--color-accent)" }}
-              />
-              <div
-                className="absolute top-0 left-0 w-0.5 h-12"
-                style={{ background: "var(--color-accent)" }}
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="flex flex-col items-center gap-3">
+              {about.intro.image ? (
+                <Image
+                  src={about.intro.image}
+                  alt=""
+                  fill
+                  className="object-cover rounded-2xl"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              ) : (
+                <>
+                  <div className="absolute inset-0" style={{ background: "#1E1E1C" }} />
                   <div
-                    className="w-14 h-14 rounded-xl flex items-center justify-center"
+                    className="absolute inset-0"
                     style={{
-                      background: "rgba(200,38,26,0.10)",
-                      border: "1px solid rgba(200,38,26,0.22)",
+                      backgroundImage: `
+                        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)
+                      `,
+                      backgroundSize: "32px 32px",
                     }}
-                  >
-                    <Building2 size={26} style={{ color: "var(--color-accent)" }} />
+                  />
+                  <div
+                    className="absolute top-0 left-0 w-12 h-0.5"
+                    style={{ background: "var(--color-accent)" }}
+                  />
+                  <div
+                    className="absolute top-0 left-0 w-0.5 h-12"
+                    style={{ background: "var(--color-accent)" }}
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div
+                      className="w-14 h-14 rounded-xl flex items-center justify-center"
+                      style={{
+                        background: "rgba(200,38,26,0.10)",
+                        border: "1px solid rgba(200,38,26,0.22)",
+                      }}
+                    >
+                      <Building2 size={26} style={{ color: "var(--color-accent)" }} />
+                    </div>
                   </div>
-                  <span
-                    className="text-[11px] font-bold uppercase tracking-[0.18em]"
-                    style={{ color: "rgba(255,255,255,0.25)" }}
-                  >
-                    GEÇİCİ
-                  </span>
-                </div>
-              </div>
+                </>
+              )}
             </div>
 
           </div>
@@ -218,51 +222,54 @@ export default function HakkimizdaPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-            {/* Sol: görsel — GEÇİCİ placeholder */}
-            {/* GEÇİCİ: gerçek üretim/tesis görseli geldiğinde next/image ile değiştirilecek */}
+            {/* Sol: görsel */}
             <div
               className="relative rounded-2xl overflow-hidden w-full order-2 lg:order-1"
               style={{ aspectRatio: "4/3" }}
-              aria-hidden="true"
+              aria-hidden={about.production.image ? undefined : true}
             >
-              <div className="absolute inset-0" style={{ background: "#1E1E1C" }} />
-              <div
-                className="absolute inset-0"
-                style={{
-                  backgroundImage: `
-                    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)
-                  `,
-                  backgroundSize: "32px 32px",
-                }}
-              />
-              <div
-                className="absolute bottom-0 right-0 w-12 h-0.5"
-                style={{ background: "var(--color-accent)" }}
-              />
-              <div
-                className="absolute bottom-0 right-0 w-0.5 h-12"
-                style={{ background: "var(--color-accent)" }}
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="flex flex-col items-center gap-3">
+              {about.production.image ? (
+                <Image
+                  src={about.production.image}
+                  alt=""
+                  fill
+                  className="object-cover rounded-2xl"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              ) : (
+                <>
+                  <div className="absolute inset-0" style={{ background: "#1E1E1C" }} />
                   <div
-                    className="w-14 h-14 rounded-xl flex items-center justify-center"
+                    className="absolute inset-0"
                     style={{
-                      background: "rgba(200,38,26,0.10)",
-                      border: "1px solid rgba(200,38,26,0.22)",
+                      backgroundImage: `
+                        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)
+                      `,
+                      backgroundSize: "32px 32px",
                     }}
-                  >
-                    <Factory size={26} style={{ color: "var(--color-accent)" }} />
+                  />
+                  <div
+                    className="absolute bottom-0 right-0 w-12 h-0.5"
+                    style={{ background: "var(--color-accent)" }}
+                  />
+                  <div
+                    className="absolute bottom-0 right-0 w-0.5 h-12"
+                    style={{ background: "var(--color-accent)" }}
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div
+                      className="w-14 h-14 rounded-xl flex items-center justify-center"
+                      style={{
+                        background: "rgba(200,38,26,0.10)",
+                        border: "1px solid rgba(200,38,26,0.22)",
+                      }}
+                    >
+                      <Factory size={26} style={{ color: "var(--color-accent)" }} />
+                    </div>
                   </div>
-                  <span
-                    className="text-[11px] font-bold uppercase tracking-[0.18em]"
-                    style={{ color: "rgba(255,255,255,0.25)" }}
-                  >
-                    GEÇİCİ
-                  </span>
-                </div>
-              </div>
+                </>
+              )}
             </div>
 
             {/* Sağ: metin */}

@@ -18,6 +18,7 @@ export interface AboutData {
     eyebrow: string
     heading: string
     paragraphs: string[]
+    image?: string
   }
   valuesSection: {
     eyebrow: string
@@ -29,6 +30,7 @@ export interface AboutData {
     eyebrow: string
     heading: string
     paragraphs: string[]
+    image?: string
   }
   ctaHeading: string
   ctaBody: string
