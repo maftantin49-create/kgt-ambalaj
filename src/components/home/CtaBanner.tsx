@@ -79,7 +79,7 @@ export default function CtaBanner() {
           <h2
             id="cta-heading"
             className="font-black leading-tight tracking-tight text-white"
-            style={{ fontSize: "clamp(26px, 3.2vw, 46px)" }}
+            style={{ fontSize: "clamp(28px, 3.6vw, 52px)" }}
           >
             {ctaBanner.heading}
           </h2>

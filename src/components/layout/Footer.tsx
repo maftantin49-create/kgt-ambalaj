@@ -35,7 +35,11 @@ export default function Footer() {
                 Ambalaj
               </span>
             </Link>
-            {/* GEÇİCİ — kısa şirket tanıtım metni müşteriden bekleniyor */}
+            {site.tagline && (
+              <p className="text-[13px] leading-relaxed max-w-[220px]" style={{ color: "#6A6A68" }}>
+                {site.tagline}
+              </p>
+            )}
           </div>
 
           {/* Kolon 2 — Ürünler */}

@@ -17,7 +17,7 @@ export default function ProductCard({ category }: { category: ProductCategory })
       <div
         className="relative w-full overflow-hidden"
         style={{
-          aspectRatio: "16/9",
+          aspectRatio: "4/3",
           background: "var(--color-surface)",
           borderBottom: "1px solid var(--color-border)",
         }}

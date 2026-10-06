@@ -104,7 +104,7 @@ export default function HeroSection() {
           <div
             className="relative hidden lg:flex items-center justify-center rounded-2xl overflow-hidden"
             style={{
-              minHeight: "400px",
+              aspectRatio: "5/4",
               background: "#1E1E1C",
               border: "1px solid rgba(255,255,255,0.06)",
             }}
