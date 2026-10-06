@@ -1,29 +1,10 @@
-import { Settings2, MessageSquare, Factory, FileText } from "lucide-react"
-
-const items = [
-  {
-    icon: Settings2,
-    title: "Proje Odaklı Çözüm",
-    desc: "Uygulamaya özel ambalaj tasarımı ve üretimi",
-  },
-  {
-    icon: MessageSquare,
-    title: "Teknik Danışmanlık",
-    desc: "Uzman ekiple süreç başından sonuna destek",
-  },
-  {
-    icon: Factory,
-    title: "Endüstriyel Uygulamalar",
-    desc: "Ağır sanayi ve lojistik ihtiyaçlarına uygun çözümler",
-  },
-  {
-    icon: FileText,
-    title: "Teklif Desteği",
-    desc: "Projenize özel fiyatlandırma ve teknik teklif",
-  },
-]
+import { home } from "@/data/home"
 
 export default function TrustBar() {
+  const { trustBar } = home
+
+  if (trustBar.length === 0) return null
+
   return (
     <section
       aria-label="Neden biz"
@@ -34,7 +15,7 @@ export default function TrustBar() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 lg:py-0">
         <div className="grid grid-cols-2 lg:grid-cols-4">
-          {items.map(({ icon: Icon, title, desc }) => (
+          {trustBar.map(({ icon: Icon, title, desc }) => (
             <div
               key={title}
               className="flex items-start gap-3 px-0 py-4 lg:px-6 lg:py-5 lg:[&:not(:last-child)]:border-r"
@@ -56,12 +37,14 @@ export default function TrustBar() {
                 >
                   {title}
                 </span>
-                <span
-                  className="text-[12px] leading-snug hidden sm:block"
-                  style={{ color: "var(--color-muted)" }}
-                >
-                  {desc}
-                </span>
+                {desc && (
+                  <span
+                    className="text-[12px] leading-snug hidden sm:block"
+                    style={{ color: "var(--color-muted)" }}
+                  >
+                    {desc}
+                  </span>
+                )}
               </div>
             </div>
           ))}

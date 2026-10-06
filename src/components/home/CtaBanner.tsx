@@ -1,5 +1,8 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import { home } from "@/data/home"
+
+const { ctaBanner } = home
 
 export default function CtaBanner() {
   return (
@@ -51,24 +54,26 @@ export default function CtaBanner() {
         <div className="max-w-2xl mx-auto flex flex-col items-center text-center gap-6">
 
           {/* Eyebrow */}
-          <div className="flex items-center gap-2">
-            <span
-              className="w-5 h-px shrink-0"
-              style={{ background: "var(--color-accent)" }}
-              aria-hidden="true"
-            />
-            <span
-              className="text-[11px] font-bold uppercase tracking-[0.2em]"
-              style={{ color: "var(--color-accent)" }}
-            >
-              GEÇİCİ — Teklif / İletişim
-            </span>
-            <span
-              className="w-5 h-px shrink-0"
-              style={{ background: "var(--color-accent)" }}
-              aria-hidden="true"
-            />
-          </div>
+          {ctaBanner.eyebrow && (
+            <div className="flex items-center gap-2">
+              <span
+                className="w-5 h-px shrink-0"
+                style={{ background: "var(--color-accent)" }}
+                aria-hidden="true"
+              />
+              <span
+                className="text-[11px] font-bold uppercase tracking-[0.2em]"
+                style={{ color: "var(--color-accent)" }}
+              >
+                {ctaBanner.eyebrow}
+              </span>
+              <span
+                className="w-5 h-px shrink-0"
+                style={{ background: "var(--color-accent)" }}
+                aria-hidden="true"
+              />
+            </div>
+          )}
 
           {/* Başlık */}
           <h2
@@ -76,38 +81,42 @@ export default function CtaBanner() {
             className="font-black leading-tight tracking-tight text-white"
             style={{ fontSize: "clamp(26px, 3.2vw, 46px)" }}
           >
-            GEÇİCİ — Projeniz için doğru ambalaj çözümü burada
+            {ctaBanner.heading}
           </h2>
 
           {/* Açıklama */}
-          <p
-            className="text-[15px] leading-relaxed max-w-lg"
-            style={{ color: "rgba(255,255,255,0.55)" }}
-          >
-            GEÇİCİ — Projenizi anlatın, size özel teknik değerlendirme ve teklif hazırlayalım.
-          </p>
+          {ctaBanner.description && (
+            <p
+              className="text-[15px] leading-relaxed max-w-lg"
+              style={{ color: "rgba(255,255,255,0.55)" }}
+            >
+              {ctaBanner.description}
+            </p>
+          )}
 
           {/* CTA butonları */}
           <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
             <Link
-              href="#iletisim"
+              href={ctaBanner.primaryCta.href}
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-[14px] text-white transition-opacity hover:opacity-90"
               style={{ background: "var(--color-accent)" }}
             >
-              Teklif Al
+              {ctaBanner.primaryCta.label}
               <ArrowRight size={15} aria-hidden="true" />
             </Link>
 
-            <Link
-              href="/urunler"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-[14px] transition-colors hover:bg-white/10"
-              style={{
-                color: "rgba(255,255,255,0.80)",
-                border: "1px solid rgba(255,255,255,0.18)",
-              }}
-            >
-              Ürünleri İncele
-            </Link>
+            {ctaBanner.secondaryCta && (
+              <Link
+                href={ctaBanner.secondaryCta.href}
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-[14px] transition-colors hover:bg-white/10"
+                style={{
+                  color: "rgba(255,255,255,0.80)",
+                  border: "1px solid rgba(255,255,255,0.18)",
+                }}
+              >
+                {ctaBanner.secondaryCta.label}
+              </Link>
+            )}
           </div>
 
         </div>

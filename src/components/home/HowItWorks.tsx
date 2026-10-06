@@ -1,38 +1,11 @@
-import { MessageSquare, ClipboardList, FileText, PackageCheck } from "lucide-react"
 import SectionHeader from "@/components/ui/SectionHeader"
+import { home } from "@/data/home"
 
-const steps = [
-  {
-    number: "01",
-    title: "İhtiyacınızı Paylaşın",
-    description:
-      "GEÇİCİ — proje gereksinimlerinizi ve beklentilerinizi bizimle paylaşın. Bu adımın kısa açıklaması buraya gelecek.",
-    icon: MessageSquare,
-  },
-  {
-    number: "02",
-    title: "Teknik Değerlendirme",
-    description:
-      "GEÇİCİ — ihtiyacınız teknik açıdan incelenir, uygun çözüm seçenekleri belirlenir. Bu adımın kısa açıklaması buraya gelecek.",
-    icon: ClipboardList,
-  },
-  {
-    number: "03",
-    title: "Teklif ve Planlama",
-    description:
-      "GEÇİCİ — projenize özel teklif hazırlanır, üretim planı oluşturulur. Bu adımın kısa açıklaması buraya gelecek.",
-    icon: FileText,
-  },
-  {
-    number: "04",
-    title: "Üretim ve Teslimat",
-    description:
-      "GEÇİCİ — onaylanan plana göre üretim gerçekleştirilir ve teslimat sağlanır. Bu adımın kısa açıklaması buraya gelecek.",
-    icon: PackageCheck,
-  },
-] as const
+const { howItWorks } = home
 
 export default function HowItWorks() {
+  if (howItWorks.steps.length === 0) return null
+
   return (
     <section
       aria-labelledby="how-it-works-heading"
@@ -45,17 +18,19 @@ export default function HowItWorks() {
 
         <div className="mb-10 lg:mb-14">
           <SectionHeader
-            eyebrow="GEÇİCİ — Nasıl Çalışıyoruz"
-            heading="Çalışma Sürecimiz"
+            eyebrow={howItWorks.eyebrow}
+            heading={howItWorks.heading}
             headingId="how-it-works-heading"
+            description={howItWorks.description}
             align="center"
           />
         </div>
 
-        <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px rounded-xl overflow-hidden"
+        <ol
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px rounded-xl overflow-hidden"
           style={{ background: "var(--color-border)" }}
         >
-          {steps.map(({ number, title, description, icon: Icon }) => (
+          {howItWorks.steps.map(({ number, title, description, icon: Icon }) => (
             <li
               key={number}
               className="flex flex-col gap-5 p-7 lg:p-8"
@@ -94,12 +69,14 @@ export default function HowItWorks() {
                 >
                   {title}
                 </h3>
-                <p
-                  className="text-[13px] leading-relaxed"
-                  style={{ color: "var(--color-muted)" }}
-                >
-                  {description}
-                </p>
+                {description && (
+                  <p
+                    className="text-[13px] leading-relaxed"
+                    style={{ color: "var(--color-muted)" }}
+                  >
+                    {description}
+                  </p>
+                )}
               </div>
             </li>
           ))}

@@ -3,6 +3,9 @@ import { ArrowRight } from "lucide-react"
 import SectionHeader from "@/components/ui/SectionHeader"
 import ProductCard from "@/components/product/ProductCard"
 import { productCategories } from "@/data/products"
+import { home } from "@/data/home"
+
+const { productsSection } = home
 
 export default function ProductsSection() {
   return (
@@ -18,16 +21,17 @@ export default function ProductsSection() {
         {/* Başlık satırı */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-10">
           <SectionHeader
-            eyebrow="Ürünler"
-            heading="Ürün Kategorilerimiz"
+            eyebrow={productsSection.eyebrow}
+            heading={productsSection.heading}
             headingId="products-heading"
+            description={productsSection.description}
           />
           <Link
             href="/urunler"
             className="inline-flex items-center gap-1.5 text-[13px] font-semibold shrink-0 transition-colors hover:opacity-80"
             style={{ color: "var(--color-accent)" }}
           >
-            Tüm Ürünler
+            {productsSection.viewAllLabel}
             <ArrowRight size={14} aria-hidden="true" />
           </Link>
         </div>

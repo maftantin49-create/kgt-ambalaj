@@ -1,5 +1,8 @@
 import SectionHeader from "@/components/ui/SectionHeader"
 import { sectors } from "@/data/sectors"
+import { home } from "@/data/home"
+
+const { sectorsSection } = home
 
 export default function SectorsSection() {
   return (
@@ -14,9 +17,10 @@ export default function SectorsSection() {
 
         <div className="mb-10 max-w-xl">
           <SectionHeader
-            eyebrow="Sektörler"
-            heading="Hizmet Verdiğimiz Sektörler"
+            eyebrow={sectorsSection.eyebrow}
+            heading={sectorsSection.heading}
             headingId="sectors-heading"
+            description={sectorsSection.description}
           />
         </div>
 

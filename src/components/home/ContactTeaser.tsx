@@ -2,6 +2,9 @@ import { Phone, Mail, MapPin } from "lucide-react"
 import SectionHeader from "@/components/ui/SectionHeader"
 import ContactForm from "@/components/contact/ContactForm"
 import { site } from "@/config/site"
+import { home } from "@/data/home"
+
+const { contactTeaser } = home
 
 const contactItems = [
   {
@@ -44,9 +47,10 @@ export default function ContactTeaser() {
           {/* Sol: metin + iletişim bilgileri */}
           <div className="flex flex-col gap-8">
             <SectionHeader
-              eyebrow="İletişim"
-              heading="Bizimle İletişime Geçin"
+              eyebrow={contactTeaser.eyebrow}
+              heading={contactTeaser.heading}
               headingId="contact-teaser-heading"
+              description={contactTeaser.description}
             />
 
             <ul className="flex flex-col gap-4" role="list">
