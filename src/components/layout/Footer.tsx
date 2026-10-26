@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { site } from "@/config/site"
 import { productCategories } from "@/data/products"
 
@@ -25,15 +26,14 @@ export default function Footer() {
 
           {/* Kolon 1 — Şirket */}
           <div className="flex flex-col gap-4">
-            <Link
-              href="/"
-              className="font-black text-[18px] tracking-tight"
-              style={{ color: "#F0F0EE" }}
-            >
-              {site.shortName}
-              <span className="font-light ml-1.5" style={{ color: "#6A6A68" }}>
-                Ambalaj
-              </span>
+            <Link href="/" className="flex items-center" aria-label={site.name}>
+              <Image
+                src="/images/kgt/logo-kgt-dark.webp"
+                alt={site.name}
+                width={131}
+                height={32}
+                className="h-8 w-auto"
+              />
             </Link>
             {site.tagline && (
               <p className="text-[13px] leading-relaxed max-w-[220px]" style={{ color: "#6A6A68" }}>

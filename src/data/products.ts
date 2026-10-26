@@ -47,6 +47,7 @@ export const productCategories: ProductCategory[] = [
     name: "Streç Film Sarma Makineleri",
     shortDescription:
       "Üretim hatları ve palet sarma süreçleri için yüksek performanslı streç film sarma ve rewinding makineleri.",
+    image: "/images/kgt/stretch-film-machine-front.jpg",
     href: "/urunler/strec-film-sarma-makineleri",
   },
   {
@@ -55,6 +56,7 @@ export const productCategories: ProductCategory[] = [
     name: "Alüminyum Folyo Sarma Makineleri",
     shortDescription:
       "Alüminyum folyo rulo sarma ve rewinding işlemleri için endüstriyel ambalaj makineleri.",
+    image: "/images/kgt/aluminum-foil-machine-side.jpg",
     href: "/urunler/aluminyum-folyo-sarma-makineleri",
   },
   {
@@ -63,6 +65,7 @@ export const productCategories: ProductCategory[] = [
     name: "Karton Rulo Masura Üretim Hattı Makineleri",
     shortDescription:
       "Karton masura ve rulo çekirdek üretimi için eksiksiz üretim hattı çözümleri.",
+    image: "/images/kgt/cardboard-core-line.webp",
     href: "/urunler/karton-rulo-masura-uretim-hatti-makineleri",
   },
   {
@@ -71,6 +74,7 @@ export const productCategories: ProductCategory[] = [
     name: "Kağıt Dilimleme Makineleri",
     shortDescription:
       "Kağıt, ambalaj ve baskı sektöründe rulo kesim ve dilimleme ihtiyaçları için hassas dilimleme makineleri.",
+    image: "/images/kgt/paper-slitting-machine.webp",
     href: "/urunler/kagit-dilimleme-makineleri",
   },
 ]

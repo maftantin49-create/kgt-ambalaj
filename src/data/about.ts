@@ -49,6 +49,7 @@ export const about: AboutData = {
       "GEÇİCİ — İkinci paragraf. Şirketin misyonu, vizyonu veya endüstrideki yeri buraya gelecek.",
       "GEÇİCİ — Üçüncü paragraf. Müşterilere sunulan temel fayda veya rekabet avantajı buraya gelecek.",
     ],
+    image: "/images/kgt/production-line.jpeg",
   },
 
   valuesSection: {
@@ -87,6 +88,7 @@ export const about: AboutData = {
       "GEÇİCİ — Üretim süreçleri, kullanılan teknolojiler veya çözüm geliştirme yaklaşımını anlatan birinci paragraf buraya gelecek.",
       "GEÇİCİ — Kalite kontrol, teknik altyapı veya proje yönetimi hakkında ikinci paragraf buraya gelecek.",
     ],
+    image: "/images/kgt/rewinding-workshop.webp",
   },
 
   ctaHeading: "GEÇİCİ — Projeniz için teklif almak ister misiniz?",

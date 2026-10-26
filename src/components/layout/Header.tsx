@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Phone, Mail } from "lucide-react"
 import MobileMenu from "@/components/layout/MobileMenu"
 import { site } from "@/config/site"
@@ -55,16 +56,15 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between gap-8">
 
           {/* Logo */}
-          <Link
-            href="/"
-            className="font-black text-[20px] tracking-tight shrink-0"
-            style={{ color: "var(--color-text)" }}
-          >
-            {/* GEÇİCİ — logo görseli eklenecek */}
-            <span>{site.shortName}</span>
-            <span className="font-light ml-1.5" style={{ color: "var(--color-muted)" }}>
-              Ambalaj
-            </span>
+          <Link href="/" className="shrink-0 flex items-center" aria-label={site.name}>
+            <Image
+              src="/images/kgt/logo-kgt.png"
+              alt={site.name}
+              width={78}
+              height={40}
+              priority
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop nav */}

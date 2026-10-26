@@ -86,6 +86,7 @@ export const home: HomeData = {
       "Yüksek performanslı streç film ve alüminyum folyo sarma makineleri ile üretim hatlarınıza hız, hassasiyet ve sürdürülebilir verim kazandırıyoruz.",
     primaryCta: { label: "Ürünleri İncele", href: "/urunler" },
     secondaryCta: { label: "Teklif Al", href: "/iletisim" },
+    image: "/images/kgt/rewinding-workshop.webp",
   },
 
   trustBar: [
@@ -130,6 +131,7 @@ export const home: HomeData = {
       "GEÇİCİ — İkinci paragraf. Müşteri odaklı çalışma anlayışı veya sektördeki konumlandırma buraya gelecek.",
     ],
     ctaLabel: "Hakkımızda Daha Fazla",
+    image: "/images/kgt/production-line.jpeg",
   },
 
   howItWorks: {
