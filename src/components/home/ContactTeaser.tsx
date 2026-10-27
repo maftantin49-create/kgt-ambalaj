@@ -2,39 +2,29 @@ import { Phone, Mail, MapPin } from "lucide-react"
 import SectionHeader from "@/components/ui/SectionHeader"
 import ContactForm from "@/components/contact/ContactForm"
 import { site } from "@/config/site"
-import { home } from "@/data/home"
+import { getHomeData } from "@/data/index"
+import type { Locale } from "@/config/i18n"
 
-const { contactTeaser } = home
+const labels = {
+  tr: { phone: "Telefon", email: "E-posta", address: "Adres" },
+  en: { phone: "Phone", email: "Email", address: "Address" },
+}
 
-const contactItems = [
-  {
-    icon: Phone,
-    label: "Telefon",
-    value: site.phoneDisplay,
-    href: `tel:${site.phone}`,
-  },
-  {
-    icon: Mail,
-    label: "E-posta",
-    value: site.email,
-    href: `mailto:${site.email}`,
-  },
-  {
-    icon: MapPin,
-    label: "Adres",
-    value: site.address,
-    href: undefined,
-  },
-] as const
+export default function ContactTeaser({ locale }: { locale: Locale }) {
+  const { contactTeaser } = getHomeData(locale)
+  const l = labels[locale]
 
-export default function ContactTeaser() {
-  const isConfigured = !!(
-    process.env.RESEND_API_KEY && process.env.CONTACT_TO_EMAIL
-  )
+  const contactItems = [
+    { icon: Phone, label: l.phone, value: site.phoneDisplay, href: `tel:${site.phone}` },
+    { icon: Mail, label: l.email, value: site.email, href: `mailto:${site.email}` },
+    { icon: MapPin, label: l.address, value: site.address, href: undefined },
+  ] as const
+
+  const isConfigured = !!(process.env.RESEND_API_KEY && process.env.CONTACT_TO_EMAIL)
 
   return (
     <section
-      id="iletisim"
+      id="contact"
       aria-labelledby="contact-teaser-heading"
       style={{
         background: "var(--color-surface)",
@@ -98,7 +88,7 @@ export default function ContactTeaser() {
           </div>
 
           {/* Sağ: iletişim formu */}
-          <ContactForm isConfigured={isConfigured} />
+          <ContactForm isConfigured={isConfigured} locale={locale} />
 
         </div>
       </div>

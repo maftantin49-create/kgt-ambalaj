@@ -1,16 +1,11 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { home } from "@/data/home"
+import { getHomeData } from "@/data/index"
 import { localePaths, type Locale } from "@/config/i18n"
 
-const { ctaBanner } = home
-
 export default function CtaBanner({ locale }: { locale: Locale }) {
+  const { ctaBanner } = getHomeData(locale)
   const p = localePaths[locale]
-
-  const secondaryHref = ctaBanner.secondaryCta
-    ? (ctaBanner.secondaryCta.href.startsWith("/urunler") ? p.products : ctaBanner.secondaryCta.href)
-    : undefined
 
   return (
     <section
@@ -71,9 +66,9 @@ export default function CtaBanner({ locale }: { locale: Locale }) {
               <ArrowRight size={15} aria-hidden="true" />
             </Link>
 
-            {ctaBanner.secondaryCta && secondaryHref && (
+            {ctaBanner.secondaryCta && (
               <Link
-                href={secondaryHref}
+                href={p.products}
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-[14px] transition-colors hover:bg-white/10"
                 style={{
                   color: "rgba(255,255,255,0.80)",

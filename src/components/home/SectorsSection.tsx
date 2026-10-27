@@ -1,10 +1,11 @@
 import SectionHeader from "@/components/ui/SectionHeader"
-import { sectors } from "@/data/sectors"
-import { home } from "@/data/home"
+import { getHomeData, getSectors } from "@/data/index"
+import type { Locale } from "@/config/i18n"
 
-const { sectorsSection } = home
+export default function SectorsSection({ locale }: { locale: Locale }) {
+  const { sectorsSection } = getHomeData(locale)
+  const sectors = getSectors(locale)
 
-export default function SectorsSection() {
   return (
     <section
       aria-labelledby="sectors-heading"
@@ -36,7 +37,6 @@ export default function SectorsSection() {
                   background: "var(--color-surface)",
                 }}
               >
-                {/* İkon */}
                 <div
                   className="shrink-0 w-10 h-10 rounded-lg flex items-center justify-center mt-0.5"
                   style={{
@@ -48,7 +48,6 @@ export default function SectorsSection() {
                   <Icon size={18} style={{ color: "var(--color-accent)" }} />
                 </div>
 
-                {/* Metin */}
                 <div className="flex flex-col gap-1 min-w-0">
                   <span
                     className="text-[15px] font-semibold leading-snug"

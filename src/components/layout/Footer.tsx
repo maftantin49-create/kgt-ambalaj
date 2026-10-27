@@ -1,12 +1,13 @@
 import Link from "next/link"
 import Image from "next/image"
 import { site } from "@/config/site"
-import { productCategories } from "@/data/products"
+import { getProducts } from "@/data/index"
 import { localePaths, type Locale } from "@/config/i18n"
 
 export default function Footer({ locale }: { locale: Locale }) {
   const year = new Date().getFullYear()
   const p = localePaths[locale]
+  const categories = getProducts(locale)
 
   const companyLinks =
     locale === "tr"
@@ -19,16 +20,16 @@ export default function Footer({ locale }: { locale: Locale }) {
           { href: p.contact, label: "Contact" },
         ]
 
-  const productsLabel = locale === "tr" ? "Ürünler"    : "Products"
+  const productsLabel = locale === "tr" ? "Ürünler"     : "Products"
   const allLabel      = locale === "tr" ? "Tüm Ürünler" : "All Products"
-  const contactLabel  = locale === "tr" ? "İletişim"   : "Contact"
+  const contactLabel  = locale === "tr" ? "İletişim"    : "Contact"
   const rightsLabel   = locale === "tr"
     ? `© ${year} ${site.name}. Tüm hakları saklıdır.`
     : `© ${year} ${site.name}. All rights reserved.`
 
   return (
     <footer
-      aria-label="Site alt bilgisi"
+      aria-label={locale === "tr" ? "Site alt bilgisi" : "Site footer"}
       style={{
         background: "#1A1A18",
         borderTop: "1px solid rgba(255,255,255,0.08)",
@@ -74,7 +75,7 @@ export default function Footer({ locale }: { locale: Locale }) {
                   {allLabel}
                 </Link>
               </li>
-              {productCategories.map((cat) => (
+              {categories.map((cat) => (
                 <li key={cat.id}>
                   <Link
                     href={p.product(cat.slug)}

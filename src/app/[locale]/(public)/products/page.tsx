@@ -4,7 +4,7 @@ import { notFound } from "next/navigation"
 import { ArrowRight, ChevronRight, MessageSquare } from "lucide-react"
 import SectionHeader from "@/components/ui/SectionHeader"
 import ProductCard from "@/components/product/ProductCard"
-import { productCategories } from "@/data/products"
+import { getProducts } from "@/data/index"
 import { localePaths, isValidLocale, type Locale } from "@/config/i18n"
 
 export const metadata: Metadata = { title: "Products" }
@@ -17,6 +17,7 @@ export default async function ProductsPage({
   const { locale } = await params
   if (!isValidLocale(locale) || locale !== "en") notFound()
   const p = localePaths[locale as Locale]
+  const categories = getProducts(locale as Locale)
 
   return (
     <>
@@ -33,11 +34,11 @@ export default async function ProductsPage({
                 Product Categories
               </h1>
               <p className="text-[15px] leading-relaxed" style={{ color: "var(--color-muted)" }}>
-                Explore KGT Ambalaj&apos;s full range of industrial packaging machinery — from stretch wrapping to strapping systems.
+                Explore KGT Ambalaj&apos;s full range of industrial packaging machinery — from stretch wrapping to paper slitting systems.
               </p>
             </div>
             <div className="shrink-0 px-4 py-2 rounded-lg text-[13px] font-semibold self-start sm:self-auto" style={{ background: "var(--background)", border: "1px solid var(--color-border)", color: "var(--color-muted)" }}>
-              {productCategories.length} categories
+              {categories.length} categories
             </div>
           </div>
         </div>
@@ -49,7 +50,7 @@ export default async function ProductsPage({
             <SectionHeader eyebrow="Product Lines" heading="All Categories" headingId="products-list-heading" description="Industrial packaging solutions for every application — find the right machine for your production line." />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {productCategories.map((category) => (
+            {categories.map((category) => (
               <ProductCard key={category.id} category={category} locale="en" />
             ))}
           </div>

@@ -1,17 +1,16 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, Package } from "lucide-react"
-import { home } from "@/data/home"
+import { getHomeData } from "@/data/index"
 import { localePaths, type Locale } from "@/config/i18n"
 
-const { hero } = home
-
 export default function HeroSection({ locale }: { locale: Locale }) {
+  const hero = getHomeData(locale).hero
   const p = localePaths[locale]
 
   return (
     <section
-      aria-label="Ana sayfa hero"
+      aria-label={locale === "en" ? "Homepage hero" : "Ana sayfa hero"}
       style={{
         background: "var(--color-surface)",
         borderBottom: "1px solid var(--color-border)",

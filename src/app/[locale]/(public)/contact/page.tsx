@@ -91,7 +91,7 @@ export default async function ContactPage({
                 ))}
               </ul>
             </div>
-            <ContactForm isConfigured={isConfigured} />
+            <ContactForm isConfigured={isConfigured} locale="en" />
           </div>
         </div>
       </section>

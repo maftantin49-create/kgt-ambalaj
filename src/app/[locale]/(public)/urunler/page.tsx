@@ -4,7 +4,7 @@ import { notFound } from "next/navigation"
 import { ArrowRight, ChevronRight, MessageSquare } from "lucide-react"
 import SectionHeader from "@/components/ui/SectionHeader"
 import ProductCard from "@/components/product/ProductCard"
-import { productCategories } from "@/data/products"
+import { getProducts } from "@/data/index"
 import { localePaths, isValidLocale, type Locale } from "@/config/i18n"
 
 export const metadata: Metadata = {
@@ -19,6 +19,7 @@ export default async function UrunlerPage({
   const { locale } = await params
   if (!isValidLocale(locale) || locale !== "tr") notFound()
   const p = localePaths[locale as Locale]
+  const categories = getProducts(locale as Locale)
 
   return (
     <>
@@ -45,17 +46,17 @@ export default async function UrunlerPage({
                 className="font-black leading-tight tracking-tight"
                 style={{ color: "var(--color-text)", fontSize: "clamp(28px, 3.5vw, 48px)" }}
               >
-                GEÇİCİ — Ürün Kategorileri başlığı
+                Ürün Kategorilerimiz
               </h1>
               <p className="text-[15px] leading-relaxed" style={{ color: "var(--color-muted)" }}>
-                GEÇİCİ — ürün kataloğunu tanıtan kısa açıklama. Sunulan ürün gruplarını ve uygulama alanlarını özetleyen 1–2 cümle buraya gelecek.
+                KGT Ambalaj&apos;ın endüstriyel ambalaj makineleri — streç film sarmadan kağıt dilimleyicilere kadar tüm ürün gruplarını inceleyin.
               </p>
             </div>
             <div
               className="shrink-0 px-4 py-2 rounded-lg text-[13px] font-semibold self-start sm:self-auto"
               style={{ background: "var(--background)", border: "1px solid var(--color-border)", color: "var(--color-muted)" }}
             >
-              {productCategories.length} kategori
+              {categories.length} kategori
             </div>
           </div>
         </div>
@@ -68,14 +69,14 @@ export default async function UrunlerPage({
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-20">
           <div className="mb-10">
             <SectionHeader
-              eyebrow="GEÇİCİ — Ürün Grupları"
+              eyebrow="Ürün Grupları"
               heading="Tüm Kategoriler"
               headingId="products-list-heading"
-              description="GEÇİCİ — ürün gruplarını ve hangi ihtiyaçlara cevap verdiğini özetleyen 1–2 cümle buraya gelecek."
+              description="Her üretim hattına özel ambalaj çözümleri — ihtiyacınıza uygun makineyi bulun."
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {productCategories.map((category) => (
+            {categories.map((category) => (
               <ProductCard key={category.id} category={category} locale="tr" />
             ))}
           </div>
@@ -101,7 +102,7 @@ export default async function UrunlerPage({
                   Doğru ürünü bulmakta yardım ister misiniz?
                 </h2>
                 <p className="text-[13px] leading-relaxed" style={{ color: "var(--color-muted)" }}>
-                  GEÇİCİ — teknik danışmanlık ve ürün seçimi desteği hakkında kısa açıklama buraya gelecek.
+                  Teknik danışmanlık ve ürün seçimi konularında uzman ekibimizle iletişime geçin.
                 </p>
               </div>
               <Link

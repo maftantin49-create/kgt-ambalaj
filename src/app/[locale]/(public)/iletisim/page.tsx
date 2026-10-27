@@ -91,7 +91,7 @@ export default async function IletisimPage({
                 ))}
               </ul>
             </div>
-            <ContactForm isConfigured={isConfigured} />
+            <ContactForm isConfigured={isConfigured} locale="tr" />
           </div>
         </div>
       </section>

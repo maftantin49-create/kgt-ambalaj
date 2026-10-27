@@ -93,7 +93,7 @@ export default function Header({ locale }: { locale: Locale }) {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1" aria-label="Ana menü">
+          <nav className="hidden md:flex items-center gap-1" aria-label={locale === "tr" ? "Ana menü" : "Main navigation"}>
             {navLinks.map(({ href, label }) => (
               <Link
                 key={href}

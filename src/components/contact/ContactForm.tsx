@@ -4,9 +4,52 @@ import { useActionState } from "react"
 import { submitContact } from "@/app/actions/contact"
 import { initialFormState } from "./types"
 import type { FormState } from "./types"
+import type { Locale } from "@/config/i18n"
 
 interface ContactFormProps {
   isConfigured: boolean
+  locale?: Locale
+}
+
+const strings = {
+  tr: {
+    title: "Teklif / Bilgi Talebi",
+    notConfigured: "İletişim formu yakında aktif olacak.",
+    notConfiguredSub: "Teklif veya bilgi almak için lütfen telefon ya da e-posta ile iletişime geçin.",
+    successTitle: "Mesajınız İletildi",
+    labelName: "Ad Soyad",
+    placeholderName: "Ad Soyad",
+    labelCompany: "Firma",
+    placeholderCompany: "Firma adı",
+    labelEmail: "E-posta",
+    placeholderEmail: "ornek@firma.com",
+    labelPhone: "Telefon",
+    placeholderPhone: "+90 5xx xxx xx xx",
+    labelMessage: "Mesaj",
+    placeholderMessage: "Proje ihtiyacınızı kısaca açıklayın...",
+    ariaForm: "İletişim formu",
+    submit: "Gönder",
+    submitting: "Gönderiliyor…",
+  },
+  en: {
+    title: "Quote / Information Request",
+    notConfigured: "The contact form will be active soon.",
+    notConfiguredSub: "For a quote or information, please contact us by phone or email.",
+    successTitle: "Message Sent",
+    labelName: "Full Name",
+    placeholderName: "Full Name",
+    labelCompany: "Company",
+    placeholderCompany: "Company name",
+    labelEmail: "Email",
+    placeholderEmail: "example@company.com",
+    labelPhone: "Phone",
+    placeholderPhone: "+90 5xx xxx xx xx",
+    labelMessage: "Message",
+    placeholderMessage: "Briefly describe your project needs...",
+    ariaForm: "Contact form",
+    submit: "Send",
+    submitting: "Sending…",
+  },
 }
 
 function fieldStyle(error: string | undefined): React.CSSProperties {
@@ -27,11 +70,13 @@ function FieldError({ id, message }: { id: string; message?: string }) {
   )
 }
 
-export default function ContactForm({ isConfigured }: ContactFormProps) {
+export default function ContactForm({ isConfigured, locale = "tr" }: ContactFormProps) {
   const [state, formAction, isPending] = useActionState<FormState, FormData>(
     submitContact,
     initialFormState,
   )
+
+  const s = strings[locale]
 
   return (
     <div
@@ -48,18 +93,17 @@ export default function ContactForm({ isConfigured }: ContactFormProps) {
           borderBottom: "1px solid var(--color-border)",
         }}
       >
-        Teklif / Bilgi Talebi
+        {s.title}
       </p>
 
       {/* ── Form aktif değil ─────────────────────────────────────────── */}
       {!isConfigured && (
         <div className="flex flex-col items-center gap-3 py-8 text-center">
           <p className="text-[14px] font-medium" style={{ color: "var(--color-text)" }}>
-            İletişim formu yakında aktif olacak.
+            {s.notConfigured}
           </p>
           <p className="text-[13px] leading-relaxed max-w-[280px]" style={{ color: "var(--color-muted)" }}>
-            Teklif veya bilgi almak için lütfen telefon ya da
-            e-posta ile iletişime geçin.
+            {s.notConfiguredSub}
           </p>
         </div>
       )}
@@ -86,7 +130,7 @@ export default function ContactForm({ isConfigured }: ContactFormProps) {
             </svg>
           </div>
           <p className="text-[15px] font-semibold" style={{ color: "var(--color-text)" }}>
-            Mesajınız İletildi
+            {s.successTitle}
           </p>
           <p className="text-[13px]" style={{ color: "var(--color-muted)" }}>
             {state.message}
@@ -96,7 +140,7 @@ export default function ContactForm({ isConfigured }: ContactFormProps) {
 
       {/* ── Aktif form ───────────────────────────────────────────────── */}
       {isConfigured && state.status !== "success" && (
-        <form action={formAction} aria-label="İletişim formu" noValidate>
+        <form action={formAction} aria-label={s.ariaForm} noValidate>
           {/* Honeypot — botlar için tuzak alan, kullanıcıya görünmez */}
           <input
             name="website"
@@ -110,20 +154,20 @@ export default function ContactForm({ isConfigured }: ContactFormProps) {
           <div className="flex flex-col gap-4">
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Ad Soyad */}
+              {/* Ad Soyad / Full Name */}
               <div className="flex flex-col gap-1.5">
                 <label
                   htmlFor="cf-name"
                   className="text-[12px] font-semibold"
                   style={{ color: "var(--color-muted)" }}
                 >
-                  Ad Soyad <span aria-hidden="true">*</span>
+                  {s.labelName} <span aria-hidden="true">*</span>
                 </label>
                 <input
                   id="cf-name"
                   name="name"
                   type="text"
-                  placeholder="Ad Soyad"
+                  placeholder={s.placeholderName}
                   autoComplete="name"
                   required
                   maxLength={100}
@@ -137,20 +181,20 @@ export default function ContactForm({ isConfigured }: ContactFormProps) {
                 <FieldError id="cf-name-error" message={state.fieldErrors.name} />
               </div>
 
-              {/* Firma */}
+              {/* Firma / Company */}
               <div className="flex flex-col gap-1.5">
                 <label
                   htmlFor="cf-company"
                   className="text-[12px] font-semibold"
                   style={{ color: "var(--color-muted)" }}
                 >
-                  Firma
+                  {s.labelCompany}
                 </label>
                 <input
                   id="cf-company"
                   name="company"
                   type="text"
-                  placeholder="Firma adı"
+                  placeholder={s.placeholderCompany}
                   autoComplete="organization"
                   maxLength={150}
                   disabled={isPending}
@@ -164,20 +208,20 @@ export default function ContactForm({ isConfigured }: ContactFormProps) {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* E-posta */}
+              {/* E-posta / Email */}
               <div className="flex flex-col gap-1.5">
                 <label
                   htmlFor="cf-email"
                   className="text-[12px] font-semibold"
                   style={{ color: "var(--color-muted)" }}
                 >
-                  E-posta <span aria-hidden="true">*</span>
+                  {s.labelEmail} <span aria-hidden="true">*</span>
                 </label>
                 <input
                   id="cf-email"
                   name="email"
                   type="email"
-                  placeholder="ornek@firma.com"
+                  placeholder={s.placeholderEmail}
                   autoComplete="email"
                   required
                   maxLength={254}
@@ -191,20 +235,20 @@ export default function ContactForm({ isConfigured }: ContactFormProps) {
                 <FieldError id="cf-email-error" message={state.fieldErrors.email} />
               </div>
 
-              {/* Telefon */}
+              {/* Telefon / Phone */}
               <div className="flex flex-col gap-1.5">
                 <label
                   htmlFor="cf-phone"
                   className="text-[12px] font-semibold"
                   style={{ color: "var(--color-muted)" }}
                 >
-                  Telefon
+                  {s.labelPhone}
                 </label>
                 <input
                   id="cf-phone"
                   name="phone"
                   type="tel"
-                  placeholder="+90 5xx xxx xx xx"
+                  placeholder={s.placeholderPhone}
                   autoComplete="tel"
                   maxLength={20}
                   disabled={isPending}
@@ -217,20 +261,20 @@ export default function ContactForm({ isConfigured }: ContactFormProps) {
               </div>
             </div>
 
-            {/* Mesaj */}
+            {/* Mesaj / Message */}
             <div className="flex flex-col gap-1.5">
               <label
                 htmlFor="cf-message"
                 className="text-[12px] font-semibold"
                 style={{ color: "var(--color-muted)" }}
               >
-                Mesaj <span aria-hidden="true">*</span>
+                {s.labelMessage} <span aria-hidden="true">*</span>
               </label>
               <textarea
                 id="cf-message"
                 name="message"
                 rows={4}
-                placeholder="Proje ihtiyacınızı kısaca açıklayın..."
+                placeholder={s.placeholderMessage}
                 required
                 minLength={10}
                 maxLength={2000}
@@ -244,7 +288,6 @@ export default function ContactForm({ isConfigured }: ContactFormProps) {
               <FieldError id="cf-message-error" message={state.fieldErrors.message} />
             </div>
 
-            {/* Genel hata mesajı (alan hatası yoksa) */}
             {state.status === "error" &&
               Object.keys(state.fieldErrors).length === 0 &&
               state.message && (
@@ -257,7 +300,6 @@ export default function ContactForm({ isConfigured }: ContactFormProps) {
                 </p>
               )}
 
-            {/* Submit */}
             <div className="pt-1">
               <button
                 type="submit"
@@ -269,7 +311,7 @@ export default function ContactForm({ isConfigured }: ContactFormProps) {
                   cursor: isPending ? "wait" : "pointer",
                 }}
               >
-                {isPending ? "Gönderiliyor…" : "Gönder"}
+                {isPending ? s.submitting : s.submit}
               </button>
             </div>
 

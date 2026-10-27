@@ -4,7 +4,7 @@ import Image from "next/image"
 import { notFound } from "next/navigation"
 import { ArrowRight, ChevronRight, Building2, Factory } from "lucide-react"
 import SectionHeader from "@/components/ui/SectionHeader"
-import { about } from "@/data/about"
+import { getAboutData } from "@/data/index"
 import { localePaths, isValidLocale, type Locale } from "@/config/i18n"
 
 export const metadata: Metadata = { title: "Hakkımızda" }
@@ -17,6 +17,7 @@ export default async function HakkimizdaPage({
   const { locale } = await params
   if (!isValidLocale(locale) || locale !== "tr") notFound()
   const p = localePaths[locale as Locale]
+  const about = getAboutData(locale as Locale)
 
   return (
     <>

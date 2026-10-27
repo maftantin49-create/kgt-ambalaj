@@ -2,12 +2,12 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, Building2 } from "lucide-react"
 import SectionHeader from "@/components/ui/SectionHeader"
-import { home } from "@/data/home"
+import { getHomeData } from "@/data/index"
 import { localePaths, type Locale } from "@/config/i18n"
 
-const { aboutTeaser } = home
-
 export default function AboutTeaser({ locale }: { locale: Locale }) {
+  const { aboutTeaser } = getHomeData(locale)
+
   return (
     <section
       aria-labelledby="about-teaser-heading"

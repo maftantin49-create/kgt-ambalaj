@@ -2,13 +2,13 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import SectionHeader from "@/components/ui/SectionHeader"
 import ProductCard from "@/components/product/ProductCard"
-import { productCategories } from "@/data/products"
-import { home } from "@/data/home"
+import { getHomeData, getProducts } from "@/data/index"
 import { localePaths, type Locale } from "@/config/i18n"
 
-const { productsSection } = home
-
 export default function ProductsSection({ locale }: { locale: Locale }) {
+  const { productsSection } = getHomeData(locale)
+  const categories = getProducts(locale)
+
   return (
     <section
       aria-labelledby="products-heading"
@@ -37,7 +37,7 @@ export default function ProductsSection({ locale }: { locale: Locale }) {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {productCategories.map((cat) => (
+          {categories.map((cat) => (
             <ProductCard key={cat.id} category={cat} locale={locale} />
           ))}
         </div>

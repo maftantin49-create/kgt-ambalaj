@@ -4,11 +4,11 @@ import Image from "next/image"
 import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowRight, ChevronRight, Package } from "lucide-react"
 import SectionHeader from "@/components/ui/SectionHeader"
-import { productCategories } from "@/data/products"
+import { getProducts } from "@/data/index"
 import { localePaths, isValidLocale, type Locale } from "@/config/i18n"
 
 export function generateStaticParams() {
-  return productCategories.map((cat) => ({ slug: cat.slug }))
+  return getProducts("en").map((cat) => ({ slug: cat.slug }))
 }
 
 export async function generateMetadata({
@@ -17,7 +17,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
-  const category = productCategories.find((c) => c.slug === slug)
+  const category = getProducts("en").find((c) => c.slug === slug)
   if (!category) return { title: "Product Not Found" }
   return { title: category.name, description: category.shortDescription }
 }
@@ -30,7 +30,8 @@ export default async function ProductDetailPage({
   const { locale, slug } = await params
   if (!isValidLocale(locale) || locale !== "en") notFound()
 
-  const category = productCategories.find((c) => c.slug === slug)
+  const categories = getProducts(locale as Locale)
+  const category = categories.find((c) => c.slug === slug)
   if (!category) notFound()
 
   const p = localePaths[locale as Locale]

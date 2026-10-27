@@ -1,9 +1,10 @@
 import SectionHeader from "@/components/ui/SectionHeader"
-import { home } from "@/data/home"
+import { getHomeData } from "@/data/index"
+import type { Locale } from "@/config/i18n"
 
-const { howItWorks } = home
+export default function HowItWorks({ locale }: { locale: Locale }) {
+  const { howItWorks } = getHomeData(locale)
 
-export default function HowItWorks() {
   if (howItWorks.steps.length === 0) return null
 
   return (
@@ -36,7 +37,6 @@ export default function HowItWorks() {
               className="flex flex-col gap-5 p-7 lg:p-8"
               style={{ background: "var(--background)" }}
             >
-              {/* Numara + ikon satırı */}
               <div className="flex items-center justify-between">
                 <span
                   className="font-black leading-none select-none"
@@ -61,7 +61,6 @@ export default function HowItWorks() {
                 </div>
               </div>
 
-              {/* Başlık + açıklama */}
               <div className="flex flex-col gap-2">
                 <h3
                   className="font-bold text-[15px] leading-snug"

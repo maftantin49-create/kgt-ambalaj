@@ -1,13 +1,14 @@
-import { home } from "@/data/home"
+import { getHomeData } from "@/data/index"
+import type { Locale } from "@/config/i18n"
 
-export default function TrustBar() {
-  const { trustBar } = home
+export default function TrustBar({ locale }: { locale: Locale }) {
+  const { trustBar } = getHomeData(locale)
 
   if (trustBar.length === 0) return null
 
   return (
     <section
-      aria-label="Neden biz"
+      aria-label={locale === "en" ? "Why choose us" : "Neden biz"}
       style={{
         background: "#FFFFFF",
         borderBottom: "1px solid var(--color-border)",

@@ -25,13 +25,13 @@ export default async function HomePage({
   return (
     <>
       <HeroSection locale={safeLocale} />
-      <TrustBar />
+      <TrustBar locale={safeLocale} />
       <ProductsSection locale={safeLocale} />
-      <SectorsSection />
+      <SectorsSection locale={safeLocale} />
       <AboutTeaser locale={safeLocale} />
-      <HowItWorks />
+      <HowItWorks locale={safeLocale} />
       <CtaBanner locale={safeLocale} />
-      <ContactTeaser />
+      <ContactTeaser locale={safeLocale} />
     </>
   )
 }
