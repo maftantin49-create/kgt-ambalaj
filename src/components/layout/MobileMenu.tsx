@@ -9,7 +9,13 @@ interface NavLink {
   label: string
 }
 
-export default function MobileMenu({ navLinks }: { navLinks: NavLink[] }) {
+interface MobileMenuProps {
+  navLinks: NavLink[]
+  ctaLabel: string
+  ctaHref: string
+}
+
+export default function MobileMenu({ navLinks, ctaLabel, ctaHref }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
@@ -39,7 +45,7 @@ export default function MobileMenu({ navLinks }: { navLinks: NavLink[] }) {
 
       {isOpen && (
         <>
-          {/* Backdrop — click to close */}
+          {/* Backdrop */}
           <div
             className="md:hidden fixed inset-0 z-40"
             style={{ background: "rgba(0,0,0,0.18)" }}
@@ -47,7 +53,7 @@ export default function MobileMenu({ navLinks }: { navLinks: NavLink[] }) {
             aria-hidden="true"
           />
 
-          {/* Panel — fixed below the 64px nav bar */}
+          {/* Panel */}
           <div
             id="mobile-nav"
             className="md:hidden fixed top-16 inset-x-0 z-50"
@@ -78,12 +84,12 @@ export default function MobileMenu({ navLinks }: { navLinks: NavLink[] }) {
                 style={{ borderTop: "1px solid var(--color-border)" }}
               >
                 <Link
-                  href="/iletisim"
+                  href={ctaHref}
                   onClick={() => setIsOpen(false)}
                   className="flex items-center justify-center w-full px-5 py-3 rounded-lg text-[14px] font-semibold text-white"
                   style={{ background: "var(--color-accent)" }}
                 >
-                  Teklif Al
+                  {ctaLabel}
                 </Link>
               </div>
             </nav>

@@ -5,8 +5,9 @@ import Footer from "@/components/layout/Footer"
 
 export default function NotFound() {
   return (
-    <>
-      <Header />
+    <html lang="tr" className="h-full antialiased">
+      <body className="min-h-full flex flex-col">
+      <Header locale="tr" />
       <main className="flex-1 flex flex-col items-center justify-center px-6" style={{ minHeight: "60vh" }}>
         <div className="max-w-md w-full text-center flex flex-col gap-6">
 
@@ -42,7 +43,7 @@ export default function NotFound() {
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
             <Link
-              href="/"
+              href="/tr"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-[14px] font-semibold text-white transition-opacity hover:opacity-90"
               style={{ background: "var(--color-accent)" }}
             >
@@ -50,7 +51,7 @@ export default function NotFound() {
               Ana Sayfa
             </Link>
             <Link
-              href="/urunler"
+              href="/tr/urunler"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-[14px] font-semibold transition-opacity hover:opacity-75"
               style={{
                 color: "var(--color-text)",
@@ -64,7 +65,8 @@ export default function NotFound() {
 
         </div>
       </main>
-      <Footer />
-    </>
+      <Footer locale="tr" />
+      </body>
+    </html>
   )
 }

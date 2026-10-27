@@ -2,10 +2,13 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, Package } from "lucide-react"
 import { home } from "@/data/home"
+import { localePaths, type Locale } from "@/config/i18n"
 
 const { hero } = home
 
-export default function HeroSection() {
+export default function HeroSection({ locale }: { locale: Locale }) {
+  const p = localePaths[locale]
+
   return (
     <section
       aria-label="Ana sayfa hero"
@@ -20,7 +23,6 @@ export default function HeroSection() {
           {/* ── Sol: İçerik ───────────────────────────────────────── */}
           <div className="flex flex-col gap-6">
 
-            {/* Eyebrow */}
             {hero.eyebrow && (
               <div
                 className="inline-flex items-center gap-2 w-fit px-3.5 py-1.5 rounded-full"
@@ -69,11 +71,9 @@ export default function HeroSection() {
               </p>
             )}
 
-            {/* CTA'lar */}
             <div className="flex flex-wrap gap-3 items-center">
-
               <Link
-                href={hero.primaryCta.href}
+                href={p.products}
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-[14px] text-white transition-opacity hover:opacity-90 active:scale-[0.98]"
                 style={{
                   background: "var(--color-accent)",
@@ -85,7 +85,7 @@ export default function HeroSection() {
               </Link>
 
               <Link
-                href={hero.secondaryCta.href}
+                href={p.contact}
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-[14px] transition-colors"
                 style={{
                   color: "var(--color-text)",
@@ -95,7 +95,6 @@ export default function HeroSection() {
               >
                 {hero.secondaryCta.label}
               </Link>
-
             </div>
 
           </div>
@@ -120,7 +119,6 @@ export default function HeroSection() {
               />
             ) : (
               <>
-                {/* Endüstriyel grid deseni */}
                 <div
                   className="absolute inset-0"
                   style={{
@@ -131,7 +129,6 @@ export default function HeroSection() {
                     backgroundSize: "40px 40px",
                   }}
                 />
-                {/* Köşe aksan çizgisi */}
                 <div
                   className="absolute top-0 left-0 w-16 h-1"
                   style={{ background: "var(--color-accent)" }}
@@ -140,7 +137,6 @@ export default function HeroSection() {
                   className="absolute top-0 left-0 w-1 h-16"
                   style={{ background: "var(--color-accent)" }}
                 />
-                {/* Merkez ikon */}
                 <div className="relative z-10">
                   <div
                     className="w-16 h-16 rounded-2xl flex items-center justify-center"

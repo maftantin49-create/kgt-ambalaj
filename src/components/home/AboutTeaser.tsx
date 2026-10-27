@@ -3,10 +3,11 @@ import Image from "next/image"
 import { ArrowRight, Building2 } from "lucide-react"
 import SectionHeader from "@/components/ui/SectionHeader"
 import { home } from "@/data/home"
+import { localePaths, type Locale } from "@/config/i18n"
 
 const { aboutTeaser } = home
 
-export default function AboutTeaser() {
+export default function AboutTeaser({ locale }: { locale: Locale }) {
   return (
     <section
       aria-labelledby="about-teaser-heading"
@@ -42,7 +43,7 @@ export default function AboutTeaser() {
 
             {aboutTeaser.ctaLabel && (
               <Link
-                href="/hakkimizda"
+                href={localePaths[locale].about}
                 className="inline-flex items-center gap-2 text-[14px] font-semibold transition-opacity hover:opacity-75 self-start"
                 style={{ color: "var(--color-accent)" }}
               >
@@ -86,10 +87,6 @@ export default function AboutTeaser() {
                 <div
                   className="absolute bottom-0 right-0 w-0.5 h-14"
                   style={{ background: "var(--color-accent)" }}
-                />
-                <div
-                  className="absolute top-6 left-6 right-6 h-px"
-                  style={{ background: "rgba(255,255,255,0.07)" }}
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div

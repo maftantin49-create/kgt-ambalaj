@@ -6,7 +6,7 @@ const base = site.url
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const slugRoutes: MetadataRoute.Sitemap = productCategories.map((cat) => ({
-    url: `${base}/urunler/${cat.slug}`,
+    url: `${base}/tr/urunler/${cat.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.6,
@@ -14,26 +14,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: base,
+      url: `${base}/tr`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1.0,
     },
     {
-      url: `${base}/urunler`,
+      url: `${base}/tr/urunler`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
     },
     ...slugRoutes,
     {
-      url: `${base}/hakkimizda`,
+      url: `${base}/tr/hakkimizda`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${base}/iletisim`,
+      url: `${base}/tr/iletisim`,
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.7,

@@ -4,10 +4,11 @@ import SectionHeader from "@/components/ui/SectionHeader"
 import ProductCard from "@/components/product/ProductCard"
 import { productCategories } from "@/data/products"
 import { home } from "@/data/home"
+import { localePaths, type Locale } from "@/config/i18n"
 
 const { productsSection } = home
 
-export default function ProductsSection() {
+export default function ProductsSection({ locale }: { locale: Locale }) {
   return (
     <section
       aria-labelledby="products-heading"
@@ -18,7 +19,6 @@ export default function ProductsSection() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-20">
 
-        {/* Başlık satırı */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-10">
           <SectionHeader
             eyebrow={productsSection.eyebrow}
@@ -27,7 +27,7 @@ export default function ProductsSection() {
             description={productsSection.description}
           />
           <Link
-            href="/urunler"
+            href={localePaths[locale].products}
             className="inline-flex items-center gap-1.5 text-[13px] font-semibold shrink-0 transition-colors hover:opacity-80"
             style={{ color: "var(--color-accent)" }}
           >
@@ -36,10 +36,9 @@ export default function ProductsSection() {
           </Link>
         </div>
 
-        {/* Kart grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {productCategories.map((cat) => (
-            <ProductCard key={cat.id} category={cat} />
+            <ProductCard key={cat.id} category={cat} locale={locale} />
           ))}
         </div>
 

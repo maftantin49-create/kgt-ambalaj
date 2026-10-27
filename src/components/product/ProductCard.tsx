@@ -2,11 +2,20 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, Package } from "lucide-react"
 import type { ProductCategory } from "@/data/products"
+import { localePaths, type Locale } from "@/config/i18n"
 
-export default function ProductCard({ category }: { category: ProductCategory }) {
+export default function ProductCard({
+  category,
+  locale,
+}: {
+  category: ProductCategory
+  locale: Locale
+}) {
+  const href = localePaths[locale].product(category.slug)
+
   return (
     <Link
-      href={category.href}
+      href={href}
       className="group flex flex-col rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.10)]"
       style={{
         background: "#FFFFFF",
@@ -33,7 +42,6 @@ export default function ProductCard({ category }: { category: ProductCategory })
           />
         ) : (
           <>
-            {/* Nötr endüstriyel grid placeholder */}
             <div
               className="absolute inset-0"
               style={{
@@ -84,7 +92,7 @@ export default function ProductCard({ category }: { category: ProductCategory })
           className="flex items-center gap-1.5 text-[13px] font-semibold mt-1 transition-colors"
           style={{ color: "var(--color-accent)" }}
         >
-          Detayları İncele
+          {locale === "tr" ? "Detayları İncele" : "View Details"}
           <ArrowRight
             size={14}
             className="transition-transform duration-200 group-hover:translate-x-1"
