@@ -1,4 +1,6 @@
-const BASE = "https://kgtmak.com"
+import { site } from "@/config/site"
+
+const BASE = site.url
 
 export function buildAlternates(
   locale: "tr" | "en",

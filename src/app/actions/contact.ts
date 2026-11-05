@@ -90,7 +90,7 @@ export async function submitContact(
   //       "Content-Type": "application/json",
   //     },
   //     body: JSON.stringify({
-  //       from:    "KGT Ambalaj Web <noreply@kgtambalaj.com>",
+  //       from:    "KGT Ambalaj Web <noreply@kgtmak.com>",
   //       to:      process.env.CONTACT_TO_EMAIL,
   //       subject: `Teklif Talebi — ${name}`,
   //       html:    `<p><b>Ad:</b> ${name}</p>...`,
