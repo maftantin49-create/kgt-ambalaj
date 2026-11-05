@@ -6,8 +6,16 @@ import SectionHeader from "@/components/ui/SectionHeader"
 import ProductCard from "@/components/product/ProductCard"
 import { getProducts } from "@/data/index"
 import { localePaths, isValidLocale, type Locale } from "@/config/i18n"
+import { buildAlternates } from "@/lib/seo"
 
-export const metadata: Metadata = { title: "Products" }
+export function generateMetadata(): Metadata {
+  return {
+    title: "Products",
+    description:
+      "KGT Ambalaj product categories: stretch film rewinding, aluminium foil rewinding, cardboard core production line, and paper slitting machines.",
+    alternates: buildAlternates("en", "/tr/urunler", "/en/products"),
+  }
+}
 
 export default async function ProductsPage({
   params,

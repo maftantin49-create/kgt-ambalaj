@@ -6,8 +6,16 @@ import SectionHeader from "@/components/ui/SectionHeader"
 import ContactForm from "@/components/contact/ContactForm"
 import { site } from "@/config/site"
 import { localePaths, isValidLocale, type Locale } from "@/config/i18n"
+import { buildAlternates } from "@/lib/seo"
 
-export const metadata: Metadata = { title: "İletişim" }
+export function generateMetadata(): Metadata {
+  return {
+    title: "İletişim",
+    description:
+      "KGT Ambalaj ile iletişime geçin. Teklif almak veya teknik danışmanlık talebi için formu doldurun ya da doğrudan ulaşın.",
+    alternates: buildAlternates("tr", "/tr/iletisim", "/en/contact"),
+  }
+}
 
 const infoCards = [
   { icon: Phone, label: "Telefon", value: site.phoneDisplay, href: `tel:${site.phone}`, note: "" },

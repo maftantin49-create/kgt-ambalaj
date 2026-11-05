@@ -6,8 +6,16 @@ import SectionHeader from "@/components/ui/SectionHeader"
 import ContactForm from "@/components/contact/ContactForm"
 import { site } from "@/config/site"
 import { localePaths, isValidLocale, type Locale } from "@/config/i18n"
+import { buildAlternates } from "@/lib/seo"
 
-export const metadata: Metadata = { title: "Contact" }
+export function generateMetadata(): Metadata {
+  return {
+    title: "Contact",
+    description:
+      "Get in touch with KGT Ambalaj. Request a quote or technical consultation using the form or contact details.",
+    alternates: buildAlternates("en", "/tr/iletisim", "/en/contact"),
+  }
+}
 
 const infoCards = [
   { icon: Phone, label: "Phone", value: site.phoneDisplay, href: `tel:${site.phone}`, note: "" },

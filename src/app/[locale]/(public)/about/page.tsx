@@ -6,8 +6,16 @@ import { ArrowRight, ChevronRight, Building2, Factory } from "lucide-react"
 import SectionHeader from "@/components/ui/SectionHeader"
 import { getAboutData } from "@/data/index"
 import { localePaths, isValidLocale, type Locale } from "@/config/i18n"
+import { buildAlternates } from "@/lib/seo"
 
-export const metadata: Metadata = { title: "About Us" }
+export function generateMetadata(): Metadata {
+  return {
+    title: "About Us",
+    description:
+      "About KGT Ambalaj: design and manufacture of industrial packaging machinery — stretch film rewinding, aluminium foil rewinding, and paper slitting equipment.",
+    alternates: buildAlternates("en", "/tr/hakkimizda", "/en/about"),
+  }
+}
 
 export default async function AboutPage({
   params,

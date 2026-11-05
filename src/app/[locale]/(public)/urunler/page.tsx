@@ -6,9 +6,15 @@ import SectionHeader from "@/components/ui/SectionHeader"
 import ProductCard from "@/components/product/ProductCard"
 import { getProducts } from "@/data/index"
 import { localePaths, isValidLocale, type Locale } from "@/config/i18n"
+import { buildAlternates } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Ürünler",
+export function generateMetadata(): Metadata {
+  return {
+    title: "Ürünler",
+    description:
+      "KGT Ambalaj ürün kategorileri: streç film sarma, alüminyum folyo sarma, karton masura üretim hattı ve kağıt dilimleme makineleri.",
+    alternates: buildAlternates("tr", "/tr/urunler", "/en/products"),
+  }
 }
 
 export default async function UrunlerPage({

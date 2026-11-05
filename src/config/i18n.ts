@@ -1,3 +1,5 @@
+import { trToEnSlug, enToTrSlug } from "@/config/slugs"
+
 export const locales = ["tr", "en"] as const
 export type Locale = (typeof locales)[number]
 export const defaultLocale: Locale = "tr"
@@ -50,12 +52,14 @@ export function getAlternatePath(pathname: string): string {
   if (trToEnMap[pathname]) return trToEnMap[pathname]
   if (enToTrMap[pathname]) return enToTrMap[pathname]
 
-  // Product detail: /tr/urunler/[slug] ↔ /en/products/[slug]
+  // Product detail: /tr/urunler/[tr-slug] ↔ /en/products/[en-slug]
   if (pathname.startsWith("/tr/urunler/")) {
-    return "/en/products/" + pathname.slice("/tr/urunler/".length)
+    const trSlug = pathname.slice("/tr/urunler/".length)
+    return "/en/products/" + (trToEnSlug[trSlug] ?? trSlug)
   }
   if (pathname.startsWith("/en/products/")) {
-    return "/tr/urunler/" + pathname.slice("/en/products/".length)
+    const enSlug = pathname.slice("/en/products/".length)
+    return "/tr/urunler/" + (enToTrSlug[enSlug] ?? enSlug)
   }
 
   // Fallback to same-locale home
