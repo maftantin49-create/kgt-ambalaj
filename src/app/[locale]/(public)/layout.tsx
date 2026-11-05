@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header"
 import Footer from "@/components/layout/Footer"
+import PageTransition from "@/components/layout/PageTransition"
 import { isValidLocale, type Locale } from "@/config/i18n"
 
 export default async function PublicLayout({
@@ -15,7 +16,9 @@ export default async function PublicLayout({
   return (
     <>
       <Header locale={safeLocale} />
-      <main className="flex-1">{children}</main>
+      <main className="flex-1">
+        <PageTransition>{children}</PageTransition>
+      </main>
       <Footer locale={safeLocale} />
     </>
   )

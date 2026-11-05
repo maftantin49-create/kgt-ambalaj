@@ -31,3 +31,38 @@ body {
   outline-offset: 2px;
   border-radius: 4px;
 }
+
+/* ── Page transition ─────────────────────────────────────────────────────── */
+@keyframes catalogue-enter {
+  from { opacity: 0; transform: translateX(14px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+
+@keyframes catalogue-enter-sm {
+  from { opacity: 0; transform: translateX(6px); }
+  to   { opacity: 1; transform: translateX(0);   }
+}
+
+@keyframes catalogue-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.page-enter {
+  animation: catalogue-enter 280ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (max-width: 767px) {
+  .page-enter {
+    animation-name: catalogue-enter-sm;
+    animation-duration: 220ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter {
+    animation-name: catalogue-fade;
+    animation-duration: 180ms;
+    animation-timing-function: ease;
+  }
+}

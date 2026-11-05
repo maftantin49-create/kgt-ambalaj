@@ -6,6 +6,8 @@ import { ArrowLeft, ArrowRight, ChevronRight, Package } from "lucide-react"
 import SectionHeader from "@/components/ui/SectionHeader"
 import { getProducts } from "@/data/index"
 import { localePaths, isValidLocale, type Locale } from "@/config/i18n"
+import { enToTrSlug } from "@/config/slugs"
+import { buildAlternates } from "@/lib/seo"
 
 export function generateStaticParams() {
   return getProducts("en").map((cat) => ({ slug: cat.slug }))
@@ -19,7 +21,12 @@ export async function generateMetadata({
   const { slug } = await params
   const category = getProducts("en").find((c) => c.slug === slug)
   if (!category) return { title: "Product Not Found" }
-  return { title: category.name, description: category.shortDescription }
+  const trSlug = enToTrSlug[slug] ?? slug
+  return {
+    title: category.name,
+    description: category.shortDescription,
+    alternates: buildAlternates("en", `/tr/urunler/${trSlug}`, `/en/products/${slug}`),
+  }
 }
 
 export default async function ProductDetailPage({
@@ -40,6 +47,10 @@ export default async function ProductDetailPage({
   const hasModels        = (category.models?.length       ?? 0) > 0
   const hasApplications  = (category.applications?.length ?? 0) > 0
   const hasSolutionCards = (category.solutionCards?.length ?? 0) > 0
+
+  const currentIndex  = categories.findIndex((c) => c.slug === slug)
+  const prevCategory  = currentIndex > 0 ? categories[currentIndex - 1] : null
+  const nextCategory  = currentIndex < categories.length - 1 ? categories[currentIndex + 1] : null
 
   return (
     <>
@@ -176,9 +187,52 @@ export default async function ProductDetailPage({
         </section>
       )}
 
-      <section aria-label="Page navigation" style={{ background: "var(--background)", borderBottom: "1px solid var(--color-border)" }}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10 lg:py-12">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      {/* Catalogue navigation */}
+      <section aria-label="Catalogue navigation" style={{ background: "var(--background)", borderBottom: "1px solid var(--color-border)" }}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10 lg:py-14">
+
+          {/* Counter + separator */}
+          <div className="flex items-center gap-4 mb-10">
+            <div className="flex-1 h-px" style={{ background: "var(--color-border)" }} aria-hidden="true" />
+            <span className="text-[11px] font-bold tracking-[0.2em] uppercase tabular-nums shrink-0" style={{ color: "var(--color-muted)" }}>
+              <span style={{ color: "var(--color-text)" }}>{String(currentIndex + 1).padStart(2, "0")}</span>
+              {" "}<span style={{ opacity: 0.4 }}>/</span>{" "}
+              {String(categories.length).padStart(2, "0")}
+            </span>
+          </div>
+
+          {/* Previous / Next */}
+          <div className="grid grid-cols-2 gap-6 sm:gap-10">
+            <div>
+              {prevCategory && (
+                <Link href={p.product(prevCategory.slug)} className="group flex flex-col gap-2">
+                  <span className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.15em] transition-opacity group-hover:opacity-75" style={{ color: "var(--color-accent)" }}>
+                    <ArrowLeft size={11} aria-hidden="true" />
+                    Previous Product
+                  </span>
+                  <span className="text-[14px] font-semibold leading-snug transition-opacity group-hover:opacity-75" style={{ color: "var(--color-text)" }}>
+                    {prevCategory.name}
+                  </span>
+                </Link>
+              )}
+            </div>
+            <div className="flex justify-end">
+              {nextCategory && (
+                <Link href={p.product(nextCategory.slug)} className="group flex flex-col gap-2 items-end text-right">
+                  <span className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.15em] transition-opacity group-hover:opacity-75" style={{ color: "var(--color-accent)" }}>
+                    Next Product
+                    <ArrowRight size={11} aria-hidden="true" />
+                  </span>
+                  <span className="text-[14px] font-semibold leading-snug transition-opacity group-hover:opacity-75" style={{ color: "var(--color-text)" }}>
+                    {nextCategory.name}
+                  </span>
+                </Link>
+              )}
+            </div>
+          </div>
+
+          {/* Bottom row */}
+          <div className="mt-8 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4" style={{ borderTop: "1px solid var(--color-border)" }}>
             <Link href={p.products} className="inline-flex items-center gap-2 text-[13px] font-semibold transition-opacity hover:opacity-75" style={{ color: "var(--color-muted)" }}>
               <ArrowLeft size={14} aria-hidden="true" />
               All Products
@@ -188,6 +242,7 @@ export default async function ProductDetailPage({
               <ArrowRight size={14} aria-hidden="true" />
             </Link>
           </div>
+
         </div>
       </section>
     </>
