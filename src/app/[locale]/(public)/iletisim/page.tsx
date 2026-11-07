@@ -32,7 +32,8 @@ export default async function IletisimPage({
   if (!isValidLocale(locale) || locale !== "tr") notFound()
   const p = localePaths[locale as Locale]
 
-  const isConfigured = !!(process.env.RESEND_API_KEY && process.env.CONTACT_TO_EMAIL)
+  // aktivasyon: public/api/contact.php → $DESTINATION_EMAIL set et, sonra true yap
+  const isConfigured = false
 
   return (
     <>

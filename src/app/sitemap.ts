@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next"
 import { getProducts } from "@/data/index"
 import { site } from "@/config/site"
 
+export const dynamic = "force-static"
+
 const base = site.url
 
 export default function sitemap(): MetadataRoute.Sitemap {

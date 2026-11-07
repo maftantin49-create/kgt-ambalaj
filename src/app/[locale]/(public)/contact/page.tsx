@@ -32,7 +32,8 @@ export default async function ContactPage({
   if (!isValidLocale(locale) || locale !== "en") notFound()
   const p = localePaths[locale as Locale]
 
-  const isConfigured = !!(process.env.RESEND_API_KEY && process.env.CONTACT_TO_EMAIL)
+  // aktivasyon: public/api/contact.php → $DESTINATION_EMAIL set et, sonra true yap
+  const isConfigured = false
 
   return (
     <>

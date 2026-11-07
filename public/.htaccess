@@ -1,0 +1,35 @@
+# KGT Ambalaj — Apache / LiteSpeed static site
+# cPanel shared hosting için
+
+Options -Indexes
+DirectoryIndex index.html
+
+RewriteEngine On
+
+# ── 1. HTTPS yönlendirme ─────────────────────────────────────────────────────
+# cPanel AutoSSL / Let's Encrypt zaten HTTPS'i zorunlu kılıyorsa yorum bırakın.
+# Yoksa aşağıdaki iki satırın başındaki # işaretini kaldırın:
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ── 2. www → non-www ─────────────────────────────────────────────────────────
+RewriteCond %{HTTP_HOST} ^www\.kgtmak\.com$ [NC]
+RewriteRule ^ https://kgtmak.com%{REQUEST_URI} [L,R=301]
+
+# ── 3. Kök → /tr/ ────────────────────────────────────────────────────────────
+RewriteRule ^$ /tr/ [L,R=301]
+
+# ── 4. Eski TR kök sayfaları ─────────────────────────────────────────────────
+RewriteRule ^hakkimizda/?$ /tr/hakkimizda/ [L,R=301]
+RewriteRule ^iletisim/?$   /tr/iletisim/   [L,R=301]
+RewriteRule ^urunler/?$    /tr/urunler/    [L,R=301]
+RewriteRule ^urunler/([^/]+)/?$ /tr/urunler/$1/ [L,R=301]
+
+# ── 5. EN ürün slug yönlendirmeleri (TR slug → EN slug) ──────────────────────
+RewriteRule ^en/products/strec-film-sarma-makineleri/?$               /en/products/stretch-film-rewinding-machines/            [L,R=301]
+RewriteRule ^en/products/aluminyum-folyo-sarma-makineleri/?$          /en/products/aluminium-foil-rewinding-machines/          [L,R=301]
+RewriteRule ^en/products/karton-rulo-masura-uretim-hatti-makineleri/?$ /en/products/cardboard-core-tube-production-line-machines/ [L,R=301]
+RewriteRule ^en/products/kagit-dilimleme-makineleri/?$                /en/products/paper-slitting-machines/                    [L,R=301]
+
+# ── 6. 404 sayfası ───────────────────────────────────────────────────────────
+ErrorDocument 404 /404.html

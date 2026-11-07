@@ -1,7 +1,6 @@
 "use client"
 
-import { useActionState } from "react"
-import { submitContact } from "@/app/actions/contact"
+import { useState } from "react"
 import { initialFormState } from "./types"
 import type { FormState } from "./types"
 import type { Locale } from "@/config/i18n"
@@ -71,12 +70,37 @@ function FieldError({ id, message }: { id: string; message?: string }) {
 }
 
 export default function ContactForm({ isConfigured, locale = "tr" }: ContactFormProps) {
-  const [state, formAction, isPending] = useActionState<FormState, FormData>(
-    submitContact,
-    initialFormState,
-  )
+  const [state, setState] = useState<FormState>(initialFormState)
+  const [isPending, setIsPending] = useState(false)
 
   const s = strings[locale]
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setIsPending(true)
+    try {
+      const res = await fetch("/api/contact.php", {
+        method: "POST",
+        body: new FormData(e.currentTarget),
+      })
+      const json = await res.json() as { status: string; message?: string; fieldErrors?: Record<string, string> }
+      setState({
+        status: json.status as FormState["status"],
+        fieldErrors: (json.fieldErrors ?? {}) as FormState["fieldErrors"],
+        message: json.message ?? "",
+      })
+    } catch {
+      setState({
+        status: "error",
+        fieldErrors: {},
+        message: locale === "tr"
+          ? "Bağlantı hatası. Lütfen tekrar deneyin."
+          : "Connection error. Please try again.",
+      })
+    } finally {
+      setIsPending(false)
+    }
+  }
 
   return (
     <div
@@ -140,7 +164,7 @@ export default function ContactForm({ isConfigured, locale = "tr" }: ContactForm
 
       {/* ── Aktif form ───────────────────────────────────────────────── */}
       {isConfigured && state.status !== "success" && (
-        <form action={formAction} aria-label={s.ariaForm} noValidate>
+        <form onSubmit={handleSubmit} aria-label={s.ariaForm} noValidate>
           {/* Honeypot — botlar için tuzak alan, kullanıcıya görünmez */}
           <input
             name="website"
