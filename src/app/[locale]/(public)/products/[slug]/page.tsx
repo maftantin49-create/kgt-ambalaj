@@ -10,7 +10,7 @@ import { enToTrSlug } from "@/config/slugs"
 import { buildAlternates } from "@/lib/seo"
 
 export function generateStaticParams() {
-  return getProducts("en").map((cat) => ({ slug: cat.slug }))
+  return getProducts("en").map((cat) => ({ locale: "en", slug: cat.slug }))
 }
 
 export async function generateMetadata({

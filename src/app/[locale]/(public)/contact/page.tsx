@@ -8,6 +8,10 @@ import { site } from "@/config/site"
 import { localePaths, isValidLocale, type Locale } from "@/config/i18n"
 import { buildAlternates } from "@/lib/seo"
 
+export function generateStaticParams() {
+  return [{ locale: "en" }]
+}
+
 export function generateMetadata(): Metadata {
   return {
     title: "Contact",

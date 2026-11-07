@@ -8,6 +8,10 @@ import { getProducts } from "@/data/index"
 import { localePaths, isValidLocale, type Locale } from "@/config/i18n"
 import { buildAlternates } from "@/lib/seo"
 
+export function generateStaticParams() {
+  return [{ locale: "tr" }]
+}
+
 export function generateMetadata(): Metadata {
   return {
     title: "Ürünler",
