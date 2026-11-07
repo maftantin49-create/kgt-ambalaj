@@ -109,22 +109,6 @@ export default async function IletisimPage({
         </div>
       </section>
 
-      <section aria-label="Konum haritası" style={{ borderBottom: "1px solid var(--color-border)" }}>
-        <div className="w-full relative overflow-hidden" style={{ minHeight: "280px", background: "#EEECEA" }} aria-hidden="true">
-          <div className="absolute inset-0" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px)`, backgroundSize: "48px 48px" }} />
-          <div className="absolute inset-0" style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.7) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.7) 2px, transparent 2px)`, backgroundSize: "192px 192px" }} />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="flex flex-col items-center gap-2">
-              <div className="w-11 h-11 rounded-full flex items-center justify-center shadow-lg" style={{ background: "var(--color-accent)" }}>
-                <MapPin size={20} className="text-white" />
-              </div>
-              <span className="text-[11px] font-bold uppercase tracking-[0.14em] px-3 py-1.5 rounded-full" style={{ background: "rgba(255,255,255,0.9)", color: "var(--color-muted)", border: "1px solid var(--color-border)" }}>
-                GEÇİCİ — Harita
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   )
 }

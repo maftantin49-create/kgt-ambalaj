@@ -26,12 +26,12 @@ export const about: AboutData = {
       {
         icon: ShieldCheck,
         title: "Kalite Odaklı Üretim",
-        desc: "Her makine, endüstriyel kullanım koşullarını karşılayacak şekilde tasarlanır.",
+        desc: "Her makine, kullanım gereksinimlerine ve uygulama koşullarına göre yapılandırılır.",
       },
       {
         icon: Wrench,
         title: "Teknik Uzmanlık",
-        desc: "Ambalaj makineleri alanındaki birikimimizle projeleri başından sonuna yönetiyoruz.",
+        desc: "Proje gereksinimlerine göre teknik değerlendirme ve çözüm geliştirme sürecine odaklanıyoruz.",
       },
       {
         icon: Users,
@@ -51,7 +51,7 @@ export const about: AboutData = {
     heading: "Makine Üretim Sürecimiz",
     paragraphs: [
       "KGT Ambalaj, streç film sarma makinelerinden karton masura üretim hatlarına kadar geniş bir makine yelpazesi üretmektedir.",
-      "Her makine, kullanılacağı ortam ve kapasite gereksinimlerine göre yapılandırılır; montaj ve devreye alma süreçleri müşteri lokasyonunda gerçekleştirilir.",
+      "Her makine, kullanılacağı ortam ve kapasite gereksinimlerine göre yapılandırılır.",
     ],
     image: "/images/kgt/rewinding-workshop.webp",
   },

@@ -13,8 +13,8 @@ interface ContactFormProps {
 const strings = {
   tr: {
     title: "Teklif / Bilgi Talebi",
-    notConfigured: "İletişim formu yakında aktif olacak.",
-    notConfiguredSub: "Teklif veya bilgi almak için lütfen telefon ya da e-posta ile iletişime geçin.",
+    notConfigured: "Teklif ve bilgi talepleriniz için telefon üzerinden bizimle iletişime geçebilirsiniz.",
+    notConfiguredSub: "",
     successTitle: "Mesajınız İletildi",
     labelName: "Ad Soyad",
     placeholderName: "Ad Soyad",
@@ -32,8 +32,8 @@ const strings = {
   },
   en: {
     title: "Quote / Information Request",
-    notConfigured: "The contact form will be active soon.",
-    notConfiguredSub: "For a quote or information, please contact us by phone or email.",
+    notConfigured: "For quote and information requests, please contact us by phone.",
+    notConfiguredSub: "",
     successTitle: "Message Sent",
     labelName: "Full Name",
     placeholderName: "Full Name",
@@ -126,9 +126,11 @@ export default function ContactForm({ isConfigured, locale = "tr" }: ContactForm
           <p className="text-[14px] font-medium" style={{ color: "var(--color-text)" }}>
             {s.notConfigured}
           </p>
-          <p className="text-[13px] leading-relaxed max-w-[280px]" style={{ color: "var(--color-muted)" }}>
-            {s.notConfiguredSub}
-          </p>
+          {s.notConfiguredSub && (
+            <p className="text-[13px] leading-relaxed max-w-[280px]" style={{ color: "var(--color-muted)" }}>
+              {s.notConfiguredSub}
+            </p>
+          )}
         </div>
       )}
 

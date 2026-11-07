@@ -16,7 +16,7 @@ export const home: HomeData = {
     headingAccent: "Geleceğini",
     headingAfter: "Şekillendiriyoruz",
     description:
-      "Streç film ve alüminyum folyo sarma makineleri ile üretim hatlarınıza hız ve hassasiyet kazandırıyoruz.",
+      "Streç film, alüminyum folyo ve endüstriyel sarma çözümlerine yönelik makine sistemleri geliştiriyoruz.",
     primaryCta: { label: "Ürünleri İncele", href: "/tr/urunler" },
     secondaryCta: { label: "Teklif Al", href: "/tr/iletisim" },
     image: "/images/kgt/rewinding-workshop.webp",
@@ -97,7 +97,7 @@ export const home: HomeData = {
         icon: PackageCheck,
         title: "Üretim ve Teslimat",
         description:
-          "Onaylanan plana göre makine üretilir, montaj ve devreye alma gerçekleştirilir.",
+          "Onaylanan plana göre makine üretilir ve teslim edilir.",
       },
     ],
   },

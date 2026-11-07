@@ -16,7 +16,7 @@ export const home: HomeData = {
     headingAccent: "Future",
     headingAfter: "of Packaging",
     description:
-      "Stretch film and aluminium foil rewinding machines that bring speed and precision to your production lines.",
+      "Machine systems for stretch film, aluminium foil, and industrial rewinding applications.",
     primaryCta: { label: "Explore Products", href: "/en/products" },
     secondaryCta: { label: "Get a Quote", href: "/en/contact" },
     image: "/images/kgt/rewinding-workshop.webp",
@@ -97,7 +97,7 @@ export const home: HomeData = {
         icon: PackageCheck,
         title: "Production & Delivery",
         description:
-          "The machine is manufactured to the approved plan, with installation and commissioning on-site.",
+          "The machine is manufactured to the approved plan and delivered.",
       },
     ],
   },

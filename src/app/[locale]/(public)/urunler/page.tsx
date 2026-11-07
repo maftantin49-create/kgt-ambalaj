@@ -112,7 +112,7 @@ export default async function UrunlerPage({
                   Doğru ürünü bulmakta yardım ister misiniz?
                 </h2>
                 <p className="text-[13px] leading-relaxed" style={{ color: "var(--color-muted)" }}>
-                  Teknik danışmanlık ve ürün seçimi konularında uzman ekibimizle iletişime geçin.
+                  Teknik danışmanlık ve ürün seçimi konularında bizimle iletişime geçin.
                 </p>
               </div>
               <Link

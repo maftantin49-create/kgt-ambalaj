@@ -26,12 +26,12 @@ export const about: AboutData = {
       {
         icon: ShieldCheck,
         title: "Quality-Focused Manufacturing",
-        desc: "Every machine is designed to meet the demands of industrial operating conditions.",
+        desc: "Every machine is configured according to its application and capacity requirements.",
       },
       {
         icon: Wrench,
         title: "Technical Expertise",
-        desc: "We manage projects from start to finish with experience in packaging machinery.",
+        desc: "We focus on technical assessment and solution development based on project requirements.",
       },
       {
         icon: Users,
@@ -51,7 +51,7 @@ export const about: AboutData = {
     heading: "Our Machine Manufacturing Process",
     paragraphs: [
       "KGT Ambalaj produces a broad range of machines, from stretch film rewinding machines to cardboard core production lines.",
-      "Every machine is configured to the environment and capacity requirements of its application; installation and commissioning are carried out at the customer's site.",
+      "Every machine is configured to the environment and capacity requirements of its application.",
     ],
     image: "/images/kgt/rewinding-workshop.webp",
   },

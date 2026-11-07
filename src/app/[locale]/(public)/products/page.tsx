@@ -78,7 +78,7 @@ export default async function ProductsPage({
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 flex-1">
               <div className="flex flex-col gap-1">
                 <h2 id="product-support-heading" className="font-bold text-[16px]" style={{ color: "var(--color-text)" }}>Need help finding the right machine?</h2>
-                <p className="text-[13px] leading-relaxed" style={{ color: "var(--color-muted)" }}>Our team provides technical consulting and product selection support.</p>
+                <p className="text-[13px] leading-relaxed" style={{ color: "var(--color-muted)" }}>Contact us for technical consulting and product selection support.</p>
               </div>
               <Link href={p.contact} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-[13px] font-semibold text-white transition-opacity hover:opacity-90 shrink-0" style={{ background: "var(--color-accent)" }}>
                 Get a Quote
