@@ -1,5 +1,5 @@
 import type { Locale } from "@/config/i18n"
-import type { HomeData, AboutData, ProductCategory, Sector } from "@/data/types"
+import type { HomeData, AboutData, ProductCategory, Sector, KnowledgeArticle } from "@/data/types"
 
 import { home as homeTr } from "@/data/tr/home"
 import { home as homeEn } from "@/data/en/home"
@@ -9,6 +9,8 @@ import { productCategories as productsTr } from "@/data/tr/products"
 import { productCategories as productsEn } from "@/data/en/products"
 import { sectors as sectorsTr } from "@/data/tr/sectors"
 import { sectors as sectorsEn } from "@/data/en/sectors"
+import { knowledgeArticles as knowledgeTr } from "@/data/tr/knowledge"
+import { knowledgeArticles as knowledgeEn } from "@/data/en/knowledge"
 
 export function getHomeData(locale: Locale): HomeData {
   return locale === "en" ? homeEn : homeTr
@@ -24,4 +26,9 @@ export function getProducts(locale: Locale): ProductCategory[] {
 
 export function getSectors(locale: Locale): Sector[] {
   return locale === "en" ? sectorsEn : sectorsTr
+}
+
+// Gelecek: /tr/bilgi-merkezi/ ve /en/knowledge/ — henüz sayfa yok
+export function getKnowledge(locale: Locale): KnowledgeArticle[] {
+  return locale === "en" ? knowledgeEn : knowledgeTr
 }

@@ -16,7 +16,7 @@ export default async function PublicLayout({
   return (
     <>
       <Header locale={safeLocale} />
-      <main className="flex-1">
+      <main className="flex-1 overflow-x-hidden">
         <PageTransition>{children}</PageTransition>
       </main>
       <Footer locale={safeLocale} />

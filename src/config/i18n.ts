@@ -33,6 +33,11 @@ export const localePaths: Record<Locale, LocaleRoutes> = {
   },
 }
 
+// ── Gelecek rotalar (henüz sayfa bileşeni yok) ───────────────────────────────
+// TR: /tr/sektorler/   EN: /en/industries/
+// TR: /tr/bilgi-merkezi/   EN: /en/knowledge/
+// ─────────────────────────────────────────────────────────────────────────────
+
 // Eşdeğer locale route mapping — language switch için
 const trToEnMap: Record<string, string> = {
   "/tr":              "/en",

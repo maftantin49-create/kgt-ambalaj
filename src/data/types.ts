@@ -138,3 +138,14 @@ export interface Sector {
   description: string
   icon: LucideIcon
 }
+
+// ── Knowledge (bilgi merkezi) — future route: /tr/bilgi-merkezi/, /en/knowledge/ ──
+
+export interface KnowledgeArticle {
+  id: string
+  slug: string
+  title: string
+  summary: string
+  publishedAt?: string
+  image?: string
+}

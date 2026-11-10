@@ -44,7 +44,7 @@ export default function CtaBanner({ locale }: { locale: Locale }) {
 
           <h2
             id="cta-heading"
-            className="font-black leading-tight tracking-tight text-white"
+            className="font-black leading-tight tracking-tight text-white text-balance"
             style={{ fontSize: "clamp(28px, 3.6vw, 52px)" }}
           >
             {ctaBanner.heading}
