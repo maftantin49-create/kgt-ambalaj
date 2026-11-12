@@ -59,11 +59,11 @@ export function getAlternatePath(pathname: string): string {
 
   // Product detail: /tr/urunler/[tr-slug] ↔ /en/products/[en-slug]
   if (pathname.startsWith("/tr/urunler/")) {
-    const trSlug = pathname.slice("/tr/urunler/".length)
+    const trSlug = pathname.slice("/tr/urunler/".length).replace(/\/$/, "")
     return "/en/products/" + (trToEnSlug[trSlug] ?? trSlug)
   }
   if (pathname.startsWith("/en/products/")) {
-    const enSlug = pathname.slice("/en/products/".length)
+    const enSlug = pathname.slice("/en/products/".length).replace(/\/$/, "")
     return "/tr/urunler/" + (enToTrSlug[enSlug] ?? enSlug)
   }
 

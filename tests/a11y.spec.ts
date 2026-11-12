@@ -135,24 +135,16 @@ const axePages = [
   { name: "TR product detail",url: TR_ROUTES.productDetails[0] },
 ]
 
-// BUG-003: LanguageSwitch renders <a aria-label="Switch to English">EN</a>
-// WCAG 2.5.3 (label-content-name-mismatch): accessible name must START with visible text.
-// "Switch to English" does not start with "EN".
-// Fix: change aria-label to "EN – Switch to English" / "TR – Switch to Türkçe"
-// in src/components/layout/LanguageSwitch.tsx
-test.fail(
-  "axe BUG-003: LanguageSwitch label-content-name-mismatch (WCAG 2.5.3)",
-  async ({ page }) => {
-    await page.goto("/tr/")
-    const results = await new AxeBuilder({ page })
-      .exclude("#__next-build-watcher")
-      .exclude("#__next-route-announcer")
-      .disableRules(["color-contrast"])
-      .withRules(["label-content-name-mismatch"])
-      .analyze()
-    expect(results.violations).toHaveLength(0)
-  }
-)
+test("axe: LanguageSwitch no label-content-name-mismatch (WCAG 2.5.3)", async ({ page }) => {
+  await page.goto("/tr/")
+  const results = await new AxeBuilder({ page })
+    .exclude("#__next-build-watcher")
+    .exclude("#__next-route-announcer")
+    .disableRules(["color-contrast"])
+    .withRules(["label-content-name-mismatch"])
+    .analyze()
+  expect(results.violations).toHaveLength(0)
+})
 
 for (const pg of axePages) {
   test(`axe: ${pg.name} — no critical violations`, async ({ page }) => {
@@ -161,8 +153,7 @@ for (const pg of axePages) {
       .exclude("#__next-build-watcher")
       .exclude("#__next-route-announcer")
       // Colour contrast: CSS vars may not resolve to real hex values in axe
-      // BUG-003: label-content-name-mismatch tracked separately above
-      .disableRules(["color-contrast", "label-content-name-mismatch"])
+      .disableRules(["color-contrast"])
       .analyze()
 
     const critical = results.violations.filter(

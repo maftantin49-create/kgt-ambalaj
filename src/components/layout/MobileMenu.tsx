@@ -31,7 +31,7 @@ export default function MobileMenu({ navLinks, ctaLabel, ctaHref }: MobileMenuPr
   return (
     <>
       <button
-        className="md:hidden p-2 rounded-md transition-colors hover:bg-[var(--color-surface)]"
+        className="md:hidden relative z-50 p-2 rounded-md transition-colors hover:bg-[var(--color-surface)]"
         style={{ color: "var(--color-muted)" }}
         aria-label={isOpen ? "Menüyü kapat" : "Menüyü aç"}
         aria-expanded={isOpen}

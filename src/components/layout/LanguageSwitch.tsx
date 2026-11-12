@@ -20,7 +20,7 @@ export default function LanguageSwitch({ locale }: { locale: Locale }) {
       <span className="mx-1 opacity-30" aria-hidden="true">|</span>
       <Link
         href={alternatePath}
-        aria-label={`Switch to ${altLocale === "en" ? "English" : "Türkçe"}`}
+        aria-label={`${altLocale.toUpperCase()} – ${altLocale === "en" ? "Switch to English" : "Switch to Türkçe"}`}
         className="transition-opacity hover:opacity-75"
         style={{ color: "var(--color-muted)" }}
       >

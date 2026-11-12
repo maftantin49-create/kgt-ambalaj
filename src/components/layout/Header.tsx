@@ -36,7 +36,7 @@ export default function Header({ locale }: { locale: Locale }) {
   const ctaHref  = localePaths[locale].contact
 
   return (
-    <header className="w-full">
+    <header className="relative z-50 w-full">
 
       {/* ── Üst bilgi çubuğu ────────────────────────────────────── */}
       <div

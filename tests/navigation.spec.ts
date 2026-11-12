@@ -60,7 +60,7 @@ test("EN product detail: Products nav link is aria-current=page", async ({ page 
 
 test("Language switch TR→EN from home", async ({ page }) => {
   await page.goto(TR_ROUTES.home)
-  const switchLink = page.locator('a[aria-label="Switch to English"]').first()
+  const switchLink = page.locator('a[aria-label="EN – Switch to English"]').first()
   await expect(switchLink).toBeVisible()
   await switchLink.click()
   await expect(page).toHaveURL(EN_ROUTES.home)
@@ -68,47 +68,27 @@ test("Language switch TR→EN from home", async ({ page }) => {
 
 test("Language switch EN→TR from home", async ({ page }) => {
   await page.goto(EN_ROUTES.home)
-  const switchLink = page.locator('a[aria-label="Switch to Türkçe"]').first()
+  const switchLink = page.locator('a[aria-label="TR – Switch to Türkçe"]').first()
   await expect(switchLink).toBeVisible()
   await switchLink.click()
   await expect(page).toHaveURL(TR_ROUTES.home)
 })
 
-// BUG-001: getAlternatePath strips trailing slash from slug but lookup map has
-// no trailing-slash keys, so it falls back to the source-locale slug.
-// strec-film-sarma-makineleri/ → lookup undefined → /en/products/strec-film-sarma-makineleri/
-// Fix needed in src/config/i18n.ts: trim trailing slash before slug lookup.
-// BUG-001: getAlternatePath strips trailing slash from slug but lookup map has
-// no trailing-slash keys, so it falls back to the source-locale slug.
-// strec-film-sarma-makineleri/ → lookup undefined → /en/products/strec-film-sarma-makineleri/
-// Fix needed in src/config/i18n.ts: trim trailing slash before slug lookup.
-// BUG-001: getAlternatePath in src/config/i18n.ts doesn't strip trailing slash
-// before slug lookup. trailingSlash:true means usePathname() returns
-// "/tr/urunler/strec-film-sarma-makineleri/" → slug extracted with trailing "/"
-// → trToEnSlug["strec-film-sarma-makineleri/"] === undefined → falls back to TR slug.
-// Fix: add .replace(/\/$/, "") before the slug map lookup in getAlternatePath.
-// test.fail() = expected to fail until BUG-001 is fixed. Remove test.fail() after fix.
-test.fail(
-  "Language switch TR→EN from product detail preserves equivalent slug [BUG-001]",
-  async ({ page }) => {
-    await page.goto(TR_ROUTES.productDetails[0])
-    const switchLink = page.locator('a[aria-label="Switch to English"]').first()
-    await switchLink.click()
-    await page.waitForURL(/\/en\/products\//, { timeout: 5000 })
-    await expect(page).toHaveURL("/en/products/stretch-film-rewinding-machines/")
-  }
-)
+test("Language switch TR→EN from product detail preserves equivalent slug", async ({ page }) => {
+  await page.goto(TR_ROUTES.productDetails[0])
+  const switchLink = page.locator('a[aria-label="EN – Switch to English"]').first()
+  await switchLink.click()
+  await page.waitForURL(/\/en\/products\//, { timeout: 5000 })
+  await expect(page).toHaveURL("/en/products/stretch-film-rewinding-machines/")
+})
 
-test.fail(
-  "Language switch EN→TR from product detail preserves equivalent slug [BUG-001]",
-  async ({ page }) => {
-    await page.goto(EN_ROUTES.productDetails[0])
-    const switchLink = page.locator('a[aria-label="Switch to Türkçe"]').first()
-    await switchLink.click()
-    await page.waitForURL(/\/tr\/urunler\//, { timeout: 5000 })
-    await expect(page).toHaveURL("/tr/urunler/strec-film-sarma-makineleri/")
-  }
-)
+test("Language switch EN→TR from product detail preserves equivalent slug", async ({ page }) => {
+  await page.goto(EN_ROUTES.productDetails[0])
+  const switchLink = page.locator('a[aria-label="TR – Switch to Türkçe"]').first()
+  await switchLink.click()
+  await page.waitForURL(/\/tr\/urunler\//, { timeout: 5000 })
+  await expect(page).toHaveURL("/tr/urunler/strec-film-sarma-makineleri/")
+})
 
 // ─── Mobile menu ──────────────────────────────────────────────────────────────
 
@@ -126,17 +106,12 @@ test.describe("Mobile menu", () => {
     await expect(openedBtn).toHaveAttribute("aria-label", "Menüyü kapat")
   })
 
-  // BUG-002: Mobile menu close button is intercepted by the backdrop div (z-40 fixed).
-  // Header has no z-index, so backdrop covers the trigger button.
-  // Workaround: Escape key (passes) and backdrop click (passes).
-  // Fix: add z-50 (or higher) to the header, or raise trigger above backdrop.
-  test("closes on X button click [BUG-002: backdrop intercepts]", async ({ page }) => {
+  test("closes on X button click", async ({ page }) => {
     await page.goto(TR_ROUTES.home)
     await page.locator('button[aria-label="Menüyü aç"]').click()
     await expect(page.locator('nav[aria-label="Mobil navigasyon"]')).toBeVisible()
-    // force: true bypasses the backdrop intercept to test the button itself
     const closeBtn = page.locator('button[aria-label="Menüyü kapat"]')
-    await closeBtn.click({ force: true })
+    await closeBtn.click()
     await expect(page.locator('nav[aria-label="Mobil navigasyon"]')).not.toBeVisible()
   })
 
