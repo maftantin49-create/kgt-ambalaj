@@ -1,5 +1,4 @@
 import type { AboutData } from "@/data/types"
-import { ShieldCheck, Wrench, Users, Lightbulb } from "lucide-react"
 
 export const about: AboutData = {
   heroHeading: "KGT Ambalaj Hakkında",
@@ -24,22 +23,18 @@ export const about: AboutData = {
       "Her projede güvenilir, teknik olarak doğru ve uygulanabilir çözümler üretiyoruz.",
     items: [
       {
-        icon: ShieldCheck,
         title: "Kalite Odaklı Üretim",
         desc: "Her makine, kullanım gereksinimlerine ve uygulama koşullarına göre yapılandırılır.",
       },
       {
-        icon: Wrench,
         title: "Teknik Uzmanlık",
         desc: "Proje gereksinimlerine göre teknik değerlendirme ve çözüm geliştirme sürecine odaklanıyoruz.",
       },
       {
-        icon: Users,
         title: "Müşteri Odaklılık",
         desc: "Proje gereksinimlerinizi dinler, üretim hattınıza uygun çözüm geliştiririz.",
       },
       {
-        icon: Lightbulb,
         title: "Çözüm Geliştirme",
         desc: "Üretim hattı ihtiyaçlarınıza yönelik, uygulanabilir çözümler tasarlıyoruz.",
       },

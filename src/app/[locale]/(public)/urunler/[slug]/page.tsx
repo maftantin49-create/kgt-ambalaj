@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
-import { ArrowLeft, ArrowRight, ChevronRight, Package } from "lucide-react"
+import { ArrowLeft, ArrowRight, ChevronRight } from "lucide-react"
 import SectionHeader from "@/components/ui/SectionHeader"
 import { getProducts } from "@/data/index"
 import { localePaths, isValidLocale, type Locale } from "@/config/i18n"
@@ -87,22 +87,14 @@ export default async function UrunDetayPage({
       </section>
 
       {/* 2. Görsel + özellikler */}
-      <section aria-labelledby="product-detail-heading" style={{ background: "var(--background)", borderBottom: "1px solid var(--color-border)" }}>
+      <section style={{ background: "var(--background)", borderBottom: "1px solid var(--color-border)" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="relative rounded-2xl overflow-hidden w-full" style={{ aspectRatio: "4/3" }} aria-hidden={category.image ? undefined : true}>
+            <div className="relative rounded-lg overflow-hidden w-full" style={{ aspectRatio: "4/3" }}>
               {category.image ? (
-                <Image src={category.image} alt={category.name} fill className="object-cover rounded-2xl" sizes="(max-width: 1024px) 100vw, 50vw" />
+                <Image src={category.image} alt={category.name} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
               ) : (
-                <>
-                  <div className="absolute inset-0" style={{ background: "#1E1E1C" }} />
-                  <div className="absolute inset-0" style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)`, backgroundSize: "32px 32px" }} />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-14 h-14 rounded-xl flex items-center justify-center" style={{ background: "rgba(200,38,26,0.10)", border: "1px solid rgba(200,38,26,0.22)" }}>
-                      <Package size={26} style={{ color: "var(--color-accent)" }} />
-                    </div>
-                  </div>
-                </>
+                <div className="absolute inset-0" style={{ background: "#1E1E1C" }} />
               )}
             </div>
 
@@ -120,7 +112,7 @@ export default async function UrunDetayPage({
                   </ul>
                 </>
               )}
-              <Link href={p.contact} className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg text-[14px] font-semibold text-white transition-opacity hover:opacity-90 self-start" style={{ background: "var(--color-accent)" }}>
+              <Link href={p.contact} className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-[14px] font-semibold text-white transition-opacity hover:opacity-90 self-start" style={{ background: "var(--color-accent)" }}>
                 Teklif Al
                 <ArrowRight size={15} aria-hidden="true" />
               </Link>
@@ -254,7 +246,7 @@ export default async function UrunDetayPage({
               <ArrowLeft size={14} aria-hidden="true" />
               Tüm Ürünler
             </Link>
-            <Link href={p.contact} className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-[14px] font-semibold text-white transition-opacity hover:opacity-90" style={{ background: "var(--color-accent)" }}>
+            <Link href={p.contact} className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-[14px] font-semibold text-white transition-opacity hover:opacity-90" style={{ background: "var(--color-accent)" }}>
               Teklif Al
               <ArrowRight size={14} aria-hidden="true" />
             </Link>

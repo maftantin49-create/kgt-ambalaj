@@ -25,46 +25,38 @@ export default function SectorsSection({ locale }: { locale: Locale }) {
           />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {sectors.map((sector) => {
-            const Icon = sector.icon
-            return (
+        <div
+          className="grid grid-cols-1 sm:grid-cols-3"
+          style={{ borderTop: "1px solid var(--color-border)" }}
+        >
+          {sectors.map((sector, i) => (
+            <div
+              key={sector.id}
+              className="flex flex-col gap-3 py-7 sm:px-8 sm:[&:not(:last-child)]:border-r"
+              style={{
+                borderColor: "var(--color-border)",
+                borderTop: i > 0 ? "1px solid var(--color-border)" : undefined,
+              }}
+            >
               <div
-                key={sector.id}
-                className="flex items-start gap-4 p-5 rounded-xl"
-                style={{
-                  border: "1px solid var(--color-border)",
-                  background: "var(--color-surface)",
-                }}
+                className="w-5 h-px"
+                style={{ background: "var(--color-accent)" }}
+                aria-hidden="true"
+              />
+              <h3
+                className="font-bold text-[16px] leading-snug"
+                style={{ color: "var(--color-text)" }}
               >
-                <div
-                  className="shrink-0 w-10 h-10 rounded-lg flex items-center justify-center mt-0.5"
-                  style={{
-                    background: "rgba(200,38,26,0.06)",
-                    border: "1px solid rgba(200,38,26,0.14)",
-                  }}
-                  aria-hidden="true"
-                >
-                  <Icon size={18} style={{ color: "var(--color-accent)" }} />
-                </div>
-
-                <div className="flex flex-col gap-1 min-w-0">
-                  <span
-                    className="text-[15px] font-semibold leading-snug"
-                    style={{ color: "var(--color-text)" }}
-                  >
-                    {sector.name}
-                  </span>
-                  <span
-                    className="text-[13px] leading-relaxed"
-                    style={{ color: "var(--color-muted)" }}
-                  >
-                    {sector.description}
-                  </span>
-                </div>
-              </div>
-            )
-          })}
+                {sector.name}
+              </h3>
+              <p
+                className="text-[13px] leading-relaxed"
+                style={{ color: "var(--color-muted)" }}
+              >
+                {sector.description}
+              </p>
+            </div>
+          ))}
         </div>
 
       </div>

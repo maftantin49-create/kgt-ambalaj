@@ -66,7 +66,6 @@ export interface HomeData {
 // ── About ────────────────────────────────────────────────────────────────────
 
 export interface AboutValue {
-  icon: LucideIcon
   title: string
   desc: string
 }
@@ -134,7 +133,6 @@ export interface Sector {
   id: string
   name: string
   description: string
-  icon: LucideIcon
 }
 
 // ── Knowledge (bilgi merkezi) — future route: /tr/bilgi-merkezi/, /en/knowledge/ ──
