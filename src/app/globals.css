@@ -32,6 +32,27 @@ body {
   border-radius: 4px;
 }
 
+/* ── Skip to main content ───────────────────────────────────────────────── */
+.skip-to-main {
+  position: absolute;
+  top: -100%;
+  left: 1.5rem;
+  z-index: 999;
+  padding: 0.4rem 1rem;
+  background: var(--color-accent);
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 0 0 6px 6px;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+.skip-to-main:focus {
+  top: 0;
+  outline: 2px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
 /* ── Page transition ─────────────────────────────────────────────────────── */
 @keyframes catalogue-enter {
   from { opacity: 0; transform: translateY(10px); }

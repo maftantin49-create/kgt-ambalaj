@@ -12,11 +12,9 @@ export const home: HomeData = {
 
   hero: {
     eyebrow: "Packaging Machinery",
-    headingBefore: "Shaping the",
-    headingAccent: "Future",
-    headingAfter: "of Packaging",
+    heading: "Stretch Film. Aluminium Foil. Paper Slitting.",
     description:
-      "Machine systems for stretch film, aluminium foil, and industrial rewinding applications.",
+      "We design and manufacture industrial rewinding and slitting machinery.",
     primaryCta: { label: "Explore Products", href: "/en/products" },
     secondaryCta: { label: "Get a Quote", href: "/en/contact" },
     image: "/images/kgt/rewinding-workshop.webp",

@@ -11,7 +11,7 @@ export default function HowItWorks({ locale }: { locale: Locale }) {
     <section
       aria-labelledby="how-it-works-heading"
       style={{
-        background: "var(--background)",
+        background: "var(--color-surface)",
         borderBottom: "1px solid var(--color-border)",
       }}
     >
@@ -23,44 +23,30 @@ export default function HowItWorks({ locale }: { locale: Locale }) {
             heading={howItWorks.heading}
             headingId="how-it-works-heading"
             description={howItWorks.description}
-            align="center"
           />
         </div>
 
         <ol
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px rounded-xl overflow-hidden"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px"
           style={{ background: "var(--color-border)" }}
         >
-          {howItWorks.steps.map(({ number, title, description, icon: Icon }) => (
+          {howItWorks.steps.map(({ number, title, description }) => (
             <li
               key={number}
-              className="flex flex-col gap-5 p-7 lg:p-8"
-              style={{ background: "var(--background)" }}
+              className="flex flex-col gap-4 p-7 lg:p-8"
+              style={{ background: "var(--color-surface)" }}
             >
-              <div className="flex items-center justify-between">
-                <span
-                  className="font-black leading-none select-none"
-                  style={{
-                    fontSize: "clamp(28px, 3vw, 40px)",
-                    color: "rgba(200,38,26,0.15)",
-                    letterSpacing: "-0.02em",
-                  }}
-                  aria-hidden="true"
-                >
-                  {number}
-                </span>
-                <div
-                  className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
-                  style={{
-                    background: "var(--color-surface)",
-                    border: "1px solid var(--color-border)",
-                  }}
-                  aria-hidden="true"
-                >
-                  <Icon size={17} style={{ color: "var(--color-accent)" }} />
-                </div>
-              </div>
-
+              <span
+                className="font-black leading-none select-none"
+                style={{
+                  fontSize: "clamp(40px, 4vw, 60px)",
+                  color: "var(--color-border)",
+                  letterSpacing: "-0.04em",
+                }}
+                aria-hidden="true"
+              >
+                {number}
+              </span>
               <div className="flex flex-col gap-2">
                 <h3
                   className="font-bold text-[15px] leading-snug"

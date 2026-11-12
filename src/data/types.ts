@@ -17,10 +17,8 @@ export interface WorkStep {
 
 export interface HomeData {
   hero: {
-    eyebrow: string
-    headingBefore: string
-    headingAccent: string
-    headingAfter: string
+    eyebrow?: string
+    heading: string
     description: string
     primaryCta: { label: string; href: string }
     secondaryCta: { label: string; href: string }

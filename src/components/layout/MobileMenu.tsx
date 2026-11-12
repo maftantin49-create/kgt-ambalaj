@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Phone } from "lucide-react"
+import { site } from "@/config/site"
 
 interface NavLink {
   href: string
@@ -80,13 +81,24 @@ export default function MobileMenu({ navLinks, ctaLabel, ctaHref }: MobileMenuPr
               ))}
 
               <div
-                className="pt-3 pb-1 mt-2"
+                className="flex flex-col gap-2 pt-3 pb-1 mt-2"
                 style={{ borderTop: "1px solid var(--color-border)" }}
               >
+                {site.phone && (
+                  <a
+                    href={`tel:${site.phone}`}
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[14px] font-medium transition-colors hover:bg-[var(--color-surface)]"
+                    style={{ color: "var(--color-muted)" }}
+                  >
+                    <Phone size={15} aria-hidden="true" />
+                    {site.phoneDisplay}
+                  </a>
+                )}
                 <Link
                   href={ctaHref}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center w-full px-5 py-3 rounded-lg text-[14px] font-semibold text-white"
+                  className="flex items-center justify-center w-full px-5 py-3 rounded-md text-[14px] font-semibold text-white"
                   style={{ background: "var(--color-accent)" }}
                 >
                   {ctaLabel}

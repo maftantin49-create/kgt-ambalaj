@@ -1,7 +1,8 @@
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Phone } from "lucide-react"
 import { getHomeData } from "@/data/index"
 import { localePaths, type Locale } from "@/config/i18n"
+import { site } from "@/config/site"
 
 export default function CtaBanner({ locale }: { locale: Locale }) {
   const { ctaBanner } = getHomeData(locale)
@@ -10,26 +11,9 @@ export default function CtaBanner({ locale }: { locale: Locale }) {
   return (
     <section
       aria-labelledby="cta-heading"
-      className="relative overflow-hidden"
       style={{ background: "#1A1A18" }}
     >
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)
-          `,
-          backgroundSize: "40px 40px",
-        }}
-        aria-hidden="true"
-      />
-      <div className="absolute top-0 left-0 w-24 h-0.5" style={{ background: "var(--color-accent)" }} aria-hidden="true" />
-      <div className="absolute top-0 left-0 w-0.5 h-24" style={{ background: "var(--color-accent)" }} aria-hidden="true" />
-      <div className="absolute bottom-0 right-0 w-24 h-0.5" style={{ background: "var(--color-accent)" }} aria-hidden="true" />
-      <div className="absolute bottom-0 right-0 w-0.5 h-24" style={{ background: "var(--color-accent)" }} aria-hidden="true" />
-
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
         <div className="max-w-2xl mx-auto flex flex-col items-center text-center gap-6">
 
           {ctaBanner.eyebrow && (
@@ -59,24 +43,25 @@ export default function CtaBanner({ locale }: { locale: Locale }) {
           <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
             <Link
               href={p.contact}
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-[14px] text-white transition-opacity hover:opacity-90"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-md font-semibold text-[14px] text-white transition-opacity hover:opacity-90"
               style={{ background: "var(--color-accent)" }}
             >
               {ctaBanner.primaryCta.label}
               <ArrowRight size={15} aria-hidden="true" />
             </Link>
 
-            {ctaBanner.secondaryCta && (
-              <Link
-                href={p.products}
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-[14px] transition-colors hover:bg-white/10"
+            {site.phone && (
+              <a
+                href={`tel:${site.phone}`}
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-md font-semibold text-[14px] transition-colors hover:bg-white/10"
                 style={{
                   color: "rgba(255,255,255,0.80)",
                   border: "1px solid rgba(255,255,255,0.18)",
                 }}
               >
-                {ctaBanner.secondaryCta.label}
-              </Link>
+                <Phone size={14} aria-hidden="true" />
+                {site.phoneDisplay}
+              </a>
             )}
           </div>
 

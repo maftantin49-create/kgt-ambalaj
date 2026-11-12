@@ -13,10 +13,13 @@ export default async function PublicLayout({
   const { locale } = await params
   const safeLocale: Locale = isValidLocale(locale) ? locale : "tr"
 
+  const skipLabel = safeLocale === "tr" ? "Ana içeriğe geç" : "Skip to main content"
+
   return (
     <>
+      <a href="#main-content" className="skip-to-main">{skipLabel}</a>
       <Header locale={safeLocale} />
-      <main className="flex-1 overflow-x-hidden">
+      <main id="main-content" className="flex-1 overflow-x-hidden">
         <PageTransition>{children}</PageTransition>
       </main>
       <Footer locale={safeLocale} />

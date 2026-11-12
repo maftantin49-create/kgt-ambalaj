@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Phone, Mail } from "lucide-react"
 import MobileMenu from "@/components/layout/MobileMenu"
 import LanguageSwitch from "@/components/layout/LanguageSwitch"
+import NavLinksDesktop from "@/components/layout/NavLinksDesktop"
 import { site } from "@/config/site"
 import { localePaths, type Locale } from "@/config/i18n"
 
@@ -93,18 +94,10 @@ export default function Header({ locale }: { locale: Locale }) {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1" aria-label={locale === "tr" ? "Ana menü" : "Main navigation"}>
-            {navLinks.map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                className="px-3 py-2 rounded-md text-[14px] font-medium transition-colors hover:bg-surface hover:text-text"
-                style={{ color: "var(--color-muted)" }}
-              >
-                {label}
-              </Link>
-            ))}
-          </nav>
+          <NavLinksDesktop
+            navLinks={navLinks}
+            ariaLabel={locale === "tr" ? "Ana menü" : "Main navigation"}
+          />
 
           {/* CTA + lang switch (mobile) + mobile menu trigger */}
           <div className="flex items-center gap-3">

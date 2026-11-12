@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Building2 } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import SectionHeader from "@/components/ui/SectionHeader"
 import { getHomeData } from "@/data/index"
 import { localePaths, type Locale } from "@/config/i18n"
@@ -55,51 +55,22 @@ export default function AboutTeaser({ locale }: { locale: Locale }) {
 
           {/* Sağ: görsel alanı */}
           <div
-            className="relative rounded-2xl overflow-hidden w-full"
+            className="relative rounded-lg overflow-hidden w-full"
             style={{ aspectRatio: "4/3" }}
-            aria-hidden={aboutTeaser.image ? undefined : true}
           >
             {aboutTeaser.image ? (
               <Image
                 src={aboutTeaser.image}
-                alt=""
+                alt={locale === "tr" ? "KGT Ambalaj üretim hattı" : "KGT Ambalaj production line"}
                 fill
-                className="object-cover rounded-2xl"
+                className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             ) : (
-              <>
-                <div className="absolute inset-0" style={{ background: "#1E1E1C" }} />
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage: `
-                      linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)
-                    `,
-                    backgroundSize: "32px 32px",
-                  }}
-                />
-                <div
-                  className="absolute bottom-0 right-0 w-14 h-0.5"
-                  style={{ background: "var(--color-accent)" }}
-                />
-                <div
-                  className="absolute bottom-0 right-0 w-0.5 h-14"
-                  style={{ background: "var(--color-accent)" }}
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div
-                    className="w-14 h-14 rounded-xl flex items-center justify-center"
-                    style={{
-                      background: "rgba(200,38,26,0.10)",
-                      border: "1px solid rgba(200,38,26,0.22)",
-                    }}
-                  >
-                    <Building2 size={26} style={{ color: "var(--color-accent)" }} />
-                  </div>
-                </div>
-              </>
+              <div
+                className="absolute inset-0"
+                style={{ background: "#1E1E1C" }}
+              />
             )}
           </div>
 

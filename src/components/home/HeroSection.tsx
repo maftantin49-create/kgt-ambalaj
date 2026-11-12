@@ -1,12 +1,17 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Package } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { getHomeData } from "@/data/index"
 import { localePaths, type Locale } from "@/config/i18n"
 
 export default function HeroSection({ locale }: { locale: Locale }) {
   const hero = getHomeData(locale).hero
   const p = localePaths[locale]
+
+  const imgAlt =
+    locale === "tr"
+      ? "KGT Ambalaj üretim atölyesi — sarma makineleri"
+      : "KGT Ambalaj production workshop — rewinding machines"
 
   return (
     <section
@@ -17,53 +22,33 @@ export default function HeroSection({ locale }: { locale: Locale }) {
       }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_460px] xl:grid-cols-[1fr_520px] gap-10 lg:gap-16 py-16 lg:py-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_460px] xl:grid-cols-[1fr_520px] gap-8 lg:gap-14 py-12 lg:py-20 items-center">
 
-          {/* ── Sol: İçerik ───────────────────────────────────────── */}
+          {/* ── Metin ─────────────────────────────────────────────── */}
           <div className="flex flex-col gap-6">
 
             {hero.eyebrow && (
-              <div
-                className="inline-flex items-center gap-2 w-fit px-3.5 py-1.5 rounded-full"
-                style={{
-                  background: "rgba(200,38,26,0.06)",
-                  border: "1px solid rgba(200,38,26,0.18)",
-                }}
+              <p
+                className="text-[11px] font-bold uppercase tracking-[0.18em]"
+                style={{ color: "var(--color-accent)" }}
               >
-                <span
-                  className="w-1.5 h-1.5 rounded-full shrink-0"
-                  style={{ background: "var(--color-accent)" }}
-                  aria-hidden="true"
-                />
-                <span
-                  className="text-[11px] font-bold uppercase tracking-[0.18em]"
-                  style={{ color: "var(--color-accent)" }}
-                >
-                  {hero.eyebrow}
-                </span>
-              </div>
+                {hero.eyebrow}
+              </p>
             )}
 
             <h1
-              className="font-black leading-[1.08] tracking-tight"
+              className="font-black leading-[1.06] tracking-tight"
               style={{
                 color: "var(--color-text)",
-                fontSize: "clamp(32px, 4.5vw, 58px)",
+                fontSize: "clamp(30px, 4.2vw, 56px)",
               }}
             >
-              {hero.headingBefore && <>{hero.headingBefore}{" "}</>}
-              <span style={{ color: "var(--color-accent)" }}>{hero.headingAccent}</span>
-              {hero.headingAfter && (
-                <>
-                  <br />
-                  {hero.headingAfter}
-                </>
-              )}
+              {hero.heading}
             </h1>
 
             {hero.description && (
               <p
-                className="text-[15px] lg:text-[16px] leading-[1.8] max-w-[500px]"
+                className="text-[15px] lg:text-[16px] leading-[1.75] max-w-[480px]"
                 style={{ color: "var(--color-muted)" }}
               >
                 {hero.description}
@@ -73,11 +58,8 @@ export default function HeroSection({ locale }: { locale: Locale }) {
             <div className="flex flex-wrap gap-3 items-center">
               <Link
                 href={p.products}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-[14px] text-white transition-opacity hover:opacity-90 active:scale-[0.98]"
-                style={{
-                  background: "var(--color-accent)",
-                  boxShadow: "0 4px 16px -4px rgba(200,38,26,0.35)",
-                }}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-md font-semibold text-[14px] text-white transition-opacity hover:opacity-90 active:scale-[0.98]"
+                style={{ background: "var(--color-accent)" }}
               >
                 {hero.primaryCta.label}
                 <ArrowRight size={15} aria-hidden="true" />
@@ -85,7 +67,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
 
               <Link
                 href={p.contact}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-[14px] transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-md font-semibold text-[14px] transition-colors"
                 style={{
                   color: "var(--color-text)",
                   background: "#FFFFFF",
@@ -98,56 +80,25 @@ export default function HeroSection({ locale }: { locale: Locale }) {
 
           </div>
 
-          {/* ── Sağ: Görsel alanı ─────────────────────────────────── */}
+          {/* ── Görsel ────────────────────────────────────────────── */}
           <div
-            className="relative hidden lg:flex items-center justify-center rounded-2xl overflow-hidden"
-            style={{
-              aspectRatio: "5/4",
-              background: "#1E1E1C",
-              border: "1px solid rgba(255,255,255,0.06)",
-            }}
-            aria-hidden={hero.image ? undefined : true}
+            className="relative overflow-hidden rounded-lg"
+            style={{ aspectRatio: "4/3" }}
           >
             {hero.image ? (
               <Image
                 src={hero.image}
-                alt=""
+                alt={imgAlt}
                 fill
-                className="object-cover rounded-2xl"
-                sizes="(max-width: 1280px) 460px, 520px"
+                priority
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 460px, 520px"
               />
             ) : (
-              <>
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage: `
-                      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)
-                    `,
-                    backgroundSize: "40px 40px",
-                  }}
-                />
-                <div
-                  className="absolute top-0 left-0 w-16 h-1"
-                  style={{ background: "var(--color-accent)" }}
-                />
-                <div
-                  className="absolute top-0 left-0 w-1 h-16"
-                  style={{ background: "var(--color-accent)" }}
-                />
-                <div className="relative z-10">
-                  <div
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center"
-                    style={{
-                      background: "rgba(200,38,26,0.10)",
-                      border: "1px solid rgba(200,38,26,0.22)",
-                    }}
-                  >
-                    <Package size={28} style={{ color: "var(--color-accent)" }} />
-                  </div>
-                </div>
-              </>
+              <div
+                className="absolute inset-0"
+                style={{ background: "#1E1E1C" }}
+              />
             )}
           </div>
 
