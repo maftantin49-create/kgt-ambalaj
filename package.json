@@ -6,7 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "playwright test",
+    "test:smoke": "playwright test tests/smoke.spec.ts",
+    "test:nav": "playwright test tests/navigation.spec.ts",
+    "test:content": "playwright test tests/content.spec.ts",
+    "test:cta": "playwright test tests/cta.spec.ts",
+    "test:responsive": "playwright test tests/responsive.spec.ts",
+    "test:seo": "playwright test tests/seo.spec.ts",
+    "test:a11y": "playwright test tests/a11y.spec.ts",
+    "test:report": "playwright show-report"
   },
   "dependencies": {
     "lucide-react": "^1.49.0",
@@ -15,6 +24,8 @@
     "react-dom": "19.2.8"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.65.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
