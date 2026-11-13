@@ -10,7 +10,7 @@ export default function ProductsSection({ locale }: { locale: Locale }) {
   const categories = getProducts(locale)
   const p = localePaths[locale]
 
-  const detailLabel = locale === "tr" ? "Detayları İncele" : "View Details"
+  const detailLabel = locale === "tr" ? "Ürünü İncele" : "View Product"
 
   return (
     <section
@@ -20,9 +20,9 @@ export default function ProductsSection({ locale }: { locale: Locale }) {
         borderBottom: "1px solid var(--color-border)",
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-20">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-10 lg:mb-12">
+        <div className="pt-14 lg:pt-20 pb-10 lg:pb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-5">
           <SectionHeader
             eyebrow={productsSection.eyebrow}
             heading={productsSection.heading}
@@ -31,7 +31,7 @@ export default function ProductsSection({ locale }: { locale: Locale }) {
           <Link
             href={p.products}
             className="inline-flex items-center gap-1.5 text-[13px] font-semibold shrink-0 transition-opacity hover:opacity-75"
-            style={{ color: "var(--color-accent)" }}
+            style={{ color: "var(--color-accent-dark)" }}
           >
             {productsSection.viewAllLabel}
             <ArrowRight size={14} aria-hidden="true" />
@@ -42,82 +42,110 @@ export default function ProductsSection({ locale }: { locale: Locale }) {
           className="flex flex-col"
           style={{ borderTop: "1px solid var(--color-border)" }}
         >
-          {categories.map((cat, i) => (
-            <li
-              key={cat.id}
-              style={{ borderBottom: "1px solid var(--color-border)" }}
-            >
-              <Link
-                href={p.product(cat.slug)}
-                className="group grid grid-cols-1 sm:grid-cols-[1fr_200px] lg:grid-cols-[1fr_280px] transition-colors hover:bg-[var(--color-surface)]"
+          {categories.map((cat, i) => {
+            const imageFirst = i % 2 === 0
+
+            return (
+              <li
+                key={cat.id}
+                style={{ borderBottom: "1px solid var(--color-border)" }}
               >
-                {/* Metin alanı */}
-                <div className="flex items-start gap-5 lg:gap-7 p-6 lg:p-8">
-                  <span
-                    className="font-black select-none shrink-0 leading-none tabular-nums"
-                    style={{
-                      fontSize: "clamp(28px, 3vw, 44px)",
-                      color: "var(--color-border)",
-                      letterSpacing: "-0.03em",
-                    }}
-                    aria-hidden="true"
+                <Link
+                  href={p.product(cat.slug)}
+                  className="group grid grid-cols-1 lg:grid-cols-2"
+                  style={{ minHeight: "600px" }}
+                >
+                  {/* Görsel — desktop'ta 50%, tam yükseklik */}
+                  <div
+                    className={[
+                      "relative overflow-hidden",
+                      "h-80 lg:h-auto",
+                      imageFirst ? "lg:order-first" : "lg:order-last",
+                    ].join(" ")}
+                    style={{ background: "var(--color-surface)" }}
                   >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div className="flex flex-col gap-2 flex-1 py-0.5">
+                    {cat.image ? (
+                      <Image
+                        src={cat.image}
+                        alt={cat.name}
+                        fill
+                        className="object-cover object-center"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                      />
+                    ) : (
+                      <div className="absolute inset-0" style={{ background: "#ECECEA" }} />
+                    )}
+                  </div>
+
+                  {/* Metin — 50%, tam hizalanmış */}
+                  <div
+                    className={[
+                      "flex flex-col justify-center gap-6 px-8 py-12 lg:px-14 lg:py-16",
+                      imageFirst ? "lg:order-last" : "lg:order-first",
+                    ].join(" ")}
+                    style={{
+                      background: imageFirst ? "var(--background)" : "var(--color-surface)",
+                      borderLeft: imageFirst ? "1px solid var(--color-border)" : undefined,
+                      borderRight: !imageFirst ? "1px solid var(--color-border)" : undefined,
+                    }}
+                  >
+                    {/* Büyük katalog numarası */}
+                    <div className="flex items-baseline gap-3">
+                      <span
+                        className="font-black leading-none tabular-nums select-none"
+                        style={{
+                          fontSize: "clamp(56px, 6vw, 88px)",
+                          color: "var(--color-accent)",
+                          letterSpacing: "-0.04em",
+                        }}
+                        aria-hidden="true"
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span
+                        className="font-mono font-bold text-[13px] tabular-nums"
+                        style={{ color: "var(--color-muted)" }}
+                        aria-hidden="true"
+                      >
+                        / {String(categories.length).padStart(2, "0")}
+                      </span>
+                    </div>
+
+                    {/* Ürün adı */}
                     <h3
-                      className="font-bold text-[17px] lg:text-[19px] leading-snug"
-                      style={{ color: "var(--color-text)" }}
+                      className="font-black leading-tight"
+                      style={{
+                        color: "var(--color-text)",
+                        fontSize: "clamp(22px, 2.4vw, 32px)",
+                      }}
                     >
                       {cat.name}
                     </h3>
+
+                    {/* Açıklama */}
                     <p
-                      className="text-[13px] leading-relaxed"
-                      style={{ color: "var(--color-muted)" }}
+                      className="text-[14px] lg:text-[15px] leading-relaxed"
+                      style={{ color: "var(--color-muted)", maxWidth: "36ch" }}
                     >
                       {cat.shortDescription}
                     </p>
+
+                    {/* CTA */}
                     <span
-                      className="inline-flex items-center gap-1 text-[12px] font-semibold mt-1"
-                      style={{ color: "var(--color-accent)" }}
+                      className="inline-flex items-center gap-2 text-[13px] font-bold tracking-[0.08em] uppercase transition-opacity group-hover:opacity-75"
+                      style={{ color: "var(--color-accent-dark)" }}
                     >
                       {detailLabel}
-                      <ArrowRight
-                        size={12}
-                        className="transition-transform duration-150 group-hover:translate-x-0.5"
-                        aria-hidden="true"
-                      />
+                      <ArrowRight size={14} aria-hidden="true" />
                     </span>
                   </div>
-                </div>
-
-                {/* Görsel — sm+ üzerinde görünür */}
-                <div
-                  className="relative hidden sm:block overflow-hidden"
-                  style={{
-                    borderLeft: "1px solid var(--color-border)",
-                    background: "var(--color-surface)",
-                  }}
-                >
-                  {cat.image ? (
-                    <Image
-                      src={cat.image}
-                      alt={cat.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 200px, 280px"
-                    />
-                  ) : (
-                    <div
-                      className="absolute inset-0"
-                      style={{ background: "#ECECEA" }}
-                    />
-                  )}
-                </div>
-              </Link>
-            </li>
-          ))}
+                </Link>
+              </li>
+            )
+          })}
         </ol>
+
+        <div className="pb-6" />
 
       </div>
     </section>

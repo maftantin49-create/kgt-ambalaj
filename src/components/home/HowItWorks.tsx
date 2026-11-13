@@ -11,7 +11,7 @@ export default function HowItWorks({ locale }: { locale: Locale }) {
     <section
       aria-labelledby="how-it-works-heading"
       style={{
-        background: "var(--color-surface)",
+        background: "var(--background)",
         borderBottom: "1px solid var(--color-border)",
       }}
     >
@@ -26,21 +26,19 @@ export default function HowItWorks({ locale }: { locale: Locale }) {
           />
         </div>
 
-        <ol
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px"
-          style={{ background: "var(--color-border)" }}
-        >
+        <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: "var(--color-border)" }}>
           {howItWorks.steps.map(({ number, title, description }) => (
             <li
               key={number}
               className="flex flex-col gap-4 p-7 lg:p-8"
-              style={{ background: "var(--color-surface)" }}
+              style={{ background: "var(--background)" }}
             >
+              <div className="w-7 h-0.5 shrink-0" style={{ background: "var(--color-accent)" }} aria-hidden="true" />
               <span
                 className="font-black leading-none select-none"
                 style={{
                   fontSize: "clamp(40px, 4vw, 60px)",
-                  color: "var(--color-border)",
+                  color: "var(--color-text)",
                   letterSpacing: "-0.04em",
                 }}
                 aria-hidden="true"

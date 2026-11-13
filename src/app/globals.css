@@ -1,13 +1,12 @@
 @import "tailwindcss";
 
 /* ── Design tokens ─────────────────────────────────────────────────────────── */
-/* GEÇİCİ: accent rengi marka kimliği onaylandıktan sonra değiştirilecek       */
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  --color-accent:       #C8261A; /* GEÇİCİ — onaylanmamış */
-  --color-accent-dark:  #A31F14;
+  --color-accent:       #6BADD4; /* açık çelik mavi — dekoratif: büyük sayılar, çizgiler, koyu zemin */
+  --color-accent-dark:  #1C6485; /* derin çelik mavi — interaktif: butonlar, link text, eyebrow */
   --color-surface:      #F6F6F4;
   --color-border:       #E4E4E0;
   --color-muted:        #6A6A68;
@@ -27,7 +26,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-accent-dark);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -39,7 +38,7 @@ body {
   left: 1.5rem;
   z-index: 999;
   padding: 0.4rem 1rem;
-  background: var(--color-accent);
+  background: var(--color-accent-dark);
   color: #FFFFFF;
   font-size: 13px;
   font-weight: 600;

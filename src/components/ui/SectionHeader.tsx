@@ -29,7 +29,7 @@ export default function SectionHeader({
           />
           <span
             className="text-[11px] font-bold uppercase tracking-[0.2em]"
-            style={{ color: "var(--color-accent)" }}
+            style={{ color: "var(--color-accent-dark)" }}
           >
             {eyebrow}
           </span>

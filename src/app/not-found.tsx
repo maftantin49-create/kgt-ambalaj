@@ -15,7 +15,7 @@ export default function NotFound() {
             className="font-black leading-none select-none"
             style={{
               fontSize: "clamp(64px, 12vw, 96px)",
-              color: "rgba(200,38,26,0.10)",
+              color: "rgba(28,100,133,0.10)",
               letterSpacing: "-0.04em",
             }}
             aria-hidden="true"
@@ -45,7 +45,7 @@ export default function NotFound() {
             <Link
               href="/tr"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-[14px] font-semibold text-white transition-opacity hover:opacity-90"
-              style={{ background: "var(--color-accent)" }}
+              style={{ background: "var(--color-accent-dark)" }}
             >
               <Home size={15} aria-hidden="true" />
               Ana Sayfa

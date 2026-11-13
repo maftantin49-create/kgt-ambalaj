@@ -44,7 +44,7 @@ export default function CtaBanner({ locale }: { locale: Locale }) {
             <Link
               href={p.contact}
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-md font-semibold text-[14px] text-white transition-opacity hover:opacity-90"
-              style={{ background: "var(--color-accent)" }}
+              style={{ background: "var(--color-accent-dark)" }}
             >
               {ctaBanner.primaryCta.label}
               <ArrowRight size={15} aria-hidden="true" />

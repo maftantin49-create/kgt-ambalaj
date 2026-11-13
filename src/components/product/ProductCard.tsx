@@ -64,8 +64,8 @@ export default function ProductCard({
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center"
                 style={{
-                  background: "rgba(200,38,26,0.06)",
-                  border: "1px solid rgba(200,38,26,0.14)",
+                  background: "rgba(28,100,133,0.06)",
+                  border: "1px solid rgba(28,100,133,0.14)",
                 }}
               >
                 <Package size={22} style={{ color: "var(--color-accent)" }} />
@@ -90,7 +90,7 @@ export default function ProductCard({
         </p>
         <div
           className="flex items-center gap-1.5 text-[13px] font-semibold mt-1 transition-colors"
-          style={{ color: "var(--color-accent)" }}
+          style={{ color: "var(--color-accent-dark)" }}
         >
           {locale === "tr" ? "Detayları İncele" : "View Details"}
           <ArrowRight

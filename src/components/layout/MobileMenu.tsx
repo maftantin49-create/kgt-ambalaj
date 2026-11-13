@@ -133,7 +133,7 @@ export default function MobileMenu({ navItems, ctaLabel, ctaHref }: MobileMenuPr
                               href={item.viewAllHref}
                               onClick={() => setIsOpen(false)}
                               className="pl-4 pr-3 py-2.5 text-[13px] font-semibold transition-colors hover:bg-[var(--color-surface)]"
-                              style={{ color: "var(--color-accent)" }}
+                              style={{ color: "var(--color-accent-dark)" }}
                             >
                               {item.viewAllLabel} →
                             </Link>
@@ -166,7 +166,7 @@ export default function MobileMenu({ navItems, ctaLabel, ctaHref }: MobileMenuPr
                   href={ctaHref}
                   onClick={() => setIsOpen(false)}
                   className="flex items-center justify-center w-full px-5 py-3 rounded-md text-[14px] font-semibold text-white"
-                  style={{ background: "var(--color-accent)" }}
+                  style={{ background: "var(--color-accent-dark)" }}
                 >
                   {ctaLabel}
                 </Link>

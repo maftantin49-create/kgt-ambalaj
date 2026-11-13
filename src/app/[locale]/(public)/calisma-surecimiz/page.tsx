@@ -87,7 +87,7 @@ export default async function CalismasureciPage({
               <Link
                 href={p.contact}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-[14px] font-semibold text-white transition-opacity hover:opacity-90"
-                style={{ background: "var(--color-accent)" }}
+                style={{ background: "var(--color-accent-dark)" }}
               >
                 İletişime Geçin
                 <ArrowRight size={15} aria-hidden="true" />

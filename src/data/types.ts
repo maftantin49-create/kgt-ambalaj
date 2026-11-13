@@ -112,11 +112,22 @@ export interface ProductSolutionCard {
   description: string
 }
 
+export interface ProductGalleryItem {
+  src: string
+  alt: string
+}
+
+export interface ProductFaq {
+  question: string
+  answer: string
+}
+
 export interface ProductCategory {
   id: string
   slug: string
   name: string
   shortDescription: string
+  overview?: string
   description?: string
   image?: string
   features?: string[]
@@ -124,6 +135,11 @@ export interface ProductCategory {
   models?: ProductModel[]
   specs?: TechnicalSpec[]
   solutionCards?: ProductSolutionCard[]
+  gallery?: ProductGalleryItem[]
+  video?: string
+  faq?: ProductFaq[]
+  relatedProducts?: string[]
+  sectors?: string[]
   href: string
 }
 

@@ -91,7 +91,7 @@ export default async function AboutPage({
                   className="flex flex-col gap-3 p-7"
                   style={{ background: "var(--color-surface)" }}
                 >
-                  <div className="w-5 h-px" style={{ background: "var(--color-accent)" }} aria-hidden="true" />
+                  <div className="w-5 h-px" style={{ background: "var(--color-accent-dark)" }} aria-hidden="true" />
                   <h3 className="font-bold text-[15px] leading-snug" style={{ color: "var(--color-text)" }}>{title}</h3>
                   <p className="text-[13px] leading-relaxed" style={{ color: "var(--color-muted)" }}>{desc}</p>
                 </div>
@@ -134,7 +134,7 @@ export default async function AboutPage({
             {about.ctaBody && (
               <p className="text-[15px] leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>{about.ctaBody}</p>
             )}
-            <Link href={p.contact} className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-[14px] font-semibold text-white transition-opacity hover:opacity-90 self-start" style={{ background: "var(--color-accent)" }}>
+            <Link href={p.contact} className="inline-flex items-center gap-2 px-6 py-3 rounded-md text-[14px] font-semibold text-white transition-opacity hover:opacity-90 self-start" style={{ background: "var(--color-accent-dark)" }}>
               Get in Touch
               <ArrowRight size={15} aria-hidden="true" />
             </Link>

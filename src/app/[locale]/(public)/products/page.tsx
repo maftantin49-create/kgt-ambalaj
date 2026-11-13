@@ -122,7 +122,7 @@ export default async function ProductsPage({
                       </p>
                       <span
                         className="inline-flex items-center gap-1 text-[12px] font-semibold mt-1"
-                        style={{ color: "var(--color-accent)" }}
+                        style={{ color: "var(--color-accent-dark)" }}
                       >
                         View Details
                         <ArrowRight
@@ -191,7 +191,7 @@ export default async function ProductsPage({
               <Link
                 href={p.contact}
                 className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-md text-[13px] font-semibold text-white transition-opacity hover:opacity-90"
-                style={{ background: "var(--color-accent)" }}
+                style={{ background: "var(--color-accent-dark)" }}
               >
                 Get a Quote
                 <ArrowRight size={14} aria-hidden="true" />

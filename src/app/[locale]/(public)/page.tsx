@@ -4,6 +4,7 @@ import { buildAlternates } from "@/lib/seo"
 import HeroSection from "@/components/home/HeroSection"
 import TrustBar from "@/components/home/TrustBar"
 import ProductsSection from "@/components/home/ProductsSection"
+import MachineShowcase from "@/components/home/MachineShowcase"
 import SectorsSection from "@/components/home/SectorsSection"
 import AboutTeaser from "@/components/home/AboutTeaser"
 import HowItWorks from "@/components/home/HowItWorks"
@@ -44,6 +45,7 @@ export default async function HomePage({
       <HeroSection locale={safeLocale} />
       <TrustBar locale={safeLocale} />
       <ProductsSection locale={safeLocale} />
+      <MachineShowcase locale={safeLocale} />
       <SectorsSection locale={safeLocale} />
       <AboutTeaser locale={safeLocale} />
       <HowItWorks locale={safeLocale} />

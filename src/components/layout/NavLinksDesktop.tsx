@@ -189,7 +189,7 @@ function MegaPanel({
                 className="font-semibold leading-snug"
                 style={{
                   fontSize: "13px",
-                  color: active ? "var(--color-accent)" : "var(--color-text)",
+                  color: active ? "var(--color-accent-dark)" : "var(--color-text)",
                 }}
               >
                 {product.name}
@@ -222,7 +222,7 @@ function MegaPanel({
           href={item.ctaHref}
           onClick={onClose}
           className="text-[12px] font-bold transition-opacity hover:opacity-80"
-          style={{ color: "var(--color-accent)" }}
+          style={{ color: "var(--color-accent-dark)" }}
         >
           {item.ctaLabel} →
         </Link>

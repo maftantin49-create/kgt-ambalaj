@@ -78,7 +78,7 @@ export default function Header({ locale }: { locale: Locale }) {
             <Link
               href={ctaHref}
               className="hidden md:inline-flex items-center px-5 py-2 rounded-lg text-[13px] font-semibold transition-colors text-white"
-              style={{ background: "var(--color-accent)" }}
+              style={{ background: "var(--color-accent-dark)" }}
             >
               {ctaLabel}
             </Link>

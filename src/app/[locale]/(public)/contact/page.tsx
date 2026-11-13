@@ -64,8 +64,8 @@ export default async function ContactPage({
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {infoCards.map(({ icon: Icon, label, value, href }) => (
               <div key={label} className="flex flex-col gap-3 p-6 rounded-xl" style={{ background: "var(--color-surface)", border: "1px solid var(--color-border)" }}>
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: "rgba(200,38,26,0.06)", border: "1px solid rgba(200,38,26,0.14)" }} aria-hidden="true">
-                  <Icon size={18} style={{ color: "var(--color-accent)" }} />
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: "rgba(28,100,133,0.06)", border: "1px solid rgba(28,100,133,0.14)" }} aria-hidden="true">
+                  <Icon size={18} style={{ color: "var(--color-accent-dark)" }} />
                 </div>
                 <div className="flex flex-col gap-1">
                   <span className="text-[11px] font-bold uppercase tracking-[0.14em]" style={{ color: "var(--color-muted)" }}>{label}</span>
@@ -89,8 +89,8 @@ export default async function ContactPage({
               <ul className="flex flex-col gap-5" role="list">
                 {infoCards.map(({ icon: Icon, label, value, href }) => (
                   <li key={label} className="flex items-start gap-3">
-                    <div className="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center mt-0.5" style={{ background: "rgba(200,38,26,0.06)", border: "1px solid rgba(200,38,26,0.14)" }} aria-hidden="true">
-                      <Icon size={16} style={{ color: "var(--color-accent)" }} />
+                    <div className="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center mt-0.5" style={{ background: "rgba(28,100,133,0.06)", border: "1px solid rgba(28,100,133,0.14)" }} aria-hidden="true">
+                      <Icon size={16} style={{ color: "var(--color-accent-dark)" }} />
                     </div>
                     <div className="flex flex-col gap-0.5">
                       <span className="text-[11px] font-bold uppercase tracking-[0.14em]" style={{ color: "var(--color-muted)" }}>{label}</span>

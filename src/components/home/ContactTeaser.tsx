@@ -43,20 +43,16 @@ export default function ContactTeaser({ locale }: { locale: Locale }) {
               description={contactTeaser.description}
             />
 
-            <ul className="flex flex-col gap-4" role="list">
+            <ul className="flex flex-col gap-5" role="list">
               {contactItems.filter((item) => Boolean(item.value)).map(
                 ({ icon: Icon, label, value, href }) => (
                   <li key={label} className="flex items-start gap-3">
-                    <div
-                      className="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center mt-0.5"
-                      style={{
-                        background: "rgba(200,38,26,0.06)",
-                        border: "1px solid rgba(200,38,26,0.14)",
-                      }}
+                    <Icon
+                      size={15}
+                      className="shrink-0 mt-0.5"
+                      style={{ color: "var(--color-accent-dark)" }}
                       aria-hidden="true"
-                    >
-                      <Icon size={16} style={{ color: "var(--color-accent)" }} />
-                    </div>
+                    />
                     <div className="flex flex-col gap-0.5">
                       <span
                         className="text-[11px] font-bold uppercase tracking-[0.14em]"
