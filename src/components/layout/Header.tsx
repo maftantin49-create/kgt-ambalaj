@@ -1,42 +1,20 @@
 import Link from "next/link"
-import Image from "next/image"
 import { Phone, Mail } from "lucide-react"
+import Logo from "@/components/brand/Logo"
 import MobileMenu from "@/components/layout/MobileMenu"
 import LanguageSwitch from "@/components/layout/LanguageSwitch"
 import NavLinksDesktop from "@/components/layout/NavLinksDesktop"
 import { site } from "@/config/site"
 import { localePaths, type Locale } from "@/config/i18n"
-
-interface NavLink {
-  href: string
-  label: string
-}
-
-function getNavLinks(locale: Locale): NavLink[] {
-  const p = localePaths[locale]
-  if (locale === "tr") {
-    return [
-      { href: p.home,     label: "Ana Sayfa"  },
-      { href: p.products, label: "Ürünler"    },
-      { href: p.about,    label: "Hakkımızda" },
-      { href: p.contact,  label: "İletişim"   },
-    ]
-  }
-  return [
-    { href: p.home,     label: "Home"     },
-    { href: p.products, label: "Products" },
-    { href: p.about,    label: "About"    },
-    { href: p.contact,  label: "Contact"  },
-  ]
-}
+import { getNavItems } from "@/config/nav"
 
 export default function Header({ locale }: { locale: Locale }) {
-  const navLinks = getNavLinks(locale)
+  const navItems = getNavItems(locale)
   const ctaLabel = locale === "tr" ? "Teklif Al" : "Get a Quote"
   const ctaHref  = localePaths[locale].contact
 
   return (
-    <header className="relative z-50 w-full">
+    <header className="relative z-60 w-full">
 
       {/* ── Üst bilgi çubuğu ────────────────────────────────────── */}
       <div
@@ -82,20 +60,16 @@ export default function Header({ locale }: { locale: Locale }) {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between gap-8">
 
           {/* Logo */}
-          <Link href={localePaths[locale].home} className="shrink-0 flex items-center" aria-label={site.name}>
-            <Image
-              src="/images/kgt/logo-kgt.png"
-              alt={site.name}
-              width={78}
-              height={40}
-              priority
-              className="h-10 w-auto"
-            />
+          <Link
+            href={localePaths[locale].home}
+            className="shrink-0 flex items-center"
+          >
+            <Logo variant="light" size="md" />
           </Link>
 
           {/* Desktop nav */}
           <NavLinksDesktop
-            navLinks={navLinks}
+            navItems={navItems}
             ariaLabel={locale === "tr" ? "Ana menü" : "Main navigation"}
           />
 
@@ -113,7 +87,7 @@ export default function Header({ locale }: { locale: Locale }) {
               <LanguageSwitch locale={locale} />
             </div>
 
-            <MobileMenu navLinks={navLinks} ctaLabel={ctaLabel} ctaHref={ctaHref} />
+            <MobileMenu navItems={navItems} ctaLabel={ctaLabel} ctaHref={ctaHref} />
           </div>
 
         </div>

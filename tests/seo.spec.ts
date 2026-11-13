@@ -4,7 +4,7 @@
 import { test, expect } from "@playwright/test"
 import { TR_ROUTES, EN_ROUTES } from "./helpers/routes"
 
-const EXPECTED_SITEMAP_URL_COUNT = 16
+const EXPECTED_SITEMAP_URL_COUNT = 18
 
 // ─── sitemap.xml ─────────────────────────────────────────────────────────────
 

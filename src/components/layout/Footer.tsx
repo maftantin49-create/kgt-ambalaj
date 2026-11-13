@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Image from "next/image"
+import Logo from "@/components/brand/Logo"
 import { site } from "@/config/site"
 import { getProducts } from "@/data/index"
 import { localePaths, type Locale } from "@/config/i18n"
@@ -41,14 +41,8 @@ export default function Footer({ locale }: { locale: Locale }) {
 
           {/* Kolon 1 — Şirket */}
           <div className="flex flex-col gap-4">
-            <Link href={p.home} className="flex items-center" aria-label={site.name}>
-              <Image
-                src="/images/kgt/logo-kgt-dark.webp"
-                alt={site.name}
-                width={131}
-                height={32}
-                className="h-8 w-auto"
-              />
+            <Link href={p.home} className="flex items-center">
+              <Logo variant="dark" size="sm" />
             </Link>
             {site.tagline && (
               <p className="text-[13px] leading-relaxed max-w-[220px]" style={{ color: "#6A6A68" }}>
