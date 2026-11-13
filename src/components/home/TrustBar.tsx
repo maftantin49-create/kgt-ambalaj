@@ -23,7 +23,7 @@ export default function TrustBar({ locale }: { locale: Locale }) {
               style={{ borderColor: "var(--color-border)" }}
             >
               <div
-                className="w-5 h-px mb-2"
+                className="w-5 h-[2px] mb-2"
                 style={{ background: "var(--color-accent)" }}
                 aria-hidden="true"
               />

@@ -18,11 +18,11 @@ export default function CtaBanner({ locale }: { locale: Locale }) {
 
           {ctaBanner.eyebrow && (
             <div className="flex items-center gap-2">
-              <span className="w-5 h-px shrink-0" style={{ background: "var(--color-accent)" }} aria-hidden="true" />
+              <span className="w-5 h-[2px] shrink-0" style={{ background: "var(--color-accent)" }} aria-hidden="true" />
               <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: "var(--color-accent)" }}>
                 {ctaBanner.eyebrow}
               </span>
-              <span className="w-5 h-px shrink-0" style={{ background: "var(--color-accent)" }} aria-hidden="true" />
+              <span className="w-5 h-[2px] shrink-0" style={{ background: "var(--color-accent)" }} aria-hidden="true" />
             </div>
           )}
 

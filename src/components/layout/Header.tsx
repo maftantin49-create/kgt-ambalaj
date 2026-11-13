@@ -22,7 +22,7 @@ export default function Header({ locale }: { locale: Locale }) {
         style={{
           background: "#1A1A18",
           color: "#A5A5A3",
-          borderBottom: "1px solid rgba(255,255,255,0.06)",
+          borderBottom: "1px solid rgba(255,255,255,0.10)",
         }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 h-9 flex items-center justify-between gap-6">
@@ -77,7 +77,7 @@ export default function Header({ locale }: { locale: Locale }) {
           <div className="flex items-center gap-3">
             <Link
               href={ctaHref}
-              className="hidden md:inline-flex items-center px-5 py-2 rounded-lg text-[13px] font-semibold transition-colors text-white"
+              className="hidden md:inline-flex items-center px-5 py-2 rounded-md text-[13px] font-semibold transition-colors text-white"
               style={{ background: "var(--color-accent-dark)" }}
             >
               {ctaLabel}

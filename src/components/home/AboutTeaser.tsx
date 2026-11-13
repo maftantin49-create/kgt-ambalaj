@@ -20,7 +20,7 @@ export default function AboutTeaser({ locale }: { locale: Locale }) {
         {/* Eyebrow */}
         <div className="flex items-center gap-2 mb-8">
           <span
-            className="w-6 h-px shrink-0"
+            className="w-6 h-[2px] shrink-0"
             style={{ background: "var(--color-accent)" }}
             aria-hidden="true"
           />

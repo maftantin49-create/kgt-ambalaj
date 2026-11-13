@@ -115,7 +115,7 @@ export default function MobileMenu({ navItems, ctaLabel, ctaHref }: MobileMenuPr
                       {isGroupOpen && (
                         <div
                           className="ml-3 mb-1 flex flex-col"
-                          style={{ borderLeft: "2px solid var(--color-border)" }}
+                          style={{ borderLeft: "2px solid var(--color-accent)" }}
                         >
                           {children.map((child) => (
                             <Link

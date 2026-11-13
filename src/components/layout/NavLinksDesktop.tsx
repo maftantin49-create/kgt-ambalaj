@@ -70,6 +70,7 @@ export default function NavLinksDesktop({ navItems, ariaLabel }: Props) {
               style={{
                 color: active ? "var(--color-text)" : "var(--color-muted)",
                 fontWeight: active ? 600 : 500,
+                boxShadow: active ? "inset 0 -2px 0 var(--color-accent)" : undefined,
               }}
             >
               {item.label}
@@ -93,6 +94,7 @@ export default function NavLinksDesktop({ navItems, ariaLabel }: Props) {
                 style={{
                   color: active ? "var(--color-text)" : "var(--color-muted)",
                   fontWeight: active ? 600 : 500,
+                  boxShadow: active ? "inset 0 -2px 0 var(--color-accent)" : undefined,
                 }}
               >
                 {item.label}
@@ -156,6 +158,7 @@ function MegaPanel({
         background: "#FFFFFF",
         border: "1px solid var(--color-border)",
         borderTop: "2px solid var(--color-accent)",
+        boxShadow: "0 8px 24px -4px rgba(0,0,0,0.10)",
         zIndex: 50,
       }}
     >
@@ -177,7 +180,7 @@ function MegaPanel({
               style={{
                 fontSize: "13px",
                 lineHeight: "20px",
-                color: "var(--color-border)",
+                color: "var(--color-accent)",
                 minWidth: "24px",
               }}
               aria-hidden="true"
@@ -254,6 +257,7 @@ function DropdownPanel({
         background: "#FFFFFF",
         border: "1px solid var(--color-border)",
         borderTop: "2px solid var(--color-accent)",
+        boxShadow: "0 8px 24px -4px rgba(0,0,0,0.10)",
         zIndex: 50,
       }}
     >
