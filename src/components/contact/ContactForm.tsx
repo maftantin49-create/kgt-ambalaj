@@ -4,6 +4,7 @@ import { useState } from "react"
 import { initialFormState } from "./types"
 import type { FormState } from "./types"
 import type { Locale } from "@/config/i18n"
+import { site } from "@/config/site"
 
 interface ContactFormProps {
   isConfigured: boolean
@@ -13,7 +14,9 @@ interface ContactFormProps {
 const strings = {
   tr: {
     title: "Teklif / Bilgi Talebi",
-    notConfigured: "Teklif ve bilgi talepleriniz için telefon üzerinden bizimle iletişime geçebilirsiniz.",
+    notConfigured: "Teklif ve bilgi talepleriniz için telefon veya WhatsApp üzerinden bizimle iletişime geçebilirsiniz.",
+    callNow: "Telefon Et",
+    whatsappLabel: "WhatsApp Yaz",
     notConfiguredSub: "",
     successTitle: "Mesajınız İletildi",
     labelName: "Ad Soyad",
@@ -32,7 +35,9 @@ const strings = {
   },
   en: {
     title: "Quote / Information Request",
-    notConfigured: "For quote and information requests, please contact us by phone.",
+    notConfigured: "For quote and information requests, please contact us by phone or WhatsApp.",
+    callNow: "Call Now",
+    whatsappLabel: "Write on WhatsApp",
     notConfiguredSub: "",
     successTitle: "Message Sent",
     labelName: "Full Name",
@@ -122,15 +127,28 @@ export default function ContactForm({ isConfigured, locale = "tr" }: ContactForm
 
       {/* ── Form aktif değil ─────────────────────────────────────────── */}
       {!isConfigured && (
-        <div className="flex flex-col items-center gap-3 py-8 text-center">
-          <p className="text-[14px] font-medium" style={{ color: "var(--color-text)" }}>
+        <div className="flex flex-col gap-5 py-5">
+          <p className="text-[14px] leading-relaxed" style={{ color: "var(--color-text)" }}>
             {s.notConfigured}
           </p>
-          {s.notConfiguredSub && (
-            <p className="text-[13px] leading-relaxed max-w-[280px]" style={{ color: "var(--color-muted)" }}>
-              {s.notConfiguredSub}
-            </p>
-          )}
+          <div className="flex flex-wrap gap-3">
+            <a
+              href={`tel:${site.phone}`}
+              className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-[13px] font-semibold text-white transition-opacity hover:opacity-90"
+              style={{ background: "var(--color-accent-dark)" }}
+            >
+              {s.callNow}
+            </a>
+            <a
+              href={`https://wa.me/${site.waNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-[13px] font-semibold text-white transition-opacity hover:opacity-90"
+              style={{ background: "#25D366" }}
+            >
+              {s.whatsappLabel}
+            </a>
+          </div>
         </div>
       )}
 

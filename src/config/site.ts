@@ -6,6 +6,7 @@ export const site = {
 
   phone: "+90 531 523 77 22",
   phoneDisplay: "+90 531 523 77 22",
+  waNumber: "905315237722",  // wa.me link için — boşluksuz/işaretsiz
   email: "",    // doğrulanmamış — geldiğinde doldur, UI conditional render ile gizlenmiş
   address: "",  // doğrulanmamış — geldiğinde doldur, UI conditional render ile gizlenmiş
 

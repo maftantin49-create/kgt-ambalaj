@@ -23,7 +23,7 @@ export default function SectionHeader({
       {eyebrow && (
         <div className="flex items-center gap-2">
           <span
-            className="w-6 h-px shrink-0"
+            className="w-6 h-[2px] shrink-0"
             style={{ background: "var(--color-accent)" }}
             aria-hidden="true"
           />
