@@ -40,9 +40,8 @@ export default function Footer({ locale }: { locale: Locale }) {
     <footer
       aria-label={locale === "tr" ? "Site alt bilgisi" : "Site footer"}
       style={{
-        background: "#1A1A18",
-        borderTop: "2px solid rgba(255,255,255,0.10)",
-        color: "#A5A5A3",
+        background: "#EEF1F4",
+        borderTop: "2px solid var(--color-border)",
       }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
@@ -51,10 +50,10 @@ export default function Footer({ locale }: { locale: Locale }) {
           {/* Kolon 1 — Şirket */}
           <div className="flex flex-col gap-4">
             <Link href={p.home} className="flex items-center">
-              <Logo variant="dark" size="sm" />
+              <Logo variant="light" size="sm" />
             </Link>
             {site.tagline && (
-              <p className="text-[13px] leading-relaxed max-w-[220px]" style={{ color: "#7A7A78" }}>
+              <p className="text-[13px] leading-relaxed max-w-[220px]" style={{ color: "var(--color-muted)" }}>
                 {site.tagline}
               </p>
             )}
@@ -64,7 +63,7 @@ export default function Footer({ locale }: { locale: Locale }) {
           <div className="flex flex-col gap-3">
             <h3
               className="text-[11px] font-bold uppercase tracking-[0.16em] mb-1"
-              style={{ color: "#F0F0EE" }}
+              style={{ color: "var(--color-accent-dark)" }}
             >
               {productsLabel}
             </h3>
@@ -72,8 +71,8 @@ export default function Footer({ locale }: { locale: Locale }) {
               <li>
                 <Link
                   href={p.products}
-                  className="text-[13px] transition-colors hover:text-white"
-                  style={{ color: "#7A7A78" }}
+                  className="text-[13px] transition-opacity hover:opacity-70"
+                  style={{ color: "var(--color-muted)" }}
                 >
                   {allLabel}
                 </Link>
@@ -82,8 +81,8 @@ export default function Footer({ locale }: { locale: Locale }) {
                 <li key={cat.id}>
                   <Link
                     href={p.product(cat.slug)}
-                    className="text-[13px] transition-colors hover:text-white"
-                    style={{ color: "#7A7A78" }}
+                    className="text-[13px] transition-opacity hover:opacity-70"
+                    style={{ color: "var(--color-muted)" }}
                   >
                     {cat.name}
                   </Link>
@@ -96,26 +95,26 @@ export default function Footer({ locale }: { locale: Locale }) {
           <div className="flex flex-col gap-3">
             <h3
               className="text-[11px] font-bold uppercase tracking-[0.16em] mb-1"
-              style={{ color: "#F0F0EE" }}
+              style={{ color: "var(--color-accent-dark)" }}
             >
               {contactLabel}
             </h3>
-            <address className="not-italic flex flex-col gap-2 text-[13px]" style={{ color: "#7A7A78" }}>
-              <a href={`tel:${site.phone}`} className="hover:text-white transition-colors">
+            <address className="not-italic flex flex-col gap-2 text-[13px]" style={{ color: "var(--color-muted)" }}>
+              <a href={`tel:${site.phone}`} className="transition-opacity hover:opacity-70">
                 {site.phoneDisplay}
               </a>
               <a
                 href={`https://wa.me/${site.waNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 transition-colors hover:text-white"
+                className="flex items-center gap-1.5 transition-opacity hover:opacity-70"
                 style={{ color: "var(--color-wa)" }}
               >
                 <WhatsAppIcon size={13} />
                 {waLabel}
               </a>
               {site.email && (
-                <a href={`mailto:${site.email}`} className="hover:text-white transition-colors">
+                <a href={`mailto:${site.email}`} className="transition-opacity hover:opacity-70">
                   {site.email}
                 </a>
               )}
@@ -126,8 +125,8 @@ export default function Footer({ locale }: { locale: Locale }) {
                 <li key={href}>
                   <Link
                     href={href}
-                    className="text-[13px] transition-colors hover:text-white"
-                    style={{ color: "#7A7A78" }}
+                    className="text-[13px] transition-opacity hover:opacity-70"
+                    style={{ color: "var(--color-muted)" }}
                   >
                     {label}
                   </Link>
@@ -143,8 +142,8 @@ export default function Footer({ locale }: { locale: Locale }) {
       <div
         className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-[12px]"
         style={{
-          borderTop: "1px solid rgba(255,255,255,0.08)",
-          color: "#6A6A68",
+          borderTop: "1px solid var(--color-border)",
+          color: "var(--color-muted)",
         }}
       >
         <span>{rightsLabel}</span>

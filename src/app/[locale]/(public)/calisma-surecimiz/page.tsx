@@ -71,16 +71,16 @@ export default async function CalismasureciPage({
       <HowItWorks locale="tr" />
 
       {/* CTA */}
-      <section aria-label="İletişim yönlendirme" style={{ background: "#1A1A18" }}>
+      <section aria-label="İletişim yönlendirme" style={{ background: "#EEF1F4", borderTop: "2px solid var(--color-border)", borderBottom: "2px solid var(--color-border)" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-20">
           <div className="max-w-xl flex flex-col gap-5">
             <h2
-              className="font-black leading-tight tracking-tight text-white"
-              style={{ fontSize: "clamp(22px, 2.8vw, 38px)" }}
+              className="font-black leading-tight tracking-tight"
+              style={{ color: "var(--color-text)", fontSize: "clamp(22px, 2.8vw, 38px)" }}
             >
               Projenizi Başlatalım
             </h2>
-            <p className="text-[15px] leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
+            <p className="text-[15px] leading-relaxed" style={{ color: "var(--color-muted)" }}>
               Makine gereksinimlerinizi paylaşın, özel teknik değerlendirme ve teklif hazırlayalım.
             </p>
             <div className="flex flex-wrap gap-3">
@@ -94,8 +94,8 @@ export default async function CalismasureciPage({
               </Link>
               <Link
                 href={p.products}
-                className="inline-flex items-center px-6 py-3 rounded-md text-[14px] font-medium transition-opacity hover:opacity-75"
-                style={{ color: "rgba(255,255,255,0.65)", border: "1px solid rgba(255,255,255,0.15)" }}
+                className="inline-flex items-center px-6 py-3 rounded-md text-[14px] font-medium transition-opacity hover:opacity-70"
+                style={{ color: "var(--color-muted)", border: "1px solid var(--color-border)" }}
               >
                 Ürünleri İncele
               </Link>

@@ -5,17 +5,17 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  --color-accent:       #6BADD4; /* açık çelik mavi — dekoratif: büyük sayılar, çizgiler, koyu zemin */
-  --color-accent-dark:  #1C6485; /* derin çelik mavi — interaktif: butonlar, link text, eyebrow */
-  --color-surface:      #F6F6F4;
-  --color-border:       #D4D4D0; /* structural divider — slightly stronger than before */
-  --color-muted:        #6A6A68;
-  --color-text:         #1A1A18;
+  --color-accent:       #6BADD4; /* steel blue — decorative: large numbers, lines, accents */
+  --color-accent-dark:  #1C6485; /* deep steel blue — interactive: buttons, links, eyebrows */
+  --color-surface:      #F7F8FA; /* cool off-white — section background alternate */
+  --color-border:       #D4DADF; /* blue-grey structural divider */
+  --color-muted:        #66717B; /* blue-grey secondary text */
+  --color-text:         #1F252B; /* warm dark navy — primary text */
 }
 
 :root {
   --background: #FFFFFF;
-  --foreground: #1A1A18;
+  --foreground: #1F252B;
   --color-wa:   #3D7A64; /* restrained industrial WhatsApp green */
 }
 
@@ -67,13 +67,13 @@ body {
   border-radius: 50%;
   background: var(--color-wa);
   border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.22), 0 1px 3px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.08);
   transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
   text-decoration: none;
 }
 .wa-fab:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.22), 0 2px 4px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18), 0 2px 4px rgba(0,0,0,0.10);
 }
 @media (min-width: 768px) {
   .wa-fab {

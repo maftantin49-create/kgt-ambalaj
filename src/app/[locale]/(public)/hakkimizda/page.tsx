@@ -78,7 +78,7 @@ export default async function HakkimizdaPage({
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               ) : (
-                <div className="absolute inset-0" style={{ background: "#1E1E1C" }} />
+                <div className="absolute inset-0" style={{ background: "var(--color-surface)" }} />
               )}
             </div>
           </div>
@@ -126,7 +126,7 @@ export default async function HakkimizdaPage({
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               ) : (
-                <div className="absolute inset-0" style={{ background: "#1E1E1C" }} />
+                <div className="absolute inset-0" style={{ background: "var(--color-surface)" }} />
               )}
             </div>
             <div className="flex flex-col gap-6 order-1 lg:order-2">
@@ -144,14 +144,14 @@ export default async function HakkimizdaPage({
       </section>
 
       {/* CTA */}
-      <section aria-label="İletişim yönlendirme" style={{ background: "#1A1A18" }}>
+      <section aria-label="İletişim yönlendirme" style={{ background: "#EEF1F4", borderTop: "2px solid var(--color-border)", borderBottom: "2px solid var(--color-border)" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-20">
           <div className="max-w-xl flex flex-col gap-5">
-            <h2 className="font-black leading-tight tracking-tight text-white" style={{ fontSize: "clamp(22px, 2.8vw, 38px)" }}>
+            <h2 className="font-black leading-tight tracking-tight" style={{ color: "var(--color-text)", fontSize: "clamp(22px, 2.8vw, 38px)" }}>
               {about.ctaHeading}
             </h2>
             {about.ctaBody && (
-              <p className="text-[15px] leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>{about.ctaBody}</p>
+              <p className="text-[15px] leading-relaxed" style={{ color: "var(--color-muted)" }}>{about.ctaBody}</p>
             )}
             <Link
               href={p.contact}

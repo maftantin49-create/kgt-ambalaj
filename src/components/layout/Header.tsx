@@ -20,9 +20,9 @@ export default function Header({ locale }: { locale: Locale }) {
       <div
         className="hidden md:block text-[12px]"
         style={{
-          background: "#1A1A18",
-          color: "#9A9A98",
-          borderBottom: "1px solid rgba(255,255,255,0.14)",
+          background: "#EEF1F4",
+          color: "var(--color-muted)",
+          borderBottom: "1px solid var(--color-border)",
         }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 h-10 flex items-center justify-between gap-6">
@@ -30,7 +30,8 @@ export default function Header({ locale }: { locale: Locale }) {
           <div className="flex items-center gap-6">
             <a
               href={`tel:${site.phone}`}
-              className="flex items-center gap-1.5 hover:text-white transition-colors"
+              className="flex items-center gap-1.5 transition-opacity hover:opacity-70"
+              style={{ color: "var(--color-accent-dark)" }}
             >
               <Phone size={12} aria-hidden="true" />
               {site.phoneDisplay}
@@ -38,7 +39,8 @@ export default function Header({ locale }: { locale: Locale }) {
             {site.email && (
               <a
                 href={`mailto:${site.email}`}
-                className="flex items-center gap-1.5 hover:text-white transition-colors"
+                className="flex items-center gap-1.5 transition-opacity hover:opacity-70"
+                style={{ color: "var(--color-muted)" }}
               >
                 <Mail size={12} aria-hidden="true" />
                 {site.email}

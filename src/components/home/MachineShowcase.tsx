@@ -10,7 +10,10 @@ export default function MachineShowcase({ locale }: { locale: Locale }) {
   return (
     <section
       aria-labelledby="machine-showcase-heading"
-      style={{ background: "#1A1A18" }}
+      style={{
+        background: "var(--background)",
+        borderBottom: "2px solid var(--color-border)",
+      }}
     >
       {/* Full-width workshop image */}
       <div
@@ -30,23 +33,23 @@ export default function MachineShowcase({ locale }: { locale: Locale }) {
         />
       </div>
 
-      {/* Dark content strip */}
+      {/* Light content strip */}
       <div
         className="max-w-7xl mx-auto px-6 lg:px-8 py-8 lg:py-10"
-        style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
+        style={{ borderTop: "2px solid var(--color-border)" }}
       >
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
           <div>
             <p
               className="text-[11px] font-bold uppercase tracking-[0.18em]"
-              style={{ color: "var(--color-accent)" }}
+              style={{ color: "var(--color-accent-dark)" }}
             >
               {isTr ? "Üretim" : "Manufacturing"}
             </p>
             <h2
               id="machine-showcase-heading"
-              className="mt-2 font-bold leading-snug text-white"
-              style={{ fontSize: "clamp(16px, 1.8vw, 21px)", maxWidth: "44ch" }}
+              className="mt-2 font-bold leading-snug"
+              style={{ color: "var(--color-text)", fontSize: "clamp(16px, 1.8vw, 21px)", maxWidth: "44ch" }}
             >
               {isTr
                 ? "Proje gereksinimlerinize özel endüstriyel makine üretimi."
@@ -55,8 +58,8 @@ export default function MachineShowcase({ locale }: { locale: Locale }) {
           </div>
           <Link
             href={p.about}
-            className="inline-flex items-center gap-2 font-semibold text-[14px] shrink-0 transition-opacity hover:opacity-75"
-            style={{ color: "white" }}
+            className="inline-flex items-center gap-2 font-semibold text-[14px] shrink-0 transition-opacity hover:opacity-70"
+            style={{ color: "var(--color-accent-dark)" }}
           >
             {isTr ? "Hakkımızda" : "About Us"}
             <ArrowRight size={15} aria-hidden="true" />

@@ -87,7 +87,7 @@ export default async function ProductDetailPage({
       {/* ── 1. HERO ────────────────────────────────────────────────────── */}
       <section
         aria-label={category.name}
-        style={{ background: "#1A1A18", borderBottom: "1px solid rgba(255,255,255,0.08)" }}
+        style={{ background: "var(--color-surface)", borderBottom: "2px solid var(--color-border)" }}
       >
         {/* Full-bleed grid: text left / image right full-height */}
         <div
@@ -97,27 +97,30 @@ export default async function ProductDetailPage({
           {/* Text column */}
           <div
             className="flex flex-col justify-center gap-6 py-10 px-6 sm:px-8 lg:pr-10"
-            style={{ paddingLeft: "max(1.5rem, calc((100vw - 80rem) / 2 + 2rem))" }}
+            style={{
+              paddingLeft: "max(1.5rem, calc((100vw - 80rem) / 2 + 2rem))",
+              borderRight: "1px solid var(--color-border)",
+            }}
           >
             {/* Breadcrumb */}
             <nav aria-label="Page location" className="flex items-center gap-1.5">
               <Link
                 href={p.home}
-                className="text-[12px] transition-opacity hover:opacity-75"
-                style={{ color: "rgba(255,255,255,0.4)" }}
+                className="text-[12px] transition-opacity hover:opacity-70"
+                style={{ color: "var(--color-muted)" }}
               >
                 Home
               </Link>
-              <ChevronRight size={12} style={{ color: "rgba(255,255,255,0.25)" }} aria-hidden="true" />
+              <ChevronRight size={12} style={{ color: "var(--color-border)" }} aria-hidden="true" />
               <Link
                 href={p.products}
-                className="text-[12px] transition-opacity hover:opacity-75"
-                style={{ color: "rgba(255,255,255,0.4)" }}
+                className="text-[12px] transition-opacity hover:opacity-70"
+                style={{ color: "var(--color-muted)" }}
               >
                 Products
               </Link>
-              <ChevronRight size={12} style={{ color: "rgba(255,255,255,0.25)" }} aria-hidden="true" />
-              <span className="text-[12px] font-semibold" style={{ color: "rgba(255,255,255,0.65)" }}>
+              <ChevronRight size={12} style={{ color: "var(--color-border)" }} aria-hidden="true" />
+              <span className="text-[12px] font-semibold" style={{ color: "var(--color-text)" }}>
                 {category.name}
               </span>
             </nav>
@@ -128,7 +131,7 @@ export default async function ProductDetailPage({
                 className="font-black leading-none tabular-nums select-none"
                 style={{
                   fontSize: "clamp(72px, 8vw, 120px)",
-                  color: "rgba(255,255,255,0.08)",
+                  color: "rgba(28,100,133,0.08)",
                   letterSpacing: "-0.04em",
                 }}
                 aria-hidden="true"
@@ -145,14 +148,14 @@ export default async function ProductDetailPage({
 
             <h1
               className="font-black leading-tight tracking-tight"
-              style={{ color: "#FFFFFF", fontSize: "clamp(28px, 3.8vw, 54px)" }}
+              style={{ color: "var(--color-text)", fontSize: "clamp(28px, 3.8vw, 54px)" }}
             >
               {category.name}
             </h1>
 
             <p
               className="text-[15px] leading-relaxed"
-              style={{ color: "rgba(255,255,255,0.6)", maxWidth: "44ch" }}
+              style={{ color: "var(--color-muted)", maxWidth: "44ch" }}
             >
               {category.shortDescription}
             </p>
@@ -168,8 +171,8 @@ export default async function ProductDetailPage({
               </Link>
               <Link
                 href={p.products}
-                className="inline-flex items-center gap-2 text-[13px] font-semibold transition-opacity hover:opacity-75"
-                style={{ color: "rgba(255,255,255,0.45)" }}
+                className="inline-flex items-center gap-2 text-[13px] font-semibold transition-opacity hover:opacity-70"
+                style={{ color: "var(--color-muted)" }}
               >
                 <ArrowLeft size={13} aria-hidden="true" />
                 All Products
@@ -180,7 +183,7 @@ export default async function ProductDetailPage({
           {/* Image column — full height, edge-to-edge */}
           <div
             className="relative overflow-hidden"
-            style={{ minHeight: "360px", background: "#111110" }}
+            style={{ minHeight: "360px", background: "var(--color-surface)" }}
           >
             {category.image && (
               <Image
@@ -585,17 +588,17 @@ export default async function ProductDetailPage({
       {/* ── 12. CTA ────────────────────────────────────────────────────── */}
       <section
         aria-label="Get a quote"
-        style={{ background: "#1A1A18" }}
+        style={{ background: "#EEF1F4", borderTop: "2px solid var(--color-border)", borderBottom: "2px solid var(--color-border)" }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="flex flex-col gap-2">
-            <p className="text-[12px] font-bold tracking-[0.15em] uppercase" style={{ color: "#5A5A58" }}>
+            <p className="text-[12px] font-bold tracking-[0.15em] uppercase" style={{ color: "var(--color-muted)" }}>
               KGT Ambalaj
             </p>
-            <h2 className="font-bold text-[22px] leading-snug" style={{ color: "#F0F0EE" }}>
+            <h2 className="font-bold text-[22px] leading-snug" style={{ color: "var(--color-text)" }}>
               Request a Quote for {category.name}
             </h2>
-            <p className="text-[14px] leading-relaxed mt-1" style={{ color: "#6A6A68" }}>
+            <p className="text-[14px] leading-relaxed mt-1" style={{ color: "var(--color-muted)" }}>
               Share your machine requirements for a technical assessment.
             </p>
           </div>

@@ -18,8 +18,8 @@ export default function HeroSection({ locale }: { locale: Locale }) {
     <section
       aria-label={locale === "en" ? "Homepage hero" : "Ana sayfa hero"}
       style={{
-        background: "#1A1A18",
-        borderBottom: "1px solid rgba(255,255,255,0.08)",
+        background: "var(--color-surface)",
+        borderBottom: "2px solid var(--color-border)",
       }}
     >
       {/* Full-bleed: text sol / image sağ viewport edge'e uzanır */}
@@ -32,21 +32,25 @@ export default function HeroSection({ locale }: { locale: Locale }) {
           className="flex flex-col justify-center gap-6 py-16 px-6 sm:px-8 lg:pr-10"
           style={{
             paddingLeft: "max(1.5rem, calc((100vw - 80rem) / 2 + 2rem))",
+            borderRight: "1px solid var(--color-border)",
           }}
         >
           {hero.eyebrow && (
-            <p
-              className="text-[11px] font-bold uppercase tracking-[0.18em]"
-              style={{ color: "var(--color-accent)" }}
-            >
-              {hero.eyebrow}
-            </p>
+            <div className="flex flex-col gap-2">
+              <p
+                className="text-[11px] font-bold uppercase tracking-[0.18em]"
+                style={{ color: "var(--color-accent-dark)" }}
+              >
+                {hero.eyebrow}
+              </p>
+              <div className="w-8 h-[2px]" style={{ background: "var(--color-accent)" }} aria-hidden="true" />
+            </div>
           )}
 
           <h1
             className="font-black leading-[1.03] tracking-tight max-w-xl"
             style={{
-              color: "#FFFFFF",
+              color: "var(--color-text)",
               fontSize: "clamp(32px, 4.8vw, 68px)",
             }}
           >
@@ -56,7 +60,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
           {hero.description && (
             <p
               className="text-[15px] leading-[1.75] max-w-[400px]"
-              style={{ color: "rgba(255,255,255,0.6)" }}
+              style={{ color: "var(--color-muted)" }}
             >
               {hero.description}
             </p>
@@ -65,7 +69,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
           {/* Teknik ürün indeksi */}
           <ul
             className="flex flex-col gap-2.5 py-2"
-            style={{ borderTop: "1px solid rgba(255,255,255,0.1)", borderBottom: "1px solid rgba(255,255,255,0.1)" }}
+            style={{ borderTop: "1px solid var(--color-border)", borderBottom: "1px solid var(--color-border)" }}
             role="list"
           >
             {categories.map((cat, i) => (
@@ -80,7 +84,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
                 <Link
                   href={p.product(cat.slug)}
                   className="text-[13px] font-medium leading-snug transition-opacity hover:opacity-70"
-                  style={{ color: "rgba(255,255,255,0.72)" }}
+                  style={{ color: "var(--color-muted)" }}
                 >
                   {cat.name}
                 </Link>
@@ -100,10 +104,10 @@ export default function HeroSection({ locale }: { locale: Locale }) {
 
             <Link
               href={p.contact}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-md font-semibold text-[14px]"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-md font-semibold text-[14px] transition-opacity hover:opacity-70"
               style={{
-                color: "#FFFFFF",
-                border: "1px solid rgba(255,255,255,0.22)",
+                color: "var(--color-text)",
+                border: "1px solid var(--color-border)",
               }}
             >
               {hero.secondaryCta.label}
@@ -128,7 +132,7 @@ export default function HeroSection({ locale }: { locale: Locale }) {
           ) : (
             <div
               className="absolute inset-0"
-              style={{ background: "#2A2A28" }}
+              style={{ background: "var(--color-surface)" }}
             />
           )}
         </div>
