@@ -109,7 +109,7 @@ export default function Footer({ locale }: { locale: Locale }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 transition-colors hover:text-white"
-                style={{ color: "#25D366" }}
+                style={{ color: "var(--color-wa)" }}
               >
                 <WhatsAppIcon size={13} />
                 {waLabel}

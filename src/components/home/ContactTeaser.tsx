@@ -70,7 +70,7 @@ export default function ContactTeaser({ locale }: { locale: Locale }) {
 
               {/* WhatsApp — her zaman göster */}
               <li className="flex items-start gap-3">
-                <span className="shrink-0 mt-0.5" style={{ color: "#25D366" }}>
+                <span className="shrink-0 mt-0.5" style={{ color: "var(--color-wa)" }}>
                   <WhatsAppIcon size={15} />
                 </span>
                 <div className="flex flex-col gap-0.5">

@@ -109,7 +109,7 @@ export default function ContactForm({ isConfigured, locale = "tr" }: ContactForm
 
   return (
     <div
-      className="rounded-2xl p-7 lg:p-8"
+      className="rounded-lg p-7 lg:p-8"
       style={{
         background: "var(--background)",
         border: "1px solid var(--color-border)",
@@ -144,7 +144,7 @@ export default function ContactForm({ isConfigured, locale = "tr" }: ContactForm
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-md px-4 py-2.5 text-[13px] font-semibold text-white transition-opacity hover:opacity-90"
-              style={{ background: "#25D366" }}
+              style={{ background: "var(--color-wa)" }}
             >
               {s.whatsappLabel}
             </a>

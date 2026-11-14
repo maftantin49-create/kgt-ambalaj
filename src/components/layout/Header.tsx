@@ -21,11 +21,11 @@ export default function Header({ locale }: { locale: Locale }) {
         className="hidden md:block text-[12px]"
         style={{
           background: "#1A1A18",
-          color: "#A5A5A3",
-          borderBottom: "1px solid rgba(255,255,255,0.10)",
+          color: "#9A9A98",
+          borderBottom: "1px solid rgba(255,255,255,0.14)",
         }}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 h-9 flex items-center justify-between gap-6">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 h-10 flex items-center justify-between gap-6">
           <LanguageSwitch locale={locale} />
           <div className="flex items-center gap-6">
             <a
@@ -53,8 +53,8 @@ export default function Header({ locale }: { locale: Locale }) {
         className="w-full"
         style={{
           background: "#FFFFFF",
-          borderBottom: "1px solid var(--color-border)",
-          boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+          borderBottom: "2px solid var(--color-border)",
+          boxShadow: "0 2px 6px rgba(0,0,0,0.07)",
         }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between gap-8">

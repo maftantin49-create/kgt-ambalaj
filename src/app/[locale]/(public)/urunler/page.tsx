@@ -37,7 +37,7 @@ export default async function UrunlerPage({
       <section
         style={{
           background: "var(--color-surface)",
-          borderBottom: "1px solid var(--color-border)",
+          borderBottom: "2px solid var(--color-border)",
         }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">

@@ -11,7 +11,7 @@ export default function TrustBar({ locale }: { locale: Locale }) {
       aria-label={locale === "en" ? "Why choose us" : "Neden biz"}
       style={{
         background: "#FFFFFF",
-        borderBottom: "1px solid var(--color-border)",
+        borderBottom: "2px solid var(--color-border)",
       }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">

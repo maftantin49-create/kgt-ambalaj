@@ -16,7 +16,7 @@ export default function ProductCard({
   return (
     <Link
       href={href}
-      className="group flex flex-col rounded-2xl overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.10)]"
+      className="group flex flex-col rounded overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_4px_16px_rgba(0,0,0,0.10)]"
       style={{
         background: "#FFFFFF",
         border: "1px solid var(--color-border)",
@@ -62,7 +62,7 @@ export default function ProductCard({
             />
             <div className="absolute inset-0 flex items-center justify-center">
               <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center"
+                className="w-12 h-12 rounded-md flex items-center justify-center"
                 style={{
                   background: "rgba(28,100,133,0.06)",
                   border: "1px solid rgba(28,100,133,0.14)",

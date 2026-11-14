@@ -1,6 +1,7 @@
 import Header from "@/components/layout/Header"
 import Footer from "@/components/layout/Footer"
 import PageTransition from "@/components/layout/PageTransition"
+import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp"
 import { isValidLocale, type Locale } from "@/config/i18n"
 
 export default async function PublicLayout({
@@ -23,6 +24,7 @@ export default async function PublicLayout({
         <PageTransition>{children}</PageTransition>
       </main>
       <Footer locale={safeLocale} />
+      <FloatingWhatsApp locale={safeLocale} />
     </>
   )
 }

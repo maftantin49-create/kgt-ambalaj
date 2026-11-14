@@ -17,7 +17,7 @@ export default function ProductsSection({ locale }: { locale: Locale }) {
       aria-labelledby="products-heading"
       style={{
         background: "var(--background)",
-        borderBottom: "1px solid var(--color-border)",
+        borderBottom: "2px solid var(--color-border)",
       }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">

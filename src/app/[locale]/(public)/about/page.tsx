@@ -33,7 +33,7 @@ export default async function AboutPage({
 
   return (
     <>
-      <section style={{ background: "var(--color-surface)", borderBottom: "1px solid var(--color-border)" }}>
+      <section style={{ background: "var(--color-surface)", borderBottom: "2px solid var(--color-border)" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
           <nav aria-label="Page location" className="flex items-center gap-1.5 mb-6">
             <Link href={p.home} className="text-[12px] transition-opacity hover:opacity-75" style={{ color: "var(--color-muted)" }}>Home</Link>
@@ -64,7 +64,7 @@ export default async function AboutPage({
                 </div>
               )}
             </div>
-            <div className="relative rounded-lg overflow-hidden w-full" style={{ aspectRatio: "4/3" }}>
+            <div className="relative rounded-sm overflow-hidden w-full" style={{ aspectRatio: "4/3" }}>
               {about.intro.image ? (
                 <Image src={about.intro.image} alt="KGT Ambalaj production line" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
               ) : (
@@ -76,7 +76,7 @@ export default async function AboutPage({
       </section>
 
       {about.valuesSection.items.length > 0 && (
-        <section aria-labelledby="values-heading" style={{ background: "var(--color-surface)", borderBottom: "1px solid var(--color-border)" }}>
+        <section aria-labelledby="values-heading" style={{ background: "var(--color-surface)", borderBottom: "2px solid var(--color-border)" }}>
           <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-20">
             <div className="mb-10">
               <SectionHeader eyebrow={about.valuesSection.eyebrow} heading={about.valuesSection.heading} headingId="values-heading" description={about.valuesSection.description} />
@@ -104,7 +104,7 @@ export default async function AboutPage({
       <section aria-labelledby="production-heading" style={{ background: "var(--background)", borderBottom: "1px solid var(--color-border)" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="relative rounded-lg overflow-hidden w-full order-2 lg:order-1" style={{ aspectRatio: "4/3" }}>
+            <div className="relative rounded-sm overflow-hidden w-full order-2 lg:order-1" style={{ aspectRatio: "4/3" }}>
               {about.production.image ? (
                 <Image src={about.production.image} alt="KGT Ambalaj rewinding machinery workshop" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
               ) : (

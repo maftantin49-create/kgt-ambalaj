@@ -43,7 +43,7 @@ const topCards = [
     value: site.phoneDisplay,
     href: `https://wa.me/${site.waNumber}`,
     isExternal: true,
-    iconAccent: "#25D366" as string,
+    iconAccent: "var(--color-wa)" as string,
     Icon: null,
   },
   ...(site.email ? [{
@@ -78,7 +78,7 @@ export default async function IletisimPage({
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────────────────── */}
-      <section style={{ background: "var(--color-surface)", borderBottom: "1px solid var(--color-border)" }}>
+      <section style={{ background: "var(--color-surface)", borderBottom: "2px solid var(--color-border)" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
           <nav aria-label="Sayfa konumu" className="flex items-center gap-1.5 mb-6">
             <Link href={p.home} className="text-[12px] transition-opacity hover:opacity-75" style={{ color: "var(--color-muted)" }}>
@@ -134,7 +134,7 @@ export default async function IletisimPage({
                   href={href}
                   target={isExternal ? "_blank" : undefined}
                   rel={isExternal ? "noopener noreferrer" : undefined}
-                  className="flex items-start gap-3 p-5 rounded-xl transition-opacity hover:opacity-80"
+                  className="flex items-start gap-3 p-5 rounded-md transition-opacity hover:opacity-80"
                   style={{ background: "var(--color-surface)", border: "1px solid var(--color-border)" }}
                 >
                   {inner}
@@ -142,7 +142,7 @@ export default async function IletisimPage({
               ) : (
                 <div
                   key={label}
-                  className="flex items-start gap-3 p-5 rounded-xl"
+                  className="flex items-start gap-3 p-5 rounded-md"
                   style={{ background: "var(--color-surface)", border: "1px solid var(--color-border)" }}
                 >
                   {inner}
@@ -156,7 +156,7 @@ export default async function IletisimPage({
       {/* ── Form section ──────────────────────────────────────────────── */}
       <section
         aria-labelledby="contact-form-heading"
-        style={{ background: "var(--color-surface)", borderBottom: "1px solid var(--color-border)" }}
+        style={{ background: "var(--color-surface)", borderBottom: "2px solid var(--color-border)" }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
@@ -200,7 +200,7 @@ export default async function IletisimPage({
 
                 {/* WhatsApp */}
                 <div className="flex items-start gap-4 py-6">
-                  <div className="shrink-0 mt-0.5" style={{ color: "#25D366" }}>
+                  <div className="shrink-0 mt-0.5" style={{ color: "var(--color-wa)" }}>
                     <WhatsAppIcon size={15} />
                   </div>
                   <div className="flex flex-col gap-2.5">
@@ -215,7 +215,7 @@ export default async function IletisimPage({
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 self-start rounded-md px-4 py-2 text-[12px] font-bold uppercase tracking-[0.08em] text-white transition-opacity hover:opacity-90"
-                      style={{ background: "#25D366" }}
+                      style={{ background: "var(--color-wa)" }}
                     >
                       WhatsApp Yaz
                     </a>
