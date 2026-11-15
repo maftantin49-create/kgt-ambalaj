@@ -1,3 +1,4 @@
+import "./globals.css"
 import Link from "next/link"
 import { ArrowRight, Home } from "lucide-react"
 import Header from "@/components/layout/Header"
