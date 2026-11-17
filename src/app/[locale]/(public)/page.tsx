@@ -5,6 +5,7 @@ import HeroSection from "@/components/home/HeroSection"
 import TrustBar from "@/components/home/TrustBar"
 import ProductsSection from "@/components/home/ProductsSection"
 import TechnicalMachineShowcase from "@/components/home/TechnicalMachineShowcase"
+import AnimatedMachineShowcase from "@/components/home/AnimatedMachineShowcase"
 import SectorsSection from "@/components/home/SectorsSection"
 import AboutTeaser from "@/components/home/AboutTeaser"
 import HowItWorks from "@/components/home/HowItWorks"
@@ -46,6 +47,7 @@ export default async function HomePage({
       <TrustBar locale={safeLocale} />
       <ProductsSection locale={safeLocale} />
       <TechnicalMachineShowcase locale={safeLocale} />
+      <AnimatedMachineShowcase locale={safeLocale} />
       <SectorsSection locale={safeLocale} />
       <AboutTeaser locale={safeLocale} />
       <HowItWorks locale={safeLocale} />
