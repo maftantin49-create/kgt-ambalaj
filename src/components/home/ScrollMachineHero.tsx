@@ -278,16 +278,16 @@ export default function ScrollMachineHero({ locale }: { locale: Locale }) {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  // Derived animation values — shell fades first, interior reveals after (sequential, HIGH contrast)
-  const shellOpacity    = 1 - lerp(0.08, 0.32, progress)
-  const interiorOpacity = lerp(0.30, 0.52, progress)
+  // Derived animation values — shell fades first, interior reveals after
+  const shellOpacity    = 1 - lerp(0.08, 0.30, progress)
+  const interiorOpacity = lerp(0.18, 0.44, progress)
   const isRunning       = progress > 0.60
   const isFinal         = progress > 0.86
   const labelsVisible   = progress > 0.36 && !isFinal
 
-  // Text stage visibility
-  const s0 = progress < 0.38                           // initial
-  const s1 = progress >= 0.30 && progress < 0.62       // revealed
+  // Text stage visibility — non-overlapping ranges, CSS transition handles cross-fade
+  const s0 = progress < 0.30                           // initial
+  const s1 = progress >= 0.30 && progress < 0.58       // revealed
   const s2 = progress >= 0.58 && progress < 0.87       // running
   const s3 = isFinal                                    // CTA final
 
