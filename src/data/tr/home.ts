@@ -12,7 +12,7 @@ export const home: HomeData = {
 
   hero: {
     eyebrow: "Ambalaj Makineleri",
-    heading: "Streç Film. Alüminyum Folyo. Kağıt Dilimleme.",
+    heading: "Streç Film. Alüminyum Folyo. Kağıt Kesme Bobin Dilimleme.",
     description:
       "Endüstriyel sarma ve dilimleme makineleri tasarlıyor ve üretiyoruz.",
     primaryCta: { label: "Ürünleri İncele", href: "/tr/urunler" },

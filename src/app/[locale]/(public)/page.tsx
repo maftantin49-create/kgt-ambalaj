@@ -1,7 +1,8 @@
 import type { Metadata } from "next"
 import { isValidLocale, type Locale } from "@/config/i18n"
 import { buildAlternates } from "@/lib/seo"
-import HeroSection from "@/components/home/HeroSection"
+import ScrollMachineHero from "@/components/home/ScrollMachineHero"
+import MachineBannerSlitting from "@/components/home/MachineBannerSlitting"
 import TrustBar from "@/components/home/TrustBar"
 import ProductsSection from "@/components/home/ProductsSection"
 import TechnicalMachineShowcase from "@/components/home/TechnicalMachineShowcase"
@@ -43,7 +44,8 @@ export default async function HomePage({
 
   return (
     <>
-      <HeroSection locale={safeLocale} />
+      <ScrollMachineHero locale={safeLocale} />
+      <MachineBannerSlitting locale={safeLocale} />
       <TrustBar locale={safeLocale} />
       <ProductsSection locale={safeLocale} />
       <TechnicalMachineShowcase locale={safeLocale} />

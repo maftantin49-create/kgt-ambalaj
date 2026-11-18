@@ -385,7 +385,7 @@ export default function AnimatedMachineShowcase({ locale }: { locale: Locale }) 
         catalogNo="02"
         catalogTotal="04"
         eyebrow={isTr ? "Dilimleme Sistemleri" : "Slitting Systems"}
-        title={isTr ? "Kağıt Dilimleme Makineleri" : "Paper Slitting Machines"}
+        title={isTr ? "Kağıt Kesme Bobin Dilimleme" : "Paper Slitting Machines"}
         description={
           isTr
             ? "Kağıt rulo ve masura üretim hatları için hassas kesim ve dilimleme mekanizmaları."

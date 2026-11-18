@@ -82,11 +82,11 @@ export const productCategories: ProductCategory[] = [
   {
     id: "karton-rulo-masura-uretim-hatti-makineleri",
     slug: "karton-rulo-masura-uretim-hatti-makineleri",
-    name: "Karton Rulo Masura Üretim Hattı Makineleri",
+    name: "Masura Makinası",
     shortDescription:
-      "Karton masura ve rulo çekirdek üretimi için tam üretim hattı çözümleri.",
+      "Karton masura ve rulo çekirdek üretimine yönelik makine çözümleri.",
     overview:
-      "KGT Mak Karton Rulo Masura Üretim Hattı Makineleri, streç film, alüminyum folyo ve kağıt rulolarının içine yerleştirilen karton masura ve çekirdeklerin (core tube) üretildiği tam hat çözümleridir. Karton şeritler halindeki ham maddeyi sararak silindirik masura profiline dönüştüren bu hat, ambalaj ve kağıt sektörünün temel girdilerinden birini üretmektedir. KGT Ambalaj, bu hattı oluşturan makine gruplarını proje bazlı olarak yapılandırmaktadır.",
+      "KGT Mak Masura Makinası, streç film, alüminyum folyo ve kağıt rulolarının içine yerleştirilen karton masura ve çekirdeklerin (core tube) üretildiği hat çözümleridir. Karton şeritler halindeki ham maddeyi sararak silindirik masura profiline dönüştüren bu hat, ambalaj ve kağıt sektörünün temel girdilerinden birini üretmektedir. KGT Ambalaj, bu hattı oluşturan makine gruplarını proje bazlı olarak yapılandırmaktadır.",
     image: "/images/kgt/cardboard-core-line.webp",
     applications: [
       "Streç film masurası üretimi",
@@ -95,7 +95,7 @@ export const productCategories: ProductCategory[] = [
     ],
     faq: [
       {
-        question: "Karton masura üretim hattı hangi ürünleri kapsar?",
+        question: "Masura Makinası hangi ürünleri kapsar?",
         answer:
           "Bu hat, farklı çap ve uzunluklarda karton masura ve core tube üretmek için kullanılan makine grubudur.",
       },
@@ -116,11 +116,11 @@ export const productCategories: ProductCategory[] = [
   {
     id: "kagit-dilimleme-makineleri",
     slug: "kagit-dilimleme-makineleri",
-    name: "Kağıt Dilimleme Makineleri",
+    name: "Kağıt Kesme Bobin Dilimleme",
     shortDescription:
-      "Kağıt, ambalaj ve baskı sektöründe rulo kesim ve dilimleme ihtiyaçları için dilimleme makineleri.",
+      "Kağıt, ambalaj ve baskı sektöründe rulo kesim ve dilimleme ihtiyaçları için makine çözümleri.",
     overview:
-      "KGT Mak Kağıt Dilimleme Makineleri, büyük kağıt rulolarını belirlenen en ölçülerine göre keserek küçük ruloculara dönüştürmek amacıyla tasarlanmış endüstriyel makinelerdir. Kağıt, ambalaj ve baskı sektörlerine hizmet eden bu makineler, rulo kesim ve dilimleme süreçlerini gerçekleştirir. KGT Ambalaj, bu makine grubunu müşteri ihtiyaçlarına göre yapılandırarak üretmektedir.",
+      "KGT Mak Kağıt Kesme Bobin Dilimleme, büyük kağıt rulolarını belirlenen en ölçülerine göre keserek küçük ruloculara dönüştürmek amacıyla tasarlanmış endüstriyel makinelerdir. Kağıt, ambalaj ve baskı sektörlerine hizmet eden bu makineler, rulo kesim ve dilimleme süreçlerini gerçekleştirir. KGT Ambalaj, bu makine grubunu müşteri ihtiyaçlarına göre yapılandırarak üretmektedir.",
     image: "/images/kgt/paper-slitting-machine.webp",
     applications: [
       "Kağıt rulosu kesim ve dönüştürme işlemleri",

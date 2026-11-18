@@ -20,7 +20,7 @@ export default async function PublicLayout({
     <>
       <a href="#main-content" className="skip-to-main">{skipLabel}</a>
       <Header locale={safeLocale} />
-      <main id="main-content" className="flex-1 overflow-x-hidden">
+      <main id="main-content" className="flex-1">
         <PageTransition>{children}</PageTransition>
       </main>
       <Footer locale={safeLocale} />
