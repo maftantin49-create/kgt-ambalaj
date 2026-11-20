@@ -140,13 +140,26 @@ export default function Footer({ locale }: { locale: Locale }) {
 
       {/* Alt bar */}
       <div
-        className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-[12px]"
+        className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px]"
         style={{
           borderTop: "1px solid var(--color-border)",
           color: "var(--color-muted)",
         }}
       >
         <span>{rightsLabel}</span>
+        <nav className="flex items-center gap-4 flex-wrap justify-center" aria-label={locale === "tr" ? "Yasal bağlantılar" : "Legal links"}>
+          {locale === "tr" ? (
+            <>
+              <Link href="/tr/gizlilik" className="transition-opacity hover:opacity-70">Gizlilik &amp; KVKK</Link>
+              <Link href="/tr/cerez-politikasi" className="transition-opacity hover:opacity-70">Çerez Politikası</Link>
+            </>
+          ) : (
+            <>
+              <Link href="/en/privacy" className="transition-opacity hover:opacity-70">Privacy &amp; Data</Link>
+              <Link href="/en/cookie-policy" className="transition-opacity hover:opacity-70">Cookie Policy</Link>
+            </>
+          )}
+        </nav>
       </div>
     </footer>
   )
