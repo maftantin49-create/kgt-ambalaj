@@ -87,8 +87,8 @@ export default function ScrollMachineHero({ locale }: { locale: Locale }) {
           overflow:        "hidden",
         }}
       >
-        {/* ── Image crossfade layer ─────────────────────────────────────── */}
-        <div className="absolute inset-0">
+        {/* ── Image crossfade layer — desktop inset gives breathing room ── */}
+        <div className="absolute inset-0 lg:top-[3%] lg:bottom-[5%] lg:left-[8%] lg:right-[8%]">
 
           {/* Exterior */}
           <img

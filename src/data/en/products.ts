@@ -9,7 +9,7 @@ export const productCategories: ProductCategory[] = [
       "Stretch film rewinding machines for production lines and pallet wrapping processes.",
     overview:
       "KGT Mak Stretch Film Rewinding Machines are designed for rewinding large master stretch film rolls into smaller rolls of defined width and diameter. This rewinding process is a critical step in the production of end-use stretch film bobbins for packaging and pallet wrapping applications. KGT Ambalaj develops these machines according to the production line requirements of each customer.",
-    image: "/images/kgt/stretch-film-machine-front.jpg",
+    image: "/images/kgt/rewinding-workshop.webp",
     applications: [
       "Industrial stretch film bobbin manufacturing",
       "Rewinding of master rolls into smaller unit rolls",
@@ -17,8 +17,8 @@ export const productCategories: ProductCategory[] = [
     ],
     gallery: [
       {
-        src: "/images/kgt/rewinding-machines-workshop.jpg",
-        alt: "KGT Mak Rewinding Machines Workshop",
+        src: "/images/kgt/production-line.jpeg",
+        alt: "KGT Mak Stretch Film Rewinding Machines Production Line",
       },
       {
         src: "/images/kgt/rewinding-workshop.webp",
@@ -87,7 +87,7 @@ export const productCategories: ProductCategory[] = [
       "Production line solutions for cardboard core and tube manufacturing.",
     overview:
       "KGT Mak Cardboard Core Tube Production Line Machines are complete line solutions for manufacturing the cardboard cores and tubes placed inside stretch film, aluminium foil and paper rolls. These machines wind strips of cardboard material into cylindrical core profiles, producing an essential input for the packaging and paper industries. KGT Ambalaj configures the machine groups that form this line on a project basis.",
-    image: "/images/kgt/cardboard-core-line.webp",
+    image: "/images/kgt/masura-machine-premium.png",
     applications: [
       "Stretch film core tube manufacturing",
       "Aluminium foil core tube manufacturing",

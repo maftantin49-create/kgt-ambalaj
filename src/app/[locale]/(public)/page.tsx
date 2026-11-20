@@ -5,7 +5,6 @@ import ScrollMachineHero from "@/components/home/ScrollMachineHero"
 import MachineBannerSlitting from "@/components/home/MachineBannerSlitting"
 import TrustBar from "@/components/home/TrustBar"
 import ProductsSection from "@/components/home/ProductsSection"
-import TechnicalMachineShowcase from "@/components/home/TechnicalMachineShowcase"
 import AnimatedMachineShowcase from "@/components/home/AnimatedMachineShowcase"
 import SectorsSection from "@/components/home/SectorsSection"
 import AboutTeaser from "@/components/home/AboutTeaser"
@@ -48,7 +47,6 @@ export default async function HomePage({
       <MachineBannerSlitting locale={safeLocale} />
       <TrustBar locale={safeLocale} />
       <ProductsSection locale={safeLocale} />
-      <TechnicalMachineShowcase locale={safeLocale} />
       <AnimatedMachineShowcase locale={safeLocale} />
       <SectorsSection locale={safeLocale} />
       <AboutTeaser locale={safeLocale} />

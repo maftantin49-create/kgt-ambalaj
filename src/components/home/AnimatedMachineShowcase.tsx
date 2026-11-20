@@ -24,7 +24,7 @@ function useActivation(threshold = 0.25) {
 }
 
 // ── SVG overlay: Streç Film Rewinding machine ─────────────────────────────────
-// Maps to stretch-film-machine-front.jpg: input reel top-centre, output implied right
+// Maps to rewinding-workshop.webp: input reel top-centre, output implied right
 function RewindingSVG({ active }: { active: boolean }) {
   const dur = active ? undefined : "0s"
   const anim = (name: string, duration: string, dir?: string) =>
@@ -366,14 +366,14 @@ export default function AnimatedMachineShowcase({ locale }: { locale: Locale }) 
           ctaHref={p.product("strec-film-sarma-makineleri")}
           quoteLabel={isTr ? "Teklif Al" : "Get a Quote"}
           quotaHref={p.contact}
-          imageSrc="/images/kgt/stretch-film-machine-front.jpg"
+          imageSrc="/images/kgt/rewinding-workshop.webp"
           imageAlt={
             isTr
-              ? "KGT Ambalaj streç film sarma makinesi — ön cephe görünümü"
-              : "KGT Ambalaj stretch film rewinding machine — front view"
+              ? "KGT Ambalaj streç film sarma makinesi — atölye görünümü"
+              : "KGT Ambalaj stretch film rewinding machine — workshop view"
           }
-          imageW={650}
-          imageH={550}
+          imageW={1112}
+          imageH={937}
           SvgOverlay={RewindingSVG}
         />
       </div>

@@ -9,7 +9,7 @@ export const productCategories: ProductCategory[] = [
       "Üretim hatları ve palet sarma süreçleri için streç film sarma ve rewinding makineleri.",
     overview:
       "KGT Mak Streç Film Sarma Makineleri, endüstriyel üretim süreçlerinde büyük ana streç film rulolarının belirli en ve çap ölçülerine göre küçük ruloculara yeniden sarılması işlemi için tasarlanmıştır. Bu rewinding süreci, ambalaj üreticilerinin tedarik zincirinde kritik bir aşamayı oluşturur; nihai streç film bobinleri bu süreçle hazırlanır. KGT Ambalaj, bu makine grubu için müşteri üretim hattı gereksinimlerine göre çözümler geliştirmektedir.",
-    image: "/images/kgt/stretch-film-machine-front.jpg",
+    image: "/images/kgt/rewinding-workshop.webp",
     applications: [
       "Endüstriyel streç film bobini üretimi",
       "Üretim hattı çıktılarının küçük ruloculara sarılması",
@@ -17,8 +17,8 @@ export const productCategories: ProductCategory[] = [
     ],
     gallery: [
       {
-        src: "/images/kgt/rewinding-machines-workshop.jpg",
-        alt: "KGT Mak Sarma Makineleri Üretim Atölyesi",
+        src: "/images/kgt/production-line.jpeg",
+        alt: "KGT Mak Streç Film Sarma Makineleri Üretim Hattı",
       },
       {
         src: "/images/kgt/rewinding-workshop.webp",
@@ -87,7 +87,7 @@ export const productCategories: ProductCategory[] = [
       "Karton masura ve rulo çekirdek üretimine yönelik makine çözümleri.",
     overview:
       "KGT Mak Masura Makinası, streç film, alüminyum folyo ve kağıt rulolarının içine yerleştirilen karton masura ve çekirdeklerin (core tube) üretildiği hat çözümleridir. Karton şeritler halindeki ham maddeyi sararak silindirik masura profiline dönüştüren bu hat, ambalaj ve kağıt sektörünün temel girdilerinden birini üretmektedir. KGT Ambalaj, bu hattı oluşturan makine gruplarını proje bazlı olarak yapılandırmaktadır.",
-    image: "/images/kgt/cardboard-core-line.webp",
+    image: "/images/kgt/masura-machine-premium.png",
     applications: [
       "Streç film masurası üretimi",
       "Alüminyum folyo masurası üretimi",
